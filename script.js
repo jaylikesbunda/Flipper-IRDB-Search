@@ -72,7 +72,9 @@ function loadDatabase() {
 
 function downloadFile(url, filename) {
     const downloadStatus = document.getElementById('downloadStatus');
-    if (downloadStatus) downloadStatus.textContent = 'Downloading...';
+    if (downloadStatus) downloadStatus.textContent = 'Preparing file...';
+
+    const isIOS = /iPad|iPhone|iPod/.test(navigator.userAgent) && !window.MSStream;
 
     fetch(url)
         .then(response => {
@@ -80,23 +82,11 @@ function downloadFile(url, filename) {
             return response.blob();
         })
         .then(blob => {
-            const blobUrl = window.URL.createObjectURL(blob);
-            
-            const isIOS = /iPad|iPhone|iPod/.test(navigator.userAgent) && !window.MSStream;
-            
             if (isIOS) {
-                window.open(blobUrl, '_blank');
+                handleIOSDownload(blob, filename, downloadStatus);
             } else {
-                const a = document.createElement('a');
-                a.style.display = 'none';
-                a.href = blobUrl;
-                a.download = filename;
-                document.body.appendChild(a);
-                a.click();
-                window.URL.revokeObjectURL(blobUrl);
-                document.body.removeChild(a);
+                handleRegularDownload(blob, filename, downloadStatus);
             }
-            if (downloadStatus) downloadStatus.textContent = 'Download complete!';
         })
         .catch(error => {
             console.error('Download failed:', error);
@@ -104,6 +94,74 @@ function downloadFile(url, filename) {
         });
 }
 
+function handleIOSDownload(blob, filename, downloadStatus) {
+    // Attempt to use Web Share API if available
+    if (navigator.share) {
+        const file = new File([blob], filename, { type: blob.type });
+        navigator.share({
+            files: [file],
+            title: filename,
+        }).then(() => {
+            downloadStatus.textContent = 'File shared successfully!';
+        }).catch(error => {
+            console.error('Sharing failed', error);
+            fallbackIOSDownload(blob, filename, downloadStatus);
+        });
+    } else {
+        fallbackIOSDownload(blob, filename, downloadStatus);
+    }
+}
+
+function fallbackIOSDownload(blob, filename, downloadStatus) {
+    // For small files, use data URI
+    if (blob.size < 5 * 1024 * 1024) { // 5MB limit
+        const reader = new FileReader();
+        reader.onload = function(e) {
+            const a = document.createElement('a');
+            a.href = e.target.result;
+            a.download = filename;
+            a.click();
+            downloadStatus.textContent = 'File ready. If download doesn\'t start, tap and hold the link to save.';
+        };
+        reader.readAsDataURL(blob);
+    } else {
+        // For larger files, open in new tab with instructions
+        const blobUrl = URL.createObjectURL(blob);
+        window.open(blobUrl, '_blank');
+        downloadStatus.textContent = 'File opened in new tab. Use browser menu to save.';
+        setTimeout(() => URL.revokeObjectURL(blobUrl), 60000); // Clean up after 1 minute
+    }
+
+    // For text-based files, offer copy to clipboard
+    if (blob.type.startsWith('text/')) {
+        blob.text().then(text => {
+            const copyButton = document.createElement('button');
+            copyButton.textContent = 'Copy to Clipboard';
+            copyButton.onclick = () => {
+                navigator.clipboard.writeText(text).then(() => {
+                    copyButton.textContent = 'Copied!';
+                    setTimeout(() => copyButton.textContent = 'Copy to Clipboard', 2000);
+                });
+            };
+            downloadStatus.appendChild(copyButton);
+        });
+    }
+}
+
+function handleRegularDownload(blob, filename, downloadStatus) {
+    const blobUrl = URL.createObjectURL(blob);
+    const a = document.createElement('a');
+    a.style.display = 'none';
+    a.href = blobUrl;
+    a.download = filename;
+    document.body.appendChild(a);
+    a.click();
+    setTimeout(() => {
+        URL.revokeObjectURL(blobUrl);
+        document.body.removeChild(a);
+    }, 100);
+    if (downloadStatus) downloadStatus.textContent = 'Download complete!';
+}
 function populateFilters() {
     const deviceTypes = new Set(database.map(item => item.device_type));
     const brands = new Set(database.map(item => item.brand));
