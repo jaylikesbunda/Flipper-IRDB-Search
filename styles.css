@@ -36,6 +36,22 @@ h1 {
     margin-bottom: 0.5rem;
 }
 
+.download-button {
+    display: inline-block;
+    margin-top: 0.5rem;
+    padding: 5px 10px;
+    background-color: var(--accent-color);
+    color: var(--text-color);
+    border: none;
+    border-radius: 3px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+.download-button:hover {
+    background-color: #ff8533;
+}
+
 .search-container {
     position: relative;
     margin-bottom: 1rem;

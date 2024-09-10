@@ -67,6 +67,25 @@ function loadDatabase() {
         });
 }
 
+
+function downloadFile(url, filename) {
+    fetch(url)
+        .then(response => response.blob())
+        .then(blob => {
+            const blobUrl = window.URL.createObjectURL(blob);
+            const a = document.createElement('a');
+            a.style.display = 'none';
+            a.href = blobUrl;
+            a.download = filename;
+            document.body.appendChild(a);
+            a.click();
+            window.URL.revokeObjectURL(blobUrl);
+            document.body.removeChild(a);
+        })
+        .catch(error => console.error('Download failed:', error));
+}
+
+
 function populateFilters() {
     const deviceTypes = new Set(database.map(item => item.device_type));
     const brands = new Set(database.map(item => item.brand));
@@ -139,7 +158,6 @@ function displayResults(results) {
         const resultItem = document.createElement('div');
         resultItem.className = 'result-item';
         
-        // Correctly format the download URL for Lucaslhm's repository
         const downloadUrl = `https://raw.githubusercontent.com/Lucaslhm/Flipper-IRDB/main/${item.path.replace(/\\/g, '/')}`;
 
         resultItem.innerHTML = `
@@ -148,8 +166,12 @@ function displayResults(results) {
             <p><strong>Series:</strong> ${item.series || 'N/A'}</p>
             <p><strong>Filename:</strong> ${item.filename}</p>
             ${item.additional_info ? `<p><strong>Additional Info:</strong> ${item.additional_info}</p>` : ''}
-            <a href="${downloadUrl}" class="download-link" target="_blank">Download IR File</a>
+            <button class="download-button">Download IR File</button>
         `;
+
+        const downloadButton = resultItem.querySelector('.download-button');
+        downloadButton.addEventListener('click', () => downloadFile(downloadUrl, item.filename));
+
         resultsDiv.appendChild(resultItem);
     });
 
