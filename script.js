@@ -45,7 +45,7 @@ function submitIRRequest(e) {
     })
     .then((docRef) => {
         requestStatus.textContent = "Request submitted successfully!";
-        requestForm.reset();
+        document.getElementById('requestForm').reset();
     })
     .catch((error) => {
         console.error("Error adding document: ", error);
