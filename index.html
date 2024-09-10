@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Flipper Zero IR Remote Search</title>
+    <link rel="stylesheet" href="styles.css">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>Flipper Zero IR Remote Search</h1>
+        </header>
+        <main>
+            <div class="search-container">
+                <input type="text" id="searchInput" placeholder="Search by brand, model, or device type...">
+                <button id="searchButton">Search</button>
+            </div>
+            <div class="filter-container">
+                <select id="deviceTypeFilter">
+                    <option value="">All Device Types</option>
+                </select>
+                <select id="brandFilter">
+                    <option value="">All Brands</option>
+                </select>
+            </div>
+            <div id="loading" class="loading">
+                <div class="spinner"></div>
+                <p>Loading database...</p>
+            </div>
+            <div id="results" class="results"></div>
+            <div id="pagination" class="pagination"></div>
+        </main>
+        <footer>
+            <p>Data sourced from <a href="https://github.com/logickworkshop/Flipper-IRDB" target="_blank">Flipper-IRDB</a></p>
+        </footer>
+    </div>
+    <script src="script.js"></script>
+</body>
+</html>
