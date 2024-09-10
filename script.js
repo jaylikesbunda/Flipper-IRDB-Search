@@ -138,13 +138,17 @@ function displayResults(results) {
     pageResults.forEach(item => {
         const resultItem = document.createElement('div');
         resultItem.className = 'result-item';
+        
+        // Correctly format the download URL for Lucaslhm's repository
+        const downloadUrl = `https://raw.githubusercontent.com/Lucaslhm/Flipper-IRDB/main/${item.path.replace(/\\/g, '/')}`;
+
         resultItem.innerHTML = `
             <h3>${item.brand} ${item.model}</h3>
             <p><strong>Device Type:</strong> ${item.device_type}</p>
             <p><strong>Series:</strong> ${item.series || 'N/A'}</p>
             <p><strong>Filename:</strong> ${item.filename}</p>
             ${item.additional_info ? `<p><strong>Additional Info:</strong> ${item.additional_info}</p>` : ''}
-            <a href="https://raw.githubusercontent.com/Lucaslhm/Flipper-IRDB/main/${item.path.replace(/\\/g, '/')}" class="download-link" target="_blank">Download IR File</a>
+            <a href="${downloadUrl}" class="download-link" target="_blank">Download IR File</a>
         `;
         resultsDiv.appendChild(resultItem);
     });
