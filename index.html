@@ -15,7 +15,7 @@
         <main>
             <div class="search-container">
                 <input type="text" id="searchInput" placeholder="Search by brand, model, or device type...">
-                <button id="searchButton">Search</button>
+                <div id="suggestions" class="suggestions"></div>
             </div>
             <div class="filter-container">
                 <select id="deviceTypeFilter">
@@ -25,6 +25,7 @@
                     <option value="">All Brands</option>
                 </select>
             </div>
+            <div id="stats" class="stats"></div>
             <div id="loading" class="loading">
                 <div class="spinner"></div>
                 <p>Loading database...</p>

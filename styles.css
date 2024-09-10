@@ -37,8 +37,7 @@ h1 {
 }
 
 .search-container {
-    display: flex;
-    gap: 10px;
+    position: relative;
     margin-bottom: 1rem;
 }
 
@@ -53,12 +52,12 @@ input, select, button {
     border: none;
     border-radius: 5px;
     font-size: 1rem;
+    width: 100%;
 }
 
 input, select {
     background-color: var(--secondary-bg);
     color: var(--text-color);
-    flex-grow: 1;
 }
 
 button {
@@ -70,6 +69,34 @@ button {
 
 button:hover {
     background-color: #ff8533;
+}
+
+.suggestions {
+    position: absolute;
+    top: 100%;
+    left: 0;
+    right: 0;
+    background-color: var(--secondary-bg);
+    border-radius: 0 0 5px 5px;
+    max-height: 200px;
+    overflow-y: auto;
+    z-index: 10;
+    display: none;
+}
+
+.suggestion-item {
+    padding: 10px;
+    cursor: pointer;
+}
+
+.suggestion-item:hover {
+    background-color: var(--hover-color);
+}
+
+.stats {
+    text-align: center;
+    margin-bottom: 1rem;
+    font-style: italic;
 }
 
 .loading {
@@ -138,10 +165,12 @@ button:hover {
     display: flex;
     justify-content: center;
     margin-top: 2rem;
+    flex-wrap: wrap;
 }
 
 .pagination button {
-    margin: 0 5px;
+    margin: 5px;
+    width: auto;
 }
 
 footer {
@@ -160,11 +189,15 @@ footer a:hover {
 }
 
 @media (max-width: 768px) {
-    .search-container, .filter-container {
+    .filter-container {
         flex-direction: column;
     }
 
     .results {
         grid-template-columns: 1fr;
+    }
+
+    h1 {
+        font-size: 2rem;
     }
 }
