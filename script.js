@@ -38,15 +38,18 @@ function debounce(func, wait) {
         timeout = setTimeout(later, wait);
     };
 }
-
 function displayIRRequests() {
     const requestsList = document.getElementById('requestsList');
     requestsList.innerHTML = '<p>Loading requests...</p>';
 
+    console.log("Fetching IR requests...");
+
     db.collection("irRequests").orderBy("timestamp", "desc").limit(10).get()
         .then((querySnapshot) => {
+            console.log("Received query snapshot:", querySnapshot.size);
             requestsList.innerHTML = '';
             querySnapshot.forEach((doc) => {
+                console.log("Processing document:", doc.id);
                 const data = doc.data();
                 const requestItem = document.createElement('div');
                 requestItem.className = 'request-item';
@@ -59,6 +62,7 @@ function displayIRRequests() {
                 requestsList.appendChild(requestItem);
             });
             if (querySnapshot.empty) {
+                console.log("No requests found");
                 requestsList.innerHTML = '<p>No requests found.</p>';
             }
         })
@@ -67,7 +71,6 @@ function displayIRRequests() {
             requestsList.innerHTML = '<p>Error loading requests. Please try again later.</p>';
         });
 }
-
 function submitIRRequest(e) {
     e.preventDefault();
 
@@ -75,6 +78,8 @@ function submitIRRequest(e) {
     const model = document.getElementById('modelInput').value;
     const deviceType = document.getElementById('deviceTypeInput').value;
     const requestStatus = document.getElementById('requestStatus');
+
+    console.log("Submitting request:", { brand, model, deviceType });
 
     // Add the request to Firestore
     db.collection("irRequests").add({
@@ -84,8 +89,11 @@ function submitIRRequest(e) {
         timestamp: new Date()
     })
     .then((docRef) => {
+        console.log("Request submitted with ID:", docRef.id);
         requestStatus.textContent = "Request submitted successfully!";
         document.getElementById('requestForm').reset();
+        // Refresh the requests list
+        displayIRRequests();
     })
     .catch((error) => {
         console.error("Error adding document: ", error);

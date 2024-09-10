@@ -99,7 +99,6 @@ h1 {
 
 /* Update the existing IR request form styles to match the color scheme */
 .ir-request-form {
-    background-color: var(--secondary-bg);
     color: var(--text-color);
 }
 
