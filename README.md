@@ -1,6 +1,6 @@
 # Flipper Zero IR Remote Search
 
-This project provides a web-based search tool for the Flipper Zero IR Remote Database. It allows users to easily search, filter, and download IR remote files for use with the Flipper Zero device.
+This project provides a web-based search tool for the Flipper Zero IR Database. It allows users to easily search, filter, and download IR remote files for use with the Flipper Zero device.
 
 ## Live Demo
 
