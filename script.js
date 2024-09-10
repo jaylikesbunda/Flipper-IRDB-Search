@@ -3,26 +3,30 @@ let currentPage = 1;
 const itemsPerPage = 20;
 let debounceTimer;
 
-window.onload = function() {
+document.addEventListener('DOMContentLoaded', function() {
     loadDatabase();
     setupEventListeners();
-};
+});
 
 function setupEventListeners() {
     const searchInput = document.getElementById('searchInput');
     const deviceTypeFilter = document.getElementById('deviceTypeFilter');
     const brandFilter = document.getElementById('brandFilter');
 
-    searchInput.addEventListener('input', debounceSearch);
-    deviceTypeFilter.addEventListener('change', searchDatabase);
-    brandFilter.addEventListener('change', searchDatabase);
+    if (searchInput) searchInput.addEventListener('input', debounceSearch);
+    if (deviceTypeFilter) deviceTypeFilter.addEventListener('change', instantSearch);
+    if (brandFilter) brandFilter.addEventListener('change', instantSearch);
 
     window.addEventListener('resize', debounce(updateLayout, 250));
 }
 
 function debounceSearch() {
     clearTimeout(debounceTimer);
-    debounceTimer = setTimeout(searchDatabase, 300);
+    debounceTimer = setTimeout(instantSearch, 100);  // Reduced debounce time for more responsiveness
+}
+
+function instantSearch() {
+    searchDatabase();
 }
 
 function debounce(func, wait) {
@@ -38,20 +42,28 @@ function debounce(func, wait) {
 }
 
 function loadDatabase() {
-    document.getElementById('loading').style.display = 'block';
+    const loadingElement = document.getElementById('loading');
+    if (loadingElement) loadingElement.style.display = 'block';
+
     fetch('flipper_irdb_database.json')
-        .then(response => response.json())
+        .then(response => {
+            if (!response.ok) {
+                throw new Error('Network response was not ok');
+            }
+            return response.json();
+        })
         .then(data => {
             database = data;
-            document.getElementById('loading').style.display = 'none';
+            if (loadingElement) loadingElement.style.display = 'none';
             console.log('Database loaded successfully');
             populateFilters();
             searchDatabase();
         })
         .catch(error => {
             console.error('Error loading database:', error);
-            document.getElementById('loading').style.display = 'none';
-            document.getElementById('results').innerHTML = '<p>Error loading database. Please try again later.</p>';
+            if (loadingElement) loadingElement.style.display = 'none';
+            const resultsElement = document.getElementById('results');
+            if (resultsElement) resultsElement.innerHTML = '<p>Error loading database. Please try again later.</p>';
         });
 }
 
@@ -65,6 +77,8 @@ function populateFilters() {
 
 function populateSelect(id, options) {
     const select = document.getElementById(id);
+    if (!select) return;
+
     options.forEach(option => {
         if (option) {
             const optionElement = document.createElement('option');
@@ -76,9 +90,15 @@ function populateSelect(id, options) {
 }
 
 function searchDatabase() {
-    const searchTerm = document.getElementById('searchInput').value.toLowerCase();
-    const deviceType = document.getElementById('deviceTypeFilter').value;
-    const brand = document.getElementById('brandFilter').value;
+    const searchInput = document.getElementById('searchInput');
+    const deviceTypeFilter = document.getElementById('deviceTypeFilter');
+    const brandFilter = document.getElementById('brandFilter');
+
+    if (!searchInput || !deviceTypeFilter || !brandFilter) return;
+
+    const searchTerm = searchInput.value.toLowerCase();
+    const deviceType = deviceTypeFilter.value;
+    const brand = brandFilter.value;
 
     const searchTerms = searchTerm.split(/\s+/).filter(term => term.length > 0);
 
@@ -100,6 +120,8 @@ function searchDatabase() {
 function displayResults(results) {
     const resultsDiv = document.getElementById('results');
     const paginationDiv = document.getElementById('pagination');
+    if (!resultsDiv || !paginationDiv) return;
+
     resultsDiv.innerHTML = '';
     paginationDiv.innerHTML = '';
 
@@ -122,7 +144,7 @@ function displayResults(results) {
             <p><strong>Series:</strong> ${item.series || 'N/A'}</p>
             <p><strong>Filename:</strong> ${item.filename}</p>
             ${item.additional_info ? `<p><strong>Additional Info:</strong> ${item.additional_info}</p>` : ''}
-            <a href="https://raw.githubusercontent.com/logickworkshop/Flipper-IRDB/main/${encodeURIComponent(item.path)}" class="download-link" target="_blank">Download IR File</a>
+            <a href="https://raw.githubusercontent.com/Lucaslhm/Flipper-IRDB/main/${item.path.replace(/\\/g, '/')}" class="download-link" target="_blank">Download IR File</a>
         `;
         resultsDiv.appendChild(resultItem);
     });
@@ -145,11 +167,13 @@ function displayResults(results) {
 
 function updateStats(resultCount) {
     const statsDiv = document.getElementById('stats');
-    statsDiv.textContent = `Found ${resultCount} result${resultCount !== 1 ? 's' : ''}`;
+    if (statsDiv) statsDiv.textContent = `Found ${resultCount} result${resultCount !== 1 ? 's' : ''}`;
 }
 
 function updateSuggestions(searchTerm) {
     const suggestionsDiv = document.getElementById('suggestions');
+    if (!suggestionsDiv) return;
+
     suggestionsDiv.innerHTML = '';
     suggestionsDiv.style.display = 'none';
 
@@ -170,9 +194,12 @@ function updateSuggestions(searchTerm) {
             suggestionItem.className = 'suggestion-item';
             suggestionItem.textContent = `${item.brand} ${item.model} (${item.device_type})`;
             suggestionItem.addEventListener('click', () => {
-                document.getElementById('searchInput').value = `${item.brand} ${item.model}`;
-                suggestionsDiv.style.display = 'none';
-                searchDatabase();
+                const searchInput = document.getElementById('searchInput');
+                if (searchInput) {
+                    searchInput.value = `${item.brand} ${item.model}`;
+                    suggestionsDiv.style.display = 'none';
+                    searchDatabase();
+                }
             });
             suggestionsDiv.appendChild(suggestionItem);
         });
@@ -182,6 +209,8 @@ function updateSuggestions(searchTerm) {
 
 function updateLayout() {
     const resultsDiv = document.getElementById('results');
+    if (!resultsDiv) return;
+
     const windowWidth = window.innerWidth;
     
     if (windowWidth < 768) {
