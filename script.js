@@ -7,7 +7,6 @@ let currentResults = [];
 document.addEventListener('DOMContentLoaded', function() {
     loadDatabase();
     setupEventListeners();
-    displayIRRequests();
 });
 
 function setupEventListeners() {
@@ -439,3 +438,8 @@ function updateLayout() {
         resultsDiv.style.gridTemplateColumns = 'repeat(auto-fill, minmax(300px, 1fr))';
     }
 }
+
+
+document.addEventListener('DOMContentLoaded', function() {
+    displayIRRequests();
+});
