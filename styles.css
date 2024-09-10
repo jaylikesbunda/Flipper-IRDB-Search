@@ -63,45 +63,67 @@ h1 {
 }
 
 
-.ir-request-form {
+.ir-requests-list {
     margin-top: 2rem;
     padding: 1rem;
-    background-color: #f0f0f0;
+    background-color: var(--secondary-bg);
     border-radius: 5px;
+    color: var(--text-color);
 }
 
-.ir-request-form h2 {
+.ir-requests-list h2 {
+    color: var(--accent-color);
     margin-bottom: 1rem;
 }
 
-.ir-request-form form {
-    display: flex;
-    flex-direction: column;
-    gap: 1rem;
+.request-item {
+    background-color: var(--bg-color);
+    border-radius: 4px;
+    padding: 1rem;
+    margin-bottom: 1rem;
+    transition: transform 0.3s, box-shadow 0.3s;
+}
+
+.request-item:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 4px 8px var(--shadow-color);
+}
+
+.request-item p {
+    margin: 0.5rem 0;
+}
+
+.request-item strong {
+    color: var(--accent-color);
+}
+
+/* Update the existing IR request form styles to match the color scheme */
+.ir-request-form {
+    background-color: var(--secondary-bg);
+    color: var(--text-color);
+}
+
+.ir-request-form h2 {
+    color: var(--accent-color);
 }
 
 .ir-request-form input {
-    padding: 0.5rem;
-    border: 1px solid #ccc;
-    border-radius: 3px;
+    background-color: var(--bg-color);
+    color: var(--text-color);
+    border: 1px solid var(--accent-color);
 }
 
 .ir-request-form button {
-    padding: 0.5rem;
-    background-color: #007bff;
-    color: white;
-    border: none;
-    border-radius: 3px;
-    cursor: pointer;
+    background-color: var(--accent-color);
+    color: var(--text-color);
 }
 
 .ir-request-form button:hover {
-    background-color: #0056b3;
+    background-color: #ff8533;
 }
 
 #requestStatus {
-    margin-top: 1rem;
-    font-weight: bold;
+    color: var(--success-color);
 }
 
 .search-bar button:hover {

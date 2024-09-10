@@ -7,6 +7,7 @@ let currentResults = [];
 document.addEventListener('DOMContentLoaded', function() {
     loadDatabase();
     setupEventListeners();
+    displayIRRequests();
 });
 
 function setupEventListeners() {
@@ -37,6 +38,35 @@ function debounce(func, wait) {
         clearTimeout(timeout);
         timeout = setTimeout(later, wait);
     };
+}
+
+function displayIRRequests() {
+    const requestsList = document.getElementById('requestsList');
+    requestsList.innerHTML = '<p>Loading requests...</p>';
+
+    db.collection("irRequests").orderBy("timestamp", "desc").limit(10).get()
+        .then((querySnapshot) => {
+            requestsList.innerHTML = '';
+            querySnapshot.forEach((doc) => {
+                const data = doc.data();
+                const requestItem = document.createElement('div');
+                requestItem.className = 'request-item';
+                requestItem.innerHTML = `
+                    <p><strong>Brand:</strong> ${data.brand}</p>
+                    <p><strong>Model:</strong> ${data.model}</p>
+                    <p><strong>Device Type:</strong> ${data.deviceType}</p>
+                    <p><strong>Requested:</strong> ${data.timestamp.toDate().toLocaleString()}</p>
+                `;
+                requestsList.appendChild(requestItem);
+            });
+            if (querySnapshot.empty) {
+                requestsList.innerHTML = '<p>No requests found.</p>';
+            }
+        })
+        .catch((error) => {
+            console.error("Error fetching requests: ", error);
+            requestsList.innerHTML = '<p>Error loading requests. Please try again later.</p>';
+        });
 }
 
 function submitIRRequest(e) {
