@@ -14,34 +14,34 @@ function setupEventListeners() {
     const searchButton = document.getElementById('searchButton');
     const deviceTypeFilter = document.getElementById('deviceTypeFilter');
     const brandFilter = document.getElementById('brandFilter');
+    const itemsPerPageSelect = document.getElementById('itemsPerPage');
 
     if (searchInput) searchInput.addEventListener('input', debounceSearch);
     if (searchButton) searchButton.addEventListener('click', instantSearch);
     if (deviceTypeFilter) deviceTypeFilter.addEventListener('change', instantSearch);
     if (brandFilter) brandFilter.addEventListener('change', instantSearch);
+    if (itemsPerPageSelect) itemsPerPageSelect.addEventListener('change', changeItemsPerPage);
 
     window.addEventListener('resize', debounce(updateLayout, 250));
 }
 
 function debounceSearch() {
     clearTimeout(debounceTimer);
-    debounceTimer = setTimeout(instantSearch, 100);  // Reduced debounce time for more responsiveness
+    debounceTimer = setTimeout(instantSearch, 300);  // Increased debounce time for better performance
 }
 
 function instantSearch() {
     searchDatabase();
+    window.scrollTo(0, 0);  // Scroll to top after search
 }
 
-function debounce(func, wait) {
-    let timeout;
-    return function executedFunction(...args) {
-        const later = () => {
-            clearTimeout(timeout);
-            func(...args);
-        };
-        clearTimeout(timeout);
-        timeout = setTimeout(later, wait);
-    };
+function changeItemsPerPage() {
+    const itemsPerPageSelect = document.getElementById('itemsPerPage');
+    if (itemsPerPageSelect) {
+        itemsPerPage = parseInt(itemsPerPageSelect.value);
+        currentPage = 1;  // Reset to first page
+        displayResults();
+    }
 }
 
 function loadDatabase() {
@@ -70,24 +70,39 @@ function loadDatabase() {
         });
 }
 
-
 function downloadFile(url, filename) {
+    const downloadStatus = document.getElementById('downloadStatus');
+    if (downloadStatus) downloadStatus.textContent = 'Downloading...';
+
     fetch(url)
-        .then(response => response.blob())
+        .then(response => {
+            if (!response.ok) throw new Error('Network response was not ok');
+            return response.blob();
+        })
         .then(blob => {
             const blobUrl = window.URL.createObjectURL(blob);
-            const a = document.createElement('a');
-            a.style.display = 'none';
-            a.href = blobUrl;
-            a.download = filename;
-            document.body.appendChild(a);
-            a.click();
-            window.URL.revokeObjectURL(blobUrl);
-            document.body.removeChild(a);
+            
+            const isIOS = /iPad|iPhone|iPod/.test(navigator.userAgent) && !window.MSStream;
+            
+            if (isIOS) {
+                window.open(blobUrl, '_blank');
+            } else {
+                const a = document.createElement('a');
+                a.style.display = 'none';
+                a.href = blobUrl;
+                a.download = filename;
+                document.body.appendChild(a);
+                a.click();
+                window.URL.revokeObjectURL(blobUrl);
+                document.body.removeChild(a);
+            }
+            if (downloadStatus) downloadStatus.textContent = 'Download complete!';
         })
-        .catch(error => console.error('Download failed:', error));
+        .catch(error => {
+            console.error('Download failed:', error);
+            if (downloadStatus) downloadStatus.textContent = 'Download failed. Please try again.';
+        });
 }
-
 
 function populateFilters() {
     const deviceTypes = new Set(database.map(item => item.device_type));
@@ -101,7 +116,9 @@ function populateSelect(id, options) {
     const select = document.getElementById(id);
     if (!select) return;
 
-    options.forEach(option => {
+    select.innerHTML = '<option value="">All</option>';  // Reset and add 'All' option
+
+    Array.from(options).sort().forEach(option => {
         if (option) {
             const optionElement = document.createElement('option');
             optionElement.value = option;
@@ -164,12 +181,11 @@ function displayResults() {
         let additionalInfoHtml = '';
         if (item.additional_info) {
             if (item.additional_info.length > 50) {
-                const shortInfo = item.additional_info.substring(0, 50);
-                const remainingInfo = item.additional_info.substring(50);
                 additionalInfoHtml = `
                     <p><strong>Additional Info:</strong> 
-                        <span class="short-info">${shortInfo}</span>
-                        <span class="full-info" style="display:none">${remainingInfo}</span>
+                        <span class="info-text">${item.additional_info.substring(0, 50)}
+                            <span class="more-text" style="display:none">${item.additional_info.substring(50)}</span>
+                        </span>
                         <button class="read-more">Read More</button>
                     </p>`;
             } else {
@@ -191,15 +207,13 @@ function displayResults() {
         const readMoreButton = resultItem.querySelector('.read-more');
         if (readMoreButton) {
             readMoreButton.addEventListener('click', function() {
-                const shortInfo = this.parentNode.querySelector('.short-info');
-                const fullInfo = this.parentNode.querySelector('.full-info');
-                if (fullInfo.style.display === 'none') {
-                    shortInfo.style.display = 'none';
-                    fullInfo.style.display = 'inline';
+                const infoText = this.parentNode.querySelector('.info-text');
+                const moreText = this.parentNode.querySelector('.more-text');
+                if (moreText.style.display === 'none') {
+                    moreText.style.display = 'inline';
                     this.textContent = 'Read Less';
                 } else {
-                    shortInfo.style.display = 'inline';
-                    fullInfo.style.display = 'none';
+                    moreText.style.display = 'none';
                     this.textContent = 'Read More';
                 }
             });
@@ -230,6 +244,7 @@ function updatePagination(totalResults) {
         if (currentPage > 1) {
             currentPage--;
             displayResults();
+            window.scrollTo(0, 0);  // Scroll to top when changing page
         }
     };
 
@@ -237,12 +252,12 @@ function updatePagination(totalResults) {
         if (currentPage < totalPages) {
             currentPage++;
             displayResults();
+            window.scrollTo(0, 0);  // Scroll to top when changing page
         }
     };
 
     paginationDiv.style.display = totalPages > 1 ? 'flex' : 'none';
 }
-
 
 function updateStats(resultCount) {
     const statsDiv = document.getElementById('stats');
