@@ -6,20 +6,21 @@
     <title>Flipper Zero IR Remote Search</title>
     <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="styles.css">
+    <script src="https://kit.fontawesome.com/your-fontawesome-kit.js" crossorigin="anonymous"></script>
 </head>
 <body>
     <div class="container">
         <header>
-            <h1>Flipper Zero IR Remote Search</h1>
+            <h1><i class="fas fa-search"></i> Flipper Zero IR Search</h1>
         </header>
         <main>
-            <div class="search-container">
-                <input type="text" id="searchInput" placeholder="Search by brand, model, or device type...">
-                <div id="suggestions" class="suggestions"></div>
+            <div class="search-bar">
+                <input type="text" id="searchInput" placeholder="Search brand, model, or device type...">
+                <button id="searchButton" aria-label="Search"><i class="fas fa-search"></i></button>
             </div>
-            <div class="filter-container">
+            <div class="filters">
                 <select id="deviceTypeFilter">
-                    <option value="">All Device Types</option>
+                    <option value="">All Types</option>
                 </select>
                 <select id="brandFilter">
                     <option value="">All Brands</option>
@@ -28,13 +29,18 @@
             <div id="stats" class="stats"></div>
             <div id="loading" class="loading">
                 <div class="spinner"></div>
-                <p>Loading database...</p>
+                <p>Loading...</p>
             </div>
             <div id="results" class="results"></div>
-            <div id="pagination" class="pagination"></div>
+            <div id="pagination" class="pagination">
+                <button id="prevPage" class="page-nav" aria-label="Previous page"><i class="fas fa-chevron-left"></i></button>
+                <span id="currentPage"></span>
+                <button id="nextPage" class="page-nav" aria-label="Next page"><i class="fas fa-chevron-right"></i></button>
+            </div>
         </main>
         <footer>
-            <p>Data sourced from <a href="https://github.com/logickworkshop/Flipper-IRDB" target="_blank">Flipper-IRDB</a></p>
+            <p>Data: <a href="https://github.com/logickworkshop/Flipper-IRDB" target="_blank">Flipper-IRDB</a> | 
+            <p>Created by <a href="https://github.com/jaylikesbunda" target="_blank">Jay Candel</a></p>
         </footer>
     </div>
     <script src="script.js"></script>

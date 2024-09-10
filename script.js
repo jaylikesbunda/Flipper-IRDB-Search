@@ -142,14 +142,13 @@ function displayResults(results) {
     if (!resultsDiv || !paginationDiv) return;
 
     resultsDiv.innerHTML = '';
-    paginationDiv.innerHTML = '';
+    updatePagination(results.length);
 
     if (results.length === 0) {
         resultsDiv.innerHTML = '<p>No results found.</p>';
         return;
     }
 
-    const totalPages = Math.ceil(results.length / itemsPerPage);
     const startIndex = (currentPage - 1) * itemsPerPage;
     const endIndex = startIndex + itemsPerPage;
     const pageResults = results.slice(startIndex, endIndex);
@@ -160,35 +159,80 @@ function displayResults(results) {
         
         const downloadUrl = `https://raw.githubusercontent.com/Lucaslhm/Flipper-IRDB/main/${item.path.replace(/\\/g, '/')}`;
 
+        let additionalInfoHtml = '';
+        if (item.additional_info) {
+            if (item.additional_info.length > 50) {
+                const shortInfo = item.additional_info.substring(0, 50);
+                const remainingInfo = item.additional_info.substring(50);
+                additionalInfoHtml = `
+                    <p><strong>Additional Info:</strong> 
+                        <span class="short-info">${shortInfo}</span>
+                        <span class="full-info" style="display:none">${remainingInfo}</span>
+                        <button class="read-more">Read More</button>
+                    </p>`;
+            } else {
+                additionalInfoHtml = `<p><strong>Additional Info:</strong> ${item.additional_info}</p>`;
+            }
+        }
+
         resultItem.innerHTML = `
             <h3>${item.brand} ${item.model}</h3>
-            <p><strong>Device Type:</strong> ${item.device_type}</p>
-            <p><strong>Series:</strong> ${item.series || 'N/A'}</p>
-            <p><strong>Filename:</strong> ${item.filename}</p>
-            ${item.additional_info ? `<p><strong>Additional Info:</strong> ${item.additional_info}</p>` : ''}
+            <p><strong>Type:</strong> ${item.device_type}</p>
+            <p><strong>File:</strong> ${item.filename}</p>
+            ${additionalInfoHtml}
             <button class="download-button">Download IR File</button>
         `;
 
         const downloadButton = resultItem.querySelector('.download-button');
         downloadButton.addEventListener('click', () => downloadFile(downloadUrl, item.filename));
 
+        const readMoreButton = resultItem.querySelector('.read-more');
+        if (readMoreButton) {
+            readMoreButton.addEventListener('click', function() {
+                const shortInfo = this.parentNode.querySelector('.short-info');
+                const fullInfo = this.parentNode.querySelector('.full-info');
+                if (fullInfo.style.display === 'none') {
+                    shortInfo.style.display = 'none';
+                    fullInfo.style.display = 'inline';
+                    this.textContent = 'Read Less';
+                } else {
+                    shortInfo.style.display = 'inline';
+                    fullInfo.style.display = 'none';
+                    this.textContent = 'Read More';
+                }
+            });
+        }
+
         resultsDiv.appendChild(resultItem);
     });
+}
 
-    if (totalPages > 1) {
-        for (let i = 1; i <= totalPages; i++) {
-            const pageButton = document.createElement('button');
-            pageButton.textContent = i;
-            pageButton.addEventListener('click', () => {
-                currentPage = i;
-                displayResults(results);
-            });
-            if (i === currentPage) {
-                pageButton.disabled = true;
-            }
-            paginationDiv.appendChild(pageButton);
+function updatePagination(totalResults) {
+    const paginationDiv = document.getElementById('pagination');
+    const prevButton = document.getElementById('prevPage');
+    const nextButton = document.getElementById('nextPage');
+    const currentPageSpan = document.getElementById('currentPage');
+
+    const totalPages = Math.ceil(totalResults / itemsPerPage);
+
+    prevButton.disabled = currentPage === 1;
+    nextButton.disabled = currentPage === totalPages;
+
+    currentPageSpan.textContent = `Page ${currentPage} of ${totalPages}`;
+
+    prevButton.onclick = () => {
+        if (currentPage > 1) {
+            currentPage--;
+            displayResults(results);
         }
-    }
+    };
+
+    nextButton.onclick = () => {
+        if (currentPage < totalPages) {
+            currentPage++;
+            displayResults(results);
+        }
+    };
 }
 
 function updateStats(resultCount) {
