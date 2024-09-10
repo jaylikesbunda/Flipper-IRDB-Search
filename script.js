@@ -2,6 +2,7 @@ let database = [];
 let currentPage = 1;
 const itemsPerPage = 20;
 let debounceTimer;
+let currentResults = [];
 
 document.addEventListener('DOMContentLoaded', function() {
     loadDatabase();
@@ -10,10 +11,12 @@ document.addEventListener('DOMContentLoaded', function() {
 
 function setupEventListeners() {
     const searchInput = document.getElementById('searchInput');
+    const searchButton = document.getElementById('searchButton');
     const deviceTypeFilter = document.getElementById('deviceTypeFilter');
     const brandFilter = document.getElementById('brandFilter');
 
     if (searchInput) searchInput.addEventListener('input', debounceSearch);
+    if (searchButton) searchButton.addEventListener('click', instantSearch);
     if (deviceTypeFilter) deviceTypeFilter.addEventListener('change', instantSearch);
     if (brandFilter) brandFilter.addEventListener('change', instantSearch);
 
@@ -121,7 +124,7 @@ function searchDatabase() {
 
     const searchTerms = searchTerm.split(/\s+/).filter(term => term.length > 0);
 
-    const results = database.filter(item => {
+    currentResults = database.filter(item => {
         const itemString = `${item.brand} ${item.model} ${item.device_type} ${item.additional_info || ''}`.toLowerCase();
         const matchesSearch = searchTerms.every(term => itemString.includes(term));
         const matchesDeviceType = deviceType === '' || item.device_type === deviceType;
@@ -131,27 +134,26 @@ function searchDatabase() {
     });
 
     currentPage = 1;
-    displayResults(results);
-    updateStats(results.length);
+    displayResults();
+    updateStats(currentResults.length);
     updateSuggestions(searchTerm);
 }
 
-function displayResults(results) {
+function displayResults() {
     const resultsDiv = document.getElementById('results');
-    const paginationDiv = document.getElementById('pagination');
-    if (!resultsDiv || !paginationDiv) return;
+    if (!resultsDiv) return;
 
     resultsDiv.innerHTML = '';
-    updatePagination(results.length);
 
-    if (results.length === 0) {
+    if (currentResults.length === 0) {
         resultsDiv.innerHTML = '<p>No results found.</p>';
+        updatePagination(0);
         return;
     }
 
     const startIndex = (currentPage - 1) * itemsPerPage;
     const endIndex = startIndex + itemsPerPage;
-    const pageResults = results.slice(startIndex, endIndex);
+    const pageResults = currentResults.slice(startIndex, endIndex);
 
     pageResults.forEach(item => {
         const resultItem = document.createElement('div');
@@ -205,6 +207,8 @@ function displayResults(results) {
 
         resultsDiv.appendChild(resultItem);
     });
+
+    updatePagination(currentResults.length);
 }
 
 function updatePagination(totalResults) {
@@ -212,6 +216,8 @@ function updatePagination(totalResults) {
     const prevButton = document.getElementById('prevPage');
     const nextButton = document.getElementById('nextPage');
     const currentPageSpan = document.getElementById('currentPage');
+
+    if (!paginationDiv || !prevButton || !nextButton || !currentPageSpan) return;
 
     const totalPages = Math.ceil(totalResults / itemsPerPage);
 
@@ -223,17 +229,20 @@ function updatePagination(totalResults) {
     prevButton.onclick = () => {
         if (currentPage > 1) {
             currentPage--;
-            displayResults(results);
+            displayResults();
         }
     };
 
     nextButton.onclick = () => {
         if (currentPage < totalPages) {
             currentPage++;
-            displayResults(results);
+            displayResults();
         }
     };
+
+    paginationDiv.style.display = totalPages > 1 ? 'flex' : 'none';
 }
+
 
 function updateStats(resultCount) {
     const statsDiv = document.getElementById('stats');
