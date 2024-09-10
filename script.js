@@ -1,6 +1,6 @@
 let database = [];
 let currentPage = 1;
-const itemsPerPage = 20;
+let itemsPerPage = 20;
 let debounceTimer;
 let currentResults = [];
 
@@ -26,7 +26,18 @@ function setupEventListeners() {
     if (itemsPerPageSelect) itemsPerPageSelect.addEventListener('change', changeItemsPerPage);
 
     window.addEventListener('resize', debounce(updateLayout, 250));
-};
+}
+function debounce(func, wait) {
+    let timeout;
+    return function executedFunction(...args) {
+        const later = () => {
+            clearTimeout(timeout);
+            func(...args);
+        };
+        clearTimeout(timeout);
+        timeout = setTimeout(later, wait);
+    };
+}
 
 function submitIRRequest(e) {
     e.preventDefault();
@@ -41,7 +52,7 @@ function submitIRRequest(e) {
         brand: brand,
         model: model,
         deviceType: deviceType,
-        timestamp: firebase.firestore.FieldValue.serverTimestamp()
+        timestamp: new Date()
     })
     .then((docRef) => {
         requestStatus.textContent = "Request submitted successfully!";
@@ -52,7 +63,6 @@ function submitIRRequest(e) {
         requestStatus.textContent = "Error submitting request. Please try again.";
     });
 }
-
 function debounceSearch() {
     clearTimeout(debounceTimer);
     debounceTimer = setTimeout(instantSearch, 300);  // Increased debounce time for better performance
