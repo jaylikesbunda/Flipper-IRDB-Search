@@ -4,6 +4,7 @@
     --accent-color: #ff6600;
     --secondary-bg: #2a2a2a;
     --hover-color: #3a3a3a;
+    --shadow-color: rgba(0, 0, 0, 0.2);
 }
 
 * {
@@ -34,22 +35,7 @@ h1 {
     color: var(--accent-color);
     font-size: 2.5rem;
     margin-bottom: 0.5rem;
-}
-
-.download-button {
-    display: inline-block;
-    margin-top: 0.5rem;
-    padding: 5px 10px;
-    background-color: var(--accent-color);
-    color: var(--text-color);
-    border: none;
-    border-radius: 3px;
-    cursor: pointer;
-    transition: background-color 0.3s;
-}
-
-.download-button:hover {
-    background-color: #ff8533;
+    text-shadow: 2px 2px 4px var(--shadow-color);
 }
 
 .search-container {
@@ -64,27 +50,39 @@ h1 {
 }
 
 input, select, button {
-    padding: 10px;
+    padding: 12px;
     border: none;
     border-radius: 5px;
     font-size: 1rem;
     width: 100%;
+    transition: all 0.3s ease;
 }
 
 input, select {
     background-color: var(--secondary-bg);
     color: var(--text-color);
+    box-shadow: inset 0 2px 4px var(--shadow-color);
+}
+
+input:focus, select:focus {
+    outline: none;
+    box-shadow: 0 0 0 2px var(--accent-color);
 }
 
 button {
     background-color: var(--accent-color);
     color: var(--text-color);
     cursor: pointer;
-    transition: background-color 0.3s;
+    font-weight: bold;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    box-shadow: 0 2px 4px var(--shadow-color);
 }
 
 button:hover {
     background-color: #ff8533;
+    transform: translateY(-2px);
+    box-shadow: 0 4px 6px var(--shadow-color);
 }
 
 .suggestions {
@@ -98,11 +96,13 @@ button:hover {
     overflow-y: auto;
     z-index: 10;
     display: none;
+    box-shadow: 0 4px 6px var(--shadow-color);
 }
 
 .suggestion-item {
     padding: 10px;
     cursor: pointer;
+    transition: background-color 0.3s ease;
 }
 
 .suggestion-item:hover {
@@ -146,11 +146,13 @@ button:hover {
     border-left: 4px solid var(--accent-color);
     padding: 1rem;
     border-radius: 5px;
-    transition: transform 0.3s;
+    transition: transform 0.3s, box-shadow 0.3s;
+    box-shadow: 0 2px 4px var(--shadow-color);
 }
 
 .result-item:hover {
     transform: translateY(-5px);
+    box-shadow: 0 4px 8px var(--shadow-color);
 }
 
 .result-item h3 {
@@ -162,19 +164,21 @@ button:hover {
     margin-bottom: 0.5rem;
 }
 
-.download-link {
+.download-button {
     display: inline-block;
     margin-top: 0.5rem;
-    padding: 5px 10px;
+    padding: 8px 16px;
     background-color: var(--accent-color);
     color: var(--text-color);
     text-decoration: none;
     border-radius: 3px;
-    transition: background-color 0.3s;
+    transition: background-color 0.3s, transform 0.3s;
+    text-align: center;
 }
 
-.download-link:hover {
+.download-button:hover {
     background-color: #ff8533;
+    transform: translateY(-2px);
 }
 
 .pagination {
@@ -198,9 +202,11 @@ footer {
 footer a {
     color: var(--accent-color);
     text-decoration: none;
+    transition: color 0.3s;
 }
 
 footer a:hover {
+    color: #ff8533;
     text-decoration: underline;
 }
 
@@ -208,11 +214,11 @@ footer a:hover {
     .filter-container {
         flex-direction: column;
     }
-
+    
     .results {
         grid-template-columns: 1fr;
     }
-
+    
     h1 {
         font-size: 2rem;
     }
