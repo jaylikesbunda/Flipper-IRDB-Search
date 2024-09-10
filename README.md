@@ -2,6 +2,10 @@
 
 This project provides a web-based search tool for the Flipper Zero IR Remote Database. It allows users to easily search, filter, and download IR remote files for use with the Flipper Zero device.
 
+## Live Demo
+
+You can access the live version of this tool at: [https://jaylikesbunda.github.io/Flipper-IRDB-Search/](https://jaylikesbunda.github.io/Flipper-IRDB-Search/)
+
 ## Features
 
 - Search IR remote files by brand, model, or device type
@@ -16,7 +20,7 @@ This project provides a web-based search tool for the Flipper Zero IR Remote Dat
 1. **Python Parser Script**: Downloads and parses the Flipper-IRDB repository to create a JSON database.
 2. **Web Application**: A client-side web tool for searching and displaying the IR remote database.
 
-## Setup
+## Local Setup
 
 ### Prerequisites
 
@@ -31,23 +35,20 @@ This project provides a web-based search tool for the Flipper Zero IR Remote Dat
    git clone https://github.com/yourusername/flipper-zero-ir-search.git
    cd flipper-zero-ir-search
    ```
-
 2. Install required Python packages:
    ```
    pip install requests
    ```
-
 3. Run the Python parser script to create the database:
    ```
    python flipper_irdb_parser.py
    ```
    This will download the Flipper-IRDB repository, parse the IR files, and create a `flipper_irdb_database.json` file.
-
-4. Open `index.html` in your web browser to use the search tool.
+4. Open `index.html` in your web browser to use the search tool locally.
 
 ## Usage
 
-1. Open `index.html` in your web browser.
+1. Visit [https://jaylikesbunda.github.io/Flipper-IRDB-Search/](https://jaylikesbunda.github.io/Flipper-IRDB-Search/) or open `index.html` in your web browser if running locally.
 2. Use the search bar to find IR remotes by brand, model, or device type.
 3. Use the dropdown filters to narrow results by device type or brand.
 4. Click the "Download IR File" link on any result to download the IR file for use with your Flipper Zero.
@@ -60,7 +61,7 @@ To update the IR remote database with the latest files from the Flipper-IRDB rep
    ```
    python flipper_irdb_parser.py
    ```
-2. Refresh the `index.html` page in your browser to load the updated database.
+2. Refresh the web page to load the updated database.
 
 ## Contributing
 
