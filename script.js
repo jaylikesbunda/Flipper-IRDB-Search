@@ -15,7 +15,10 @@ function setupEventListeners() {
     const deviceTypeFilter = document.getElementById('deviceTypeFilter');
     const brandFilter = document.getElementById('brandFilter');
     const itemsPerPageSelect = document.getElementById('itemsPerPage');
-
+    const requestForm = document.getElementById('requestForm');
+    if (requestForm) {
+        requestForm.addEventListener('submit', submitIRRequest);
+    }
     if (searchInput) searchInput.addEventListener('input', debounceSearch);
     if (searchButton) searchButton.addEventListener('click', instantSearch);
     if (deviceTypeFilter) deviceTypeFilter.addEventListener('change', instantSearch);
@@ -23,6 +26,31 @@ function setupEventListeners() {
     if (itemsPerPageSelect) itemsPerPageSelect.addEventListener('change', changeItemsPerPage);
 
     window.addEventListener('resize', debounce(updateLayout, 250));
+};
+
+function submitIRRequest(e) {
+    e.preventDefault();
+
+    const brand = document.getElementById('brandInput').value;
+    const model = document.getElementById('modelInput').value;
+    const deviceType = document.getElementById('deviceTypeInput').value;
+    const requestStatus = document.getElementById('requestStatus');
+
+    // Add the request to Firestore
+    db.collection("irRequests").add({
+        brand: brand,
+        model: model,
+        deviceType: deviceType,
+        timestamp: firebase.firestore.FieldValue.serverTimestamp()
+    })
+    .then((docRef) => {
+        requestStatus.textContent = "Request submitted successfully!";
+        requestForm.reset();
+    })
+    .catch((error) => {
+        console.error("Error adding document: ", error);
+        requestStatus.textContent = "Error submitting request. Please try again.";
+    });
 }
 
 function debounceSearch() {

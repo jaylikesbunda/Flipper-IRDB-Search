@@ -62,6 +62,48 @@ h1 {
     transition: background-color 0.3s;
 }
 
+
+.ir-request-form {
+    margin-top: 2rem;
+    padding: 1rem;
+    background-color: #f0f0f0;
+    border-radius: 5px;
+}
+
+.ir-request-form h2 {
+    margin-bottom: 1rem;
+}
+
+.ir-request-form form {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+}
+
+.ir-request-form input {
+    padding: 0.5rem;
+    border: 1px solid #ccc;
+    border-radius: 3px;
+}
+
+.ir-request-form button {
+    padding: 0.5rem;
+    background-color: #007bff;
+    color: white;
+    border: none;
+    border-radius: 3px;
+    cursor: pointer;
+}
+
+.ir-request-form button:hover {
+    background-color: #0056b3;
+}
+
+#requestStatus {
+    margin-top: 1rem;
+    font-weight: bold;
+}
+
 .search-bar button:hover {
     background-color: #ff8533;
 }

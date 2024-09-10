@@ -55,12 +55,30 @@
                 <button id="nextPage" class="page-nav" aria-label="Next page"><i class="fas fa-chevron-right"></i></button>
             </div>
             <div id="downloadStatus" class="download-status"></div>
+            
+            <!-- New IR Request Form Section -->
+            <div id="irRequestForm" class="ir-request-form">
+                <h2>Request IR Code</h2>
+                <form id="requestForm">
+                    <input type="text" id="brandInput" placeholder="Brand" required>
+                    <input type="text" id="modelInput" placeholder="Model" required>
+                    <input type="text" id="deviceTypeInput" placeholder="Device Type" required>
+                    <button type="submit">Submit Request</button>
+                </form>
+                <div id="requestStatus"></div>
+            </div>
         </main>
         <footer>
             <p>Data: <a href="https://github.com/logickworkshop/Flipper-IRDB" target="_blank">Flipper-IRDB</a></p>
             <p>Created by <a href="https://github.com/jaylikesbunda" target="_blank">Jay Candel</a></p>
         </footer>
     </div>
+    
     <script src="script.js"></script>
+    
+    <!-- Firebase SDK -->
+    <script src="https://www.gstatic.com/firebasejs/9.6.10/firebase-app-compat.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/9.6.10/firebase-firestore-compat.js"></script>
+    <script src="firebase-config.js"></script>
 </body>
 </html>
