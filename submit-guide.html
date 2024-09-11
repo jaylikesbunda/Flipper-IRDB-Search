@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>How to Submit Files to Flipper-IRDB</title>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
+    <script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
+</head>
+<body>
+    <div class="guide-container">
+        <h1><i class="fas fa-file-upload"></i> How to Submit Files to Flipper-IRDB</h1>
+        
+        <p>Want to contribute to the Flipper-IRDB project? Great! This guide will walk you through the process of submitting your IR files using GitHub's web interface. No coding experience required!</p>
+        
+        <h2>What You'll Need</h2>
+        <ul>
+            <li>A GitHub account (it's free to sign up at <a href="https://github.com" target="_blank">github.com</a>)</li>
+            <li>IR files you want to contribute</li>
+            <li>Information about the device your IR files are for (brand, model, type)</li>
+        </ul>
+        
+        <h2>Step-by-Step Guide</h2>
+        <ol>
+            <li>
+                <strong>Go to the Flipper-IRDB Repository</strong>
+                <p>Visit the <a href="https://github.com/Lucaslhm/Flipper-IRDB" target="_blank">Flipper-IRDB GitHub repository</a>.</p>
+            </li>
+            <li>
+                <strong>Fork the Repository</strong>
+                <p>Click the "Fork" button in the top-right corner. This creates your own copy of the repository.</p>
+                <img src="/api/placeholder/400/200" alt="Fork button location" />
+            </li>
+            <li>
+                <strong>Navigate to the Correct Folder</strong>
+                <p>In your forked repository, navigate to the folder where your IR files should go. The structure is: <code>Devices/[Device Type]/[Brand Name]/</code></p>
+                <p>For example, if you have files for a Sony TV, you'd go to <code>Devices/TVs/Sony/</code></p>
+            </li>
+            <li>
+                <strong>Upload Your Files</strong>
+                <p>Click the "Add file" button, then "Upload files". Drag and drop your IR files or use the file selector.</p>
+                <img src="https://i.ibb.co/CJkLqMm/Capture.png" alt="Upload files button" />
+            </li>
+            <li>
+                <strong>Commit Your Changes</strong>
+                <p>Scroll down, add a brief description of your files (e.g., "Add Sony KD-55X85J TV remote files"), and click "Commit changes".</p>
+            </li>
+            <li>
+                <strong>Create a Pull Request</strong>
+                <p>After committing, you'll see a message that your branch is ahead of the original. Click "Contribute" and then "Open pull request".</p>
+                <img src="https://i.ibb.co/jMNzwfX/Capture.png" alt="Open pull request button" />
+            </li>
+            <li>
+                <strong>Submit Your Pull Request</strong>
+                <p>Add any additional information about your files in the description, then click "Create pull request".</p>
+            </li>
+        </ol>
+        
+        <div class="note">
+            <h3>Important Tips</h3>
+            <ul>
+                <li>Make sure your IR files are named clearly (e.g., "power.ir", "volume_up.ir")</li>
+                <li>Test your files with your Flipper Zero before uploading</li>
+                <li>If you're adding files for a new device, create a new folder with the device name</li>
+                <li>Use <a href="https://format.flippertools.net" target="_blank">format.flippertools.net</a> to format your IR files correctly before submitting</li>
+                <li>Be patient! The maintainers will review your submission as soon as they can</li>
+            </ul>
+        </div>
+        
+        <h2>What Happens Next?</h2>
+        <p>The Flipper-IRDB team will review your pull request. They might ask for some changes or additional information. Once everything looks good, they'll approve and merge your files into the main repository. Congratulations, you've just contributed to the Flipper Zero community!</p>
+        
+        <h2>Need Help?</h2>
+        <p>If you're stuck or have questions, don't hesitate to ask for help in the <a href="https://github.com/Lucaslhm/Flipper-IRDB/issues" target="_blank">Issues section</a> of the Flipper-IRDB repository.</p>
+        
+        <a href="index.html" class="submit-guide-btn">Back to Search</a>
+    </div>
+</body>
+</html>

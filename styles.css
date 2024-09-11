@@ -504,3 +504,103 @@ h1 {
         padding: 1.5rem;
     }
 }
+
+
+/* Submit Guide Button */
+.submit-guide-btn {
+    display: inline-block;
+    padding: 0.75rem 1.5rem;
+    margin-top: 1rem;
+    background-color: var(--accent-color);
+    color: var(--text-color);
+    text-decoration: none;
+    border-radius: var(--border-radius);
+    font-size: 1rem;
+    font-weight: bold;
+    cursor: pointer;
+    transition: var(--transition);
+    border: none;
+    box-shadow: 0 2px 4px var(--shadow-color);
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
+
+.submit-guide-btn:hover {
+    background-color: #ff8533;
+    transform: translateY(-2px);
+    box-shadow: 0 4px 8px var(--shadow-color);
+}
+
+/* Guide Page Styles */
+.guide-container {
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 2rem;
+    background-color: var(--secondary-bg);
+    border-radius: var(--border-radius);
+    box-shadow: 0 4px 6px var(--shadow-color);
+}
+
+.guide-container h1 {
+    color: var(--accent-color);
+    margin-bottom: 1.5rem;
+    font-size: 2.5rem;
+    text-align: center;
+}
+
+.guide-container h2 {
+    color: var(--accent-color);
+    margin-top: 2rem;
+    margin-bottom: 1rem;
+    font-size: 1.8rem;
+}
+
+.guide-container p, .guide-container li {
+    margin-bottom: 1rem;
+    line-height: 1.6;
+}
+
+.guide-container ul, .guide-container ol {
+    padding-left: 1.5rem;
+    margin-bottom: 1.5rem;
+}
+
+.guide-container code {
+    background-color: var(--bg-color);
+    padding: 0.2rem 0.4rem;
+    border-radius: 3px;
+    font-family: monospace;
+    font-size: 0.9em;
+}
+
+.guide-container .note {
+    background-color: var(--bg-color);
+    border-left: 4px solid var(--accent-color);
+    padding: 1rem;
+    margin-bottom: 1.5rem;
+    border-radius: 0 var(--border-radius) var(--border-radius) 0;
+}
+
+/* ... (rest of the CSS) ... */
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+    .submit-guide-btn {
+        display: block;
+        width: 100%;
+        text-align: center;
+        margin-bottom: 1rem;
+    }
+
+    .guide-container {
+        padding: 1.5rem;
+    }
+
+    .guide-container h1 {
+        font-size: 2rem;
+    }
+
+    .guide-container h2 {
+        font-size: 1.5rem;
+    }
+}
