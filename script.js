@@ -447,7 +447,17 @@ function updateLayout() {
     }
 }
 
+document.addEventListener('DOMContentLoaded', (event) => {
+    const requestRemoteBtn = document.getElementById('requestRemoteBtn');
+    
+    requestRemoteBtn.addEventListener('click', function(e) {
+        e.preventDefault();
+        const irRequestForm = document.getElementById('irRequestForm');
+        irRequestForm.scrollIntoView({ behavior: 'smooth' });
+    });
+});
 
 document.addEventListener('DOMContentLoaded', function() {
     displayIRRequests();
 });
+
