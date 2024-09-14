@@ -38,6 +38,13 @@ function debounce(func, wait) {
         timeout = setTimeout(later, wait);
     };
 }
+function isRequestFulfilled(request, database) {
+    return database.some(item => 
+        item.brand.toLowerCase() === request.brand.toLowerCase() &&
+        item.model.toLowerCase() === request.model.toLowerCase() &&
+        item.device_type.toLowerCase() === request.deviceType.toLowerCase()
+    );
+}
 function displayIRRequests() {
     const requestsList = document.getElementById('requestsList');
     requestsList.innerHTML = '<p>Loading requests...</p>';
@@ -53,11 +60,16 @@ function displayIRRequests() {
                 const data = doc.data();
                 const requestItem = document.createElement('div');
                 requestItem.className = 'request-item';
+                
+                // Check if the request has been fulfilled
+                const fulfilled = isRequestFulfilled(data, database);
+                
                 requestItem.innerHTML = `
                     <p><strong>Brand:</strong> ${data.brand}</p>
                     <p><strong>Model:</strong> ${data.model}</p>
                     <p><strong>Device Type:</strong> ${data.deviceType}</p>
                     <p><strong>Requested:</strong> ${data.timestamp.toDate().toLocaleString()}</p>
+                    ${fulfilled ? '<p><strong>Status:</strong> ✅ Added to database</p>' : ''}
                 `;
                 requestsList.appendChild(requestItem);
             });
