@@ -39,10 +39,20 @@ function debounce(func, wait) {
     };
 }
 function isRequestFulfilled(request, database) {
+    // Helper function to normalize strings for comparison
+    const normalize = (str) => str.toLowerCase().replace(/[^a-z0-9]/g, '');
+
+    // Helper function to check if two strings are similar
+    const isSimilar = (str1, str2) => {
+        const norm1 = normalize(str1);
+        const norm2 = normalize(str2);
+        return norm1.includes(norm2) || norm2.includes(norm1);
+    };
+
     return database.some(item => 
-        item.brand.toLowerCase() === request.brand.toLowerCase() &&
-        item.model.toLowerCase() === request.model.toLowerCase() &&
-        item.device_type.toLowerCase() === request.deviceType.toLowerCase()
+        isSimilar(item.brand, request.brand) &&
+        isSimilar(item.model, request.model) &&
+        isSimilar(item.device_type, request.deviceType)
     );
 }
 function displayIRRequests() {
