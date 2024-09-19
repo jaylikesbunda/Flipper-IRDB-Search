@@ -61,7 +61,7 @@ function displayIRRequests() {
 
     console.log("Fetching IR requests...");
 
-    db.collection("irRequests").orderBy("timestamp", "desc").limit(10).get()
+    db.collection("irRequests").orderBy("timestamp", "desc").limit(25).get() // Increased limit to 25
         .then((querySnapshot) => {
             console.log("Received query snapshot:", querySnapshot.size);
             requestsList.innerHTML = '';

@@ -127,7 +127,7 @@ h1 {
 .result-item {
     background-color: var(--secondary-bg);
     border-radius: var(--border-radius);
-    padding: 1.5rem;
+    padding: .6rem;
     transition: var(--transition);
 }
 
@@ -174,10 +174,9 @@ h1 {
 }
 
 .page-nav {
-    background-color: var(--secondary-bg);
     border: none;
     color: var(--text-color);
-    padding: 0.75rem 1rem;
+    padding: 1rem;
     cursor: pointer;
     border-radius: var(--border-radius);
     transition: var(--transition);
