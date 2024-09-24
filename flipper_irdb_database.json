@@ -667,6 +667,24 @@
     "additional_info": "for lg sx122cl ac"
   },
   {
+    "filename": "Lifetime_Air.ir",
+    "device_type": "ACs",
+    "brand": "Lifetime",
+    "model": "Air",
+    "series": "Lifetime_Air.ir",
+    "path": "ACs\\Lifetime Air\\Lifetime_Air.ir",
+    "additional_info": "lifetime air ac"
+  },
+  {
+    "filename": "MayTag_M6X06F2A.ir",
+    "device_type": "ACs",
+    "brand": "MayTag",
+    "model": "M6X06F2A",
+    "series": "MayTag_M6X06F2A.ir",
+    "path": "ACs\\MayTag\\MayTag_M6X06F2A.ir",
+    "additional_info": "maytag m6x06f2a ac"
+  },
+  {
     "filename": "Midea_AC_MAW05R1WBL.ir",
     "device_type": "ACs",
     "brand": "Midea",
@@ -1287,6 +1305,15 @@
     "additional_info": "edifier r2000db audio receiver"
   },
   {
+    "filename": "Elac_EA101EQ-G.ir",
+    "device_type": "Audio_and_Video_Receivers",
+    "brand": "Elac",
+    "model": "EA101EQ-G",
+    "series": "Elac_EA101EQ-G.ir",
+    "path": "Audio_and_Video_Receivers\\Elac\\Elac_EA101EQ-G.ir",
+    "additional_info": "elac ea101eq-g av receiver"
+  },
+  {
     "filename": "Emotiva_PT100_TA100.ir",
     "device_type": "Audio_and_Video_Receivers",
     "brand": "Emotiva",
@@ -1415,6 +1442,15 @@
     "additional_info": "for phillips cd-723 player"
   },
   {
+    "filename": "Philips_FW750c.ir",
+    "device_type": "Audio_and_Video_Receivers",
+    "brand": "Philips",
+    "model": "FW750c",
+    "series": "Philips_FW750c.ir",
+    "path": "Audio_and_Video_Receivers\\Philips\\Philips_FW750c.ir",
+    "additional_info": "philips fw750c av receiver"
+  },
+  {
     "filename": "Philips_FX55_HiFi.ir",
     "device_type": "Audio_and_Video_Receivers",
     "brand": "Philips",
@@ -1431,6 +1467,15 @@
     "series": "Pioneer_AXD7741.ir",
     "path": "Audio_and_Video_Receivers\\Pioneer\\Pioneer_AXD7741.ir",
     "pioneer axd7741 remote for models": "VSX-430, VSX-430-K, VSX-530 and VSX-530-K"
+  },
+  {
+    "filename": "Pioneer_VSX-D1-S.ir",
+    "device_type": "Audio_and_Video_Receivers",
+    "brand": "Pioneer",
+    "model": "VSX-D1-S",
+    "series": "Pioneer_VSX-D1-S.ir",
+    "path": "Audio_and_Video_Receivers\\Pioneer\\Pioneer_VSX-D1-S.ir",
+    "additional_info": "pioneer vsx-d1-s av receiver"
   },
   {
     "filename": "Portta_Toslink_Audio_Switcher.ir",
@@ -1522,6 +1567,15 @@
     "series": "Sony_MHC-GS300AV.ir",
     "path": "Audio_and_Video_Receivers\\Sony\\Sony_MHC-GS300AV.ir",
     "additional_info": "sony rm-sgs3 (for mhc-gs300av)"
+  },
+  {
+    "filename": "Sony_MHC_GSX75.ir",
+    "device_type": "Audio_and_Video_Receivers",
+    "brand": "Sony",
+    "model": "MHC_GSX75",
+    "series": "Sony_MHC_GSX75.ir",
+    "path": "Audio_and_Video_Receivers\\Sony\\Sony_MHC_GSX75.ir",
+    "additional_info": "sony rm-sx100w remote for hcd-gsx75 model"
   },
   {
     "filename": "Sony_RM-AAU130_AV.ir",
@@ -1911,6 +1965,17 @@
     "additional_info": "direct tv rc65 receiver"
   },
   {
+    "filename": "Eurolan_TH100.ir",
+    "device_type": "Cable_Boxes",
+    "brand": "Eurolan",
+    "model": "TH100",
+    "series": "Eurolan_TH100.ir",
+    "path": "Cable_Boxes\\Eurolan\\Eurolan_TH100.ir",
+    "spec": "https://www.eurolan.net/en/th100.html",
+    "pdf": "http://www.eurolan.net/datasheets/TH100.pdf (contains an image and a description of the remote)",
+    "additional_info": "eurolan th100, buttons have been recorded left->right from top row down"
+  },
+  {
     "filename": "EVO4.ir",
     "device_type": "Cable_Boxes",
     "brand": "EVO4",
@@ -2244,6 +2309,15 @@
     "additional_info": "jvc remote rm-rk50, made by thargok"
   },
   {
+    "filename": "Kenwood_DMX4704s.ir",
+    "device_type": "Car_Multimedia",
+    "brand": "Kenwood",
+    "model": "Kenwood DMX4707s headunit",
+    "series": "Kenwood",
+    "path": "Car_Multimedia\\CD_Players\\Kenwood\\Kenwood_DMX4704s.ir",
+    "remote": "Kenwood"
+  },
+  {
     "filename": "Kenwood_RC-406.ir",
     "device_type": "Car_Multimedia",
     "brand": "Kenwood",
@@ -2427,6 +2501,15 @@
     "series": "Denon_RC_1199.ir",
     "path": "CD_Players\\Denon\\Denon_RC_1199.ir",
     "additional_info": "denon rc-1199, used for example on denon ceol n7"
+  },
+  {
+    "filename": "Fisher_SLIM-1500.ir",
+    "device_type": "CD_Players",
+    "brand": "Fisher",
+    "model": "SLIM-1500",
+    "series": "Fisher_SLIM-1500.ir",
+    "path": "CD_Players\\Fisher\\Fisher_SLIM-1500.ir",
+    "additional_info": "fisher slim-1500 cd player"
   },
   {
     "filename": "GPX_cd_radio.ir",
@@ -3246,6 +3329,15 @@
     "series": "Dreo_Cruiser Pro_T1S_Fan.ir",
     "path": "Fans\\Dreo\\Dreo_Cruiser Pro_T1S_Fan.ir",
     "additional_info": "dreo cruiser pro t1s fan"
+  },
+  {
+    "filename": "Dreo_DR-HTF007.ir",
+    "device_type": "Fans",
+    "brand": "Dreo",
+    "model": "DR-HTF007",
+    "series": "Dreo_DR-HTF007.ir",
+    "path": "Fans\\Dreo\\Dreo_DR-HTF007.ir",
+    "additional_info": "dreo dr-htf007 fan"
   },
   {
     "filename": "Dreo_WDR-TF007-9275A.ir",
@@ -4193,6 +4285,15 @@
     "additional_info": "duraflame heater"
   },
   {
+    "filename": "Edenpure_RPE1500_A5093.ir",
+    "device_type": "Heaters",
+    "brand": "Edenpure",
+    "model": "RPE1500_A5093",
+    "series": "Edenpure_RPE1500_A5093.ir",
+    "path": "Heaters\\EdenPURE\\Edenpure_RPE1500_A5093.ir",
+    "additional_info": "edenpure rpe1500 a5093 heater"
+  },
+  {
     "filename": "FlameMore_Heater.ir",
     "device_type": "Heaters",
     "brand": "FlameMore",
@@ -4821,6 +4922,15 @@
     "series": "Govee_TV_Backlights.ir",
     "path": "LED_Lighting\\Govee\\Govee_TV_Backlights.ir",
     "additional_info": "govee tv backlights"
+  },
+  {
+    "filename": "HGomx_Saturn_LED_Lamp.ir",
+    "device_type": "LED_Lighting",
+    "brand": "HGomx",
+    "model": "Saturn_LED_Lamp",
+    "series": "HGomx_Saturn_LED_Lamp.ir",
+    "path": "LED_Lighting\\HGomx\\HGomx_Saturn_LED_Lamp.ir",
+    "additional_info": "hgomx saturn led lamp, https://www.amazon.com/gp/product/b08zntp6br"
   },
   {
     "filename": "Hovvida_LED.ir",
@@ -7173,6 +7283,15 @@
     "additional_info": "jbl cinema sb120 bar"
   },
   {
+    "filename": "Larksound_L200.ir",
+    "device_type": "SoundBars",
+    "brand": "Larksound",
+    "model": "L200",
+    "series": "Larksound_L200.ir",
+    "path": "SoundBars\\Larksound\\Larksound_L200.ir",
+    "additional_info": "larksound l2000 soundbar, https://larksound.com/products/l200, https://www.amazon.com/gp/product/b0brcqvpt9"
+  },
+  {
     "filename": "LG SJ4.ir",
     "device_type": "SoundBars",
     "brand": "LG SJ4",
@@ -8780,6 +8899,15 @@
     "additional_info": "hisense tv zdb2190126"
   },
   {
+    "filename": "Hisense_U7G.ir",
+    "device_type": "TVs",
+    "brand": "Hisense",
+    "model": "U7G",
+    "series": "Hisense_U7G.ir",
+    "path": "TVs\\Hisense\\Hisense_U7G.ir",
+    "additional_info": "hisense u7g tv"
+  },
+  {
     "filename": "Hitachi_49141.ir",
     "device_type": "TVs",
     "brand": "Hitachi",
@@ -9026,6 +9154,15 @@
     "series": "LG_AKB74915305.ir",
     "path": "TVs\\LG\\LG_AKB74915305.ir",
     "additional_info": "lg akb74915305 tv"
+  },
+  {
+    "filename": "LG_AKB75375608.ir",
+    "device_type": "TVs",
+    "brand": "LG",
+    "model": "AKB75375608",
+    "series": "LG_AKB75375608.ir",
+    "path": "TVs\\LG\\LG_AKB75375608.ir",
+    "additional_info": "lg akb75375608 remote control, fit for lg 32lk61 32lk62 43lk59 43lk61 43uk63 43uk64 43uk65 43uk67 43uk69 49uk63 49uk64 49uk75 50uk64 50uk65 50uk67 50uk69 55sk80 55uk64 55uk65 series led lcd tv, the replacement remote control can operate below knowing models:, - 32lk61, - 32lk62, - 43lk59, - 43lk61, - 43uk63, - 43uk64, - 43uk65, - 43uk67, - 43uk69, - 49lk59, - 49lk61, - 49sk80, - 49uk63, - 49uk64, - 49uk75, - 50uk64, - 50uk65, - 50uk67, - 50uk69, - 55sk80, - 55uk64, - 55uk65, - 55uk67, - 55uk69, - 55uk75, - 65sk80, - 65uk64, - 65uk65, - 65uk67, - 65uk69, - 65uk75, - 70uk67, - 70uk69, - 75sk81, - 75uk65, - 75uk67, - 86uk65, - 86uk67, - 32lk6100plb, - 32lk610bplb, - 32lk615bplb, - 32lk6190pla, - 32lk6200pla, - 43lk5900pla, - 43lk5910plc, - 43lk5990ple, - 43lk6100pla, - 43uk6390plg, - 43uk6400plf, - 43uk6450plc, - 43uk6470plc, - 43uk6500lla, - 43uk6500mla, - 43uk6500pla, - 43uk6510plb, - 43uk6550pld, - 43uk6710plb, - 43uk6750pld, - 43uk6950plb, - 49lk5900pla, - 49lk5910plc, - 49lk6100pla, - 49sk8000pta, - 49sk8000pva, - 49uk6390plg, - 49uk6400plf, - 49uk6450plc, - 49uk6470plc, - 49uk7500pta, - 49uk7500pva, - 49uk7550pta, - 49uk7700pta, - 50uk6410plc, - 50uk6470plc, - 50uk6500lla, - 50uk6500mla, - 50uk6500pla, - 50uk6510plb, - 50uk6550pld, - 50uk6710plb, - 50uk6750pld, - 50uk6950plb, - 55sk8000pta, - 55sk8000pva, - 55uk6400plf, - 55uk6450plc, - 55uk6470plc, - 55uk6500lla, - 55uk6500mla, - 55uk6500pla, - 55uk6510plb, - 55uk6550pld, - 55uk6710plb, - 55uk6750pld, - 55uk6950plb, - 55uk7500pta, - 55uk7500pva, - 55uk7550pta, - 55uk7700pta, - 65sk8000pta, - 65sk8000pva, - 65uk6400plf, - 65uk6450plc, - 65uk6470plc, - 65uk6500lla, - 65uk6500mla, - 65uk6500pla, - 65uk6710plb, - 65uk6750pld, - 65uk6950plb, - 65uk7500pta, - 65uk7500pva, - 65uk7550pta, - 65uk7700pta, - 70uk6950pla, - 75sk8000pta, - 75sk8100pta, - 75sk8100pva, - 75uk6500pla, - 75uk6750plb, - 86uk6500pla, - 86uk6750plb"
   },
   {
     "filename": "LG_AKB75675311.ir",
@@ -10185,6 +10322,15 @@
     "additional_info": "strong rcu-z400n remote (e.g. srt 40fz4003n tv)"
   },
   {
+    "filename": "Strong_TVD221_B1825.ir",
+    "device_type": "TVs",
+    "brand": "Strong",
+    "model": "TVD221_B1825",
+    "series": "Strong_TVD221_B1825.ir",
+    "path": "TVs\\Strong\\Strong_TVD221_B1825.ir",
+    "additional_info": "strong tvd211 b1825 remote (e.g. srt 40fd5553 led-tv)"
+  },
+  {
     "filename": "SWEEX_Generic_Monitor.ir",
     "device_type": "TVs",
     "brand": "SWEEX",
@@ -10203,6 +10349,15 @@
     "additional_info": "symphonic st424ff crt tv"
   },
   {
+    "filename": "TCL_40S615.ir",
+    "device_type": "TVs",
+    "brand": "TCL",
+    "model": "40S615",
+    "series": "TCL_40S615.ir",
+    "path": "TVs\\TCL\\TCL_40S615.ir",
+    "additional_info": "tcl 40s615 tv"
+  },
+  {
     "filename": "TCL_43S446.ir",
     "device_type": "TVs",
     "brand": "TCL",
@@ -10210,6 +10365,15 @@
     "series": "TCL_43S446.ir",
     "path": "TVs\\TCL\\TCL_43S446.ir",
     "additional_info": "tcl 43\" class 4-series 4k uhd hdr led smart google tv - 43s446, https://www.tcl.com/us/en/products/home-theater/4-series/43-class-4-series-4k-uhd-led-smart-google-tv-43s446"
+  },
+  {
+    "filename": "TCL_50S423.ir",
+    "device_type": "TVs",
+    "brand": "TCL",
+    "model": "50S423",
+    "series": "TCL_50S423.ir",
+    "path": "TVs\\TCL\\TCL_50S423.ir",
+    "additional_info": "tcl roku tv remote (50s423), https://www.amazon.com/gp/product/b07n4fj7s4"
   },
   {
     "filename": "TCL_65C635K.ir",
@@ -10397,6 +10561,15 @@
     "additional_info": "remote se r0305 for lcd hdtv model 32cv100u"
   },
   {
+    "filename": "Viano_STV65UHD4K.ir",
+    "device_type": "TVs",
+    "brand": "Viano",
+    "model": "STV65UHD4K",
+    "series": "Viano_STV65UHD4K.ir",
+    "path": "TVs\\Viano\\Viano_STV65UHD4K.ir",
+    "additional_info": "viano stv65uhd4k tv"
+  },
+  {
     "filename": "VIEWSONIC_A-00010219.ir",
     "device_type": "TVs",
     "brand": "VIEWSONIC",
@@ -10525,6 +10698,15 @@
     "series": "Vizio_XRT150.ir",
     "path": "TVs\\Vizio\\Vizio_XRT150.ir",
     "additional_info": "vizio xrt150 tv"
+  },
+  {
+    "filename": "Waltham_WTHD3214B.ir",
+    "device_type": "TVs",
+    "brand": "Waltham",
+    "model": "WTHD3214B",
+    "series": "Waltham_WTHD3214B.ir",
+    "path": "TVs\\Waltham\\Waltham_WTHD3214B.ir",
+    "additional_info": "waltham wthd3214b tv"
   },
   {
     "filename": "WATSON_FA3627T.ir",
