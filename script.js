@@ -27,6 +27,7 @@ function setupEventListeners() {
 
     window.addEventListener('resize', debounce(updateLayout, 250));
 }
+
 function debounce(func, wait) {
     let timeout;
     return function executedFunction(...args) {
@@ -38,23 +39,53 @@ function debounce(func, wait) {
         timeout = setTimeout(later, wait);
     };
 }
+
+const manuallyFulfilledRequests = [
+    { brand: 'Sony', model: 'MHC-GSX75', deviceType: 'Audio Mixer/Stereo' },
+    // Add more manually fulfilled requests here
+];
 function isRequestFulfilled(request, database) {
     // Helper function to normalize strings for comparison
-    const normalize = (str) => str.toLowerCase().replace(/[^a-z0-9]/g, '');
-
+    const normalize = (str) => str ? str.toLowerCase().replace(/[^a-z0-9]/g, '') : '';
+    
     // Helper function to check if two strings are similar
     const isSimilar = (str1, str2) => {
         const norm1 = normalize(str1);
         const norm2 = normalize(str2);
         return norm1.includes(norm2) || norm2.includes(norm1);
     };
-
-    return database.some(item => 
-        isSimilar(item.brand, request.brand) &&
-        isSimilar(item.model, request.model) &&
-        isSimilar(item.device_type, request.deviceType)
+    
+    // Check if the request is manually marked as fulfilled
+    const isManuallyFulfilled = manuallyFulfilledRequests.some(manualEntry => 
+        isSimilar(manualEntry.brand, request.brand) &&
+        isSimilar(manualEntry.model, request.model) &&
+        (!manualEntry.deviceType || isSimilar(manualEntry.deviceType, request.deviceType))
     );
+    
+    if (isManuallyFulfilled) {
+        return true;
+    }
+    
+    // Proceed with existing logic
+    return database.some(item => {
+        const brandMatch = isSimilar(item.brand, request.brand);
+        const modelMatch = isSimilar(item.model, request.model);
+        const deviceTypeDifferent = request.deviceType && item.device_type && !isSimilar(item.device_type, request.deviceType);
+        
+        // If brand and model match
+        if (brandMatch && modelMatch) {
+            // If device types are directly opposing, do not consider fulfilled
+            if (deviceTypeDifferent) {
+                return false;
+            }
+            // Else, consider fulfilled
+            return true;
+        }
+        return false;
+    });
 }
+
+
 function displayIRRequests() {
     const requestsList = document.getElementById('requestsList');
     requestsList.innerHTML = '<p>Loading requests...</p>';
@@ -93,6 +124,7 @@ function displayIRRequests() {
             requestsList.innerHTML = '<p>Error loading requests. Please try again later.</p>';
         });
 }
+
 function submitIRRequest(e) {
     e.preventDefault();
 
@@ -122,6 +154,7 @@ function submitIRRequest(e) {
         requestStatus.textContent = "Error submitting request. Please try again.";
     });
 }
+
 function debounceSearch() {
     clearTimeout(debounceTimer);
     debounceTimer = setTimeout(instantSearch, 300);  // Increased debounce time for better performance
@@ -259,6 +292,7 @@ function handleRegularDownload(blob, filename, downloadStatus) {
     }, 100);
     if (downloadStatus) downloadStatus.textContent = 'Download complete!';
 }
+
 function populateFilters() {
     const deviceTypes = new Set(database.map(item => item.device_type));
     const brands = new Set(database.map(item => item.brand));
@@ -482,4 +516,3 @@ document.addEventListener('DOMContentLoaded', (event) => {
 document.addEventListener('DOMContentLoaded', function() {
     displayIRRequests();
 });
-
