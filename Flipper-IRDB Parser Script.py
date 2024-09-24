@@ -9,10 +9,10 @@ from urllib.parse import quote
 SCRIPT_DIR = Path(__file__).parent.absolute()
 
 # GitHub raw content base URL
-GITHUB_RAW_BASE = "https://raw.githubusercontent.com/logickworkshop/Flipper-IRDB/main/"
+GITHUB_RAW_BASE = "https://raw.githubusercontent.com/Lucaslhm/Flipper-IRDB/main/"
 
 def download_repo():
-    url = "https://github.com/logickworkshop/Flipper-IRDB/archive/refs/heads/main.zip"
+    url = "https://github.com/Lucaslhm/Flipper-IRDB/archive/refs/heads/main.zip"
     zip_path = SCRIPT_DIR / "Flipper-IRDB.zip"
     extract_path = SCRIPT_DIR / "Flipper-IRDB-main"
 
