@@ -127,7 +127,7 @@ h1 {
 .result-item {
     background-color: var(--secondary-bg);
     border-radius: var(--border-radius);
-    padding: .6rem;
+    padding: 1rem;
     transition: var(--transition);
 }
 
