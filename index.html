@@ -1,44 +1,52 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+    <!-- Meta Tags -->
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Flipper Zero IRDB Search/Request</title>
+
+    <!-- Fonts and Icons -->
     <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="styles.css">
     <script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
 </head>
 
-<!-- Google tag (gtag.js) -->
-<script async src="https://www.googletagmanager.com/gtag/js?id=G-NKXZVMQ34Z"></script>
-<script>
-  window.dataLayer = window.dataLayer || [];
-  function gtag(){dataLayer.push(arguments);}
-  gtag('js', new Date());
-
-  gtag('config', 'G-NKXZVMQ34Z');
-</script>
-
 <body>
+    <!-- Google Analytics -->
+    <!-- Google tag (gtag.js) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-NKXZVMQ34Z"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+      gtag('config', 'G-NKXZVMQ34Z');
+    </script>
+
+    <!-- Canvas for Background Animation -->
+    <canvas id="bgCanvas"></canvas>
+
+    <!-- Main Container -->
     <div class="container">
+        <!-- Header Section -->
         <header>
-            <img src="https://i.ibb.co/vvbtBBW/icon.png" alt="Flipper Zero IRDB Search & Request" style="max-width: 100%; height: auto;">
+            <img src="https://i.ibb.co/vvbtBBW/icon.png" alt="Flipper Zero IRDB Search & Request">
             <div class="button-container">
-                <a href="submit-guide.html" class="submit-guide-btn">Submit a File</a>
-                <a href="https://format.flippertools.net" class="submit-guide-btn" target="_blank">Format a File</a>
-                <a href="#irRequestForm" class="submit-guide-btn" id="requestRemoteBtn">Request a File</a>
+                <a href="submit-guide.html" class="btn">Submit a File</a>
+                <a href="https://format.flippertools.net" class="btn" target="_blank">Format a File</a>
+                <a href="#irRequestForm" class="btn" id="requestRemoteBtn">Request a File</a>
             </div>
-            
-            <footer>
-                <p>Data: <a href="https://github.com/Lucaslhm/Flipper-IRDB" target="_blank">Flipper-IRDB</a></p>
-                <p>Created by <a href="https://github.com/jaylikesbunda" target="_blank">Jay Candel</a></p>
-            </footer>
         </header>
+
+        <!-- Main Content -->
         <main>
+            <!-- Search Bar -->
             <div class="search-bar">
                 <input type="text" id="searchInput" placeholder="Search brand, model, or device type...">
                 <button id="searchButton" aria-label="Search"><i class="fas fa-search"></i></button>
             </div>
+
+            <!-- Filters -->
             <div class="filters">
                 <select id="deviceTypeFilter">
                     <option value="">All Types</option>
@@ -53,45 +61,62 @@
                     <option value="100">100 per page</option>
                 </select>
             </div>
+
+            <!-- Statistics -->
             <div id="stats" class="stats"></div>
+
+            <!-- Loading Indicator -->
             <div id="loading" class="loading">
                 <div class="spinner"></div>
                 <p>Loading...</p>
             </div>
+
+            <!-- Results -->
             <div id="results" class="results"></div>
+
+            <!-- Pagination -->
             <div id="pagination" class="pagination">
                 <button id="prevPage" class="page-nav" aria-label="Previous page"><i class="fas fa-chevron-left"></i></button>
                 <span id="currentPage"></span>
                 <button id="nextPage" class="page-nav" aria-label="Next page"><i class="fas fa-chevron-right"></i></button>
             </div>
+
+            <!-- Download Status -->
             <div id="downloadStatus" class="download-status"></div>
-            
-            <!-- New IR Request Form Section -->
-            <div id="irRequestForm" class="ir-request-form">
+
+            <!-- IR Request Form Section -->
+            <section id="irRequestForm" class="ir-request-form">
                 <h2>Request a Remote</h2>
                 <form id="requestForm">
                     <input type="text" id="brandInput" placeholder="Brand" required>
-                    <input type="text" id="modelInput" placeholder="Device Model Number | NOT REMOTE MODEL" required>
+                    <input type="text" id="modelInput" placeholder="Device Model Number (NOT REMOTE MODEL)" required>
                     <input type="text" id="deviceTypeInput" placeholder="Device Type" required>
-                    <button type="submit">Submit Request</button>
+                    <button type="submit" class="btn">Submit Request</button>
                 </form>
                 <div id="requestStatus"></div>
-            </div>
+            </section>
+
             <!-- IR Requests List Section -->
-            <div id="irRequestsList" class="ir-requests-list">
+            <section id="irRequestsList" class="ir-requests-list">
                 <h2>Recent Requests</h2>
                 <div id="requestsList"></div>
-            </div>
+            </section>
         </main>
 
+        <!-- Footer -->
+        <footer>
+            <p>Data: <a href="https://github.com/Lucaslhm/Flipper-IRDB" target="_blank">Flipper-IRDB</a></p>
+            <p>Created by <a href="https://github.com/jaylikesbunda" target="_blank">Jay Candel</a></p>
+        </footer>
     </div>
-    
+
+    <!-- Firebase and Scripts -->
     <script src="https://www.gstatic.com/firebasejs/10.13.1/firebase-app-compat.js"></script>
     <script src="https://www.gstatic.com/firebasejs/10.13.1/firebase-firestore-compat.js"></script>
     <script>
-    // Your web app's Firebase configuration
+    // Firebase Configuration
     const firebaseConfig = {
-        apiKey: "AIzaSyDswQecM1axpQstqHLumJVEMa08_KvzGvM",
+        apiKey: "YOUR_API_KEY",
         authDomain: "flipper-ir-search.firebaseapp.com",
         projectId: "flipper-ir-search",
         storageBucket: "flipper-ir-search.appspot.com",
@@ -104,6 +129,11 @@
     firebase.initializeApp(firebaseConfig);
     const db = firebase.firestore();
     </script>
+
+    <!-- Background Animation Script -->
+    <script src="background.js"></script>
+
+    <!-- Your Main Script -->
     <script src="script.js"></script>
 </body>
 </html>
