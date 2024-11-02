@@ -564,8 +564,7 @@
     "model": "AS-24HR4SQJUL",
     "series": "Kelon_AS-24HR4SQJUL.ir",
     "path": "ACs\\Kelon\\Kelon_AS-24HR4SQJUL.ir",
-    "ac kelon as-24hr4sqjul. remote type": "DG11H1-01(E)",
-    "auto mode range": "[-7; 7]"
+    "ac kelon as-24hr4sqjul. remote type": "DG11H1-01(E)"
   },
   {
     "filename": "Kenmore_AC.ir",
@@ -786,6 +785,14 @@
     "additional_info": "for panasonic climate a75c2600"
   },
   {
+    "filename": "Panasonic_CS-E9HKR.ir",
+    "device_type": "ACs",
+    "brand": "Panasonic, Device Model: CS-E9HKR, Device Type: AC, Description: also works for CS-E7HKR, CS-E12HKR",
+    "model": "CS-E9HKR",
+    "series": "Panasonic_CS-E9HKR.ir",
+    "path": "ACs\\Panasonic\\Panasonic_CS-E9HKR.ir"
+  },
+  {
     "filename": "Panasonic_CWA75C4179.ir",
     "device_type": "ACs",
     "brand": "Panasonic",
@@ -838,7 +845,7 @@
     "model": "AC_AR12K",
     "series": "Samsung_AC_AR12K.ir",
     "path": "ACs\\Samsung\\Samsung_AC_AR12K.ir",
-    "additional_info": "for samsung ac ar12k remote db93, temp max, temp min"
+    "additional_info": "for samsung ac ar12k remote db93"
   },
   {
     "filename": "Samsung_AR13TYHZCWKN.ir",
@@ -974,7 +981,7 @@
     "model": "RG57H4",
     "series": "Toshiba_RG57H4.ir",
     "path": "ACs\\Toshiba\\Toshiba_RG57H4.ir",
-    "additional_info": "toshiba remote type rg57h4(b)/bgefu1, used with toshiba air conditioner rac-pd0812crru, power, mode, fan speed, temp+, temp-, short cut, timer on, timer off, sleep, swing, mytemp, led, power_off"
+    "additional_info": "toshiba remote type rg57h4(b)/bgefu1, used with toshiba air conditioner rac-pd0812crru"
   },
   {
     "filename": "Tosot_T24H-ILF.ir",
@@ -1141,6 +1148,15 @@
     "series": "Dyson_Purifier_Cool_Autoreact_TP7A.ir",
     "path": "Air_Purifiers\\Dyson\\Dyson_Purifier_Cool_Autoreact_TP7A.ir",
     "additional_info": "dyson purifier cool autoreact tp7a"
+  },
+  {
+    "filename": "Dyson_Purifier_Cool_TP10.ir",
+    "device_type": "Air_Purifiers",
+    "brand": "Dyson",
+    "model": "Purifier_Cool_TP10",
+    "series": "Dyson_Purifier_Cool_TP10.ir",
+    "path": "Air_Purifiers\\Dyson\\Dyson_Purifier_Cool_TP10.ir",
+    "additional_info": "dyson purifier cool gen1 tp10"
   },
   {
     "filename": "Dyson_Purifier_Humidify+Cool_Autoreact_PH3A.ir",
@@ -1330,6 +1346,14 @@
     "series": "Gpx_hc221b.ir",
     "path": "Audio_and_Video_Receivers\\GPX\\Gpx_hc221b.ir",
     "additional_info": "for gpx hc221 home music system"
+  },
+  {
+    "filename": "Harman Kardon_AVI200.ir",
+    "device_type": "Audio_and_Video_Receivers",
+    "brand": "Harman Kardon, Device Model: AVI200, Device Type: Audio and Video Receiver",
+    "model": "AVI200",
+    "series": "Harman Kardon_AVI200.ir",
+    "path": "Audio_and_Video_Receivers\\Harman_Kardon\\Harman Kardon_AVI200.ir"
   },
   {
     "filename": "DTR-7.ir",
@@ -1679,6 +1703,17 @@
     "additional_info": "yamaha amplifier ax-396"
   },
   {
+    "filename": "Yamaha_HTR3063.ir",
+    "device_type": "Audio_and_Video_Receivers",
+    "brand": "Yamaha",
+    "model": "HTR3063",
+    "series": "Yamaha_HTR3063.ir",
+    "path": "Audio_and_Video_Receivers\\Yamaha\\Yamaha_HTR3063.ir",
+    "device model": "HTR3063",
+    "device type": "Audio and Video Receiver",
+    "contributor": "jay candel"
+  },
+  {
     "filename": "Yamaha_RAS5.ir",
     "device_type": "Audio_and_Video_Receivers",
     "brand": "Yamaha",
@@ -1724,6 +1759,17 @@
     "additional_info": "brandell dr802 bidet"
   },
   {
+    "filename": "JVC_XVBP1.ir",
+    "device_type": "Blu-Ray",
+    "brand": "JVC",
+    "model": "XVBP1",
+    "series": "JVC_XVBP1.ir",
+    "path": "Blu-Ray\\JVC\\JVC_XVBP1.ir",
+    "device model": "XVBP1",
+    "device type": "Blu-ray Player",
+    "contributor": "jay candel"
+  },
+  {
     "filename": "LG_AKB73495301.ir",
     "device_type": "Blu-Ray",
     "brand": "LG",
@@ -1743,6 +1789,30 @@
     "additional_info": "lg blueray/surround sound"
   },
   {
+    "filename": "LG_BD690.ir",
+    "device_type": "Blu-Ray",
+    "brand": "LG",
+    "model": "BD690",
+    "series": "LG_BD690.ir",
+    "path": "Blu-Ray\\LG\\LG_BD690.ir",
+    "device model": "BD690",
+    "device type": "TV",
+    "contributor": "jay candel"
+  },
+  {
+    "filename": "LG_BH9520TW.ir",
+    "device_type": "Blu-Ray",
+    "brand": "LG",
+    "model": "BH9520TW",
+    "series": "LG_BH9520TW.ir",
+    "path": "Blu-Ray\\LG\\LG_BH9520TW.ir",
+    "remote model": "AKB73655501",
+    "device model": "BH9520TW",
+    "device type": "Blu-ray Player",
+    "description": "also works for S72B1-C S72T1-S S72T1-W S92T1-S S92T1-W S92T1-C BB5520A SHX56-D BH7520TW S92H1-S BH9320H",
+    "contributor": "jay candel"
+  },
+  {
     "filename": "LG_LHB655.ir",
     "device_type": "Blu-Ray",
     "brand": "LG",
@@ -1750,6 +1820,50 @@
     "series": "LG_LHB655.ir",
     "path": "Blu-Ray\\LG\\LG_LHB655.ir",
     "additional_info": "lg blueray lhb655"
+  },
+  {
+    "filename": "LG_UBK80.ir",
+    "device_type": "Blu-Ray",
+    "brand": "LG",
+    "model": "UBK80",
+    "series": "LG_UBK80.ir",
+    "path": "Blu-Ray\\LG\\LG_UBK80.ir",
+    "device model": "UBK80",
+    "device type": "Blu-ray Player",
+    "contributor": "jay candel"
+  },
+  {
+    "filename": "Marantz_BD8002.ir",
+    "device_type": "Blu-Ray",
+    "brand": "Marantz",
+    "model": "BD8002",
+    "series": "Marantz_BD8002.ir",
+    "path": "Blu-Ray\\Marantz\\Marantz_BD8002.ir",
+    "device model": "BD8002",
+    "device type": "Blu-ray Player",
+    "contributor": "jay candel"
+  },
+  {
+    "filename": "NAD_T557.ir",
+    "device_type": "Blu-Ray",
+    "brand": "NAD",
+    "model": "T557",
+    "series": "NAD_T557.ir",
+    "path": "Blu-Ray\\NAD\\NAD_T557.ir",
+    "device model": "T557",
+    "device type": "Blu-ray Player",
+    "contributor": "jay candel"
+  },
+  {
+    "filename": "OPPO_BDP103.ir",
+    "device_type": "Blu-Ray",
+    "brand": "OPPO",
+    "model": "BDP103",
+    "series": "OPPO_BDP103.ir",
+    "path": "Blu-Ray\\Oppo\\OPPO_BDP103.ir",
+    "device model": "BDP103",
+    "device type": "Blu-ray Player",
+    "contributor": "jay candel"
   },
   {
     "filename": "OPPO_BDP93.ir",
@@ -1761,6 +1875,17 @@
     "additional_info": "oppo bdp-93"
   },
   {
+    "filename": "Panasonic_DMPBDT167.ir",
+    "device_type": "Blu-Ray",
+    "brand": "Panasonic",
+    "model": "DMPBDT167",
+    "series": "Panasonic_DMPBDT167.ir",
+    "path": "Blu-Ray\\Panasonic\\Panasonic_DMPBDT167.ir",
+    "device model": "DMPBDT167",
+    "device type": "Blu-ray Player",
+    "contributor": "jay candel"
+  },
+  {
     "filename": "Panasonic_DMP_BD75.ir",
     "device_type": "Blu-Ray",
     "brand": "Panasonic",
@@ -1770,6 +1895,41 @@
     "additional_info": "panasonic blu-ray dmp_bd75, by sealldeveloper"
   },
   {
+    "filename": "Panasonic_DMRBWT720.ir",
+    "device_type": "Blu-Ray",
+    "brand": "Panasonic",
+    "model": "DMRBWT720",
+    "series": "Panasonic_DMRBWT720.ir",
+    "path": "Blu-Ray\\Panasonic\\Panasonic_DMRBWT720.ir",
+    "remote model": "N2QAYB000781",
+    "device model": "DMR-BWT720",
+    "device type": "Blu-ray Player",
+    "description": "also works for DMR-BWT730 DMR-BWT820 DMR-BWT835 DMR-BWT720GL DMR-BWT730GL DMR-BWT820GL DMRB-WT835GL DMR-BWT700 DMR-BWT800 DMR-BWT700GL DMR-BWT800GL DMR-XW380 DMR-XW385 DMR-XW390 DMR-XW480 DMR-XW380GL DMR-XW385GL DMR-XW390GL DMR-XW480GL DMR-BWT700 DMR-BWT800 DMR-BWT700GL DMR-BWT800GL DMR-PWT500 DMR-PWT500GL DMR-HW220 DMR-HW220GN DMR-HW220GN DMRBWT720 DMRBWT730 DMRBWT820 DMRBWT835 DMRBWT720GL DMRBWT730GL DMRBWT820GL DMRBWT835GL DMRXW380 DMRXW385 DMRXW390 DMRXW480 DMRXW380GL DMRXW385GL DMRXW390GL DMRXW480GL DMRBWT700 DMRBWT800 DMRBWT700GL DMRBWT800GL DMRPWT500 DMRPWT500GL DMRHW220GN DMRXW350 DMRXW450 DMRXW350GL DMRXW450GL DMR-XW350 DMR-XW450 DMR-XW350GL DMR- XW450GL DMRBW500 DMRBW500GN DMR-BW500 DMR-BW500GN DMRBW750GL DMR-BW850GL DMRXW440 DMRXW440GL DMRXW440GLK DMR-XW440 DMR-XW440GL DMR-XW440GLK DMREZ47V DMREZ47VGN DMREZ48VGN DMR-EZ47VGN DMR-EZ48VGN",
+    "contributor": "deki"
+  },
+  {
+    "filename": "Panasonic_DPUB420.ir",
+    "device_type": "Blu-Ray",
+    "brand": "Panasonic",
+    "model": "DPUB420",
+    "series": "Panasonic_DPUB420.ir",
+    "path": "Blu-Ray\\Panasonic\\Panasonic_DPUB420.ir",
+    "device model": "DPUB420",
+    "device type": "Blu-ray Player",
+    "contributor": "jay candel"
+  },
+  {
+    "filename": "Panasonic_DPUB820.ir",
+    "device_type": "Blu-Ray",
+    "brand": "Panasonic",
+    "model": "DPUB820",
+    "series": "Panasonic_DPUB820.ir",
+    "path": "Blu-Ray\\Panasonic\\Panasonic_DPUB820.ir",
+    "device model": "DPUB820",
+    "device type": "Blu-ray Player",
+    "contributor": "jay candel"
+  },
+  {
     "filename": "Panasonic_Region_Unlock.ir",
     "device_type": "Blu-Ray",
     "brand": "Panasonic",
@@ -1777,6 +1937,62 @@
     "series": "Universal_Region_Unlock",
     "path": "Blu-Ray\\Panasonic\\Universal_Region_Unlock\\Panasonic_Region_Unlock.ir",
     "additional_info": "universal panasonic dvd region unlock (from aramkolt), see readme for full details such as compatibility and use."
+  },
+  {
+    "filename": "Philips_BDP2501F7.ir",
+    "device_type": "Blu-Ray",
+    "brand": "Philips, Remote Model: NC278, Device Model: BDP2501/F7, Device Type: Blu-ray Player, Description: also works for Philips Models: BDP2501/F7C BDP250/F7C1 BDP2501/F7A.",
+    "model": "BDP2501F7",
+    "series": "Philips_BDP2501F7.ir",
+    "path": "Blu-Ray\\Philips\\Philips_BDP2501F7.ir"
+  },
+  {
+    "filename": "Philips_BDP2700.ir",
+    "device_type": "Blu-Ray",
+    "brand": "Philips, Device Model: BDP2700, Device Type: Blu-ray Player, Description: also works for Philips Models: BDP2500 BDP2700 BDP2800 BDP2850 BDP3000 BDP2700/05",
+    "model": "BDP2700",
+    "series": "Philips_BDP2700.ir",
+    "path": "Blu-Ray\\Philips\\Philips_BDP2700.ir"
+  },
+  {
+    "filename": "Philips_BDP7302.ir",
+    "device_type": "Blu-Ray",
+    "brand": "Phillips, Remote Model: NC282, Device Model: BDP7302, Device Type: Blu-ray Player, Description: also works for Phillips Models: BDP7302 BDP7302/F7 BDP7302F7 BDP7502 BDP7502/F7 BDP7502F7",
+    "model": "BDP7302",
+    "series": "Philips_BDP7302.ir",
+    "path": "Blu-Ray\\Philips\\Philips_BDP7302.ir"
+  },
+  {
+    "filename": "Pioneer_BDP150.ir",
+    "device_type": "Blu-Ray",
+    "brand": "Pioneer",
+    "model": "BDP150",
+    "series": "Pioneer_BDP150.ir",
+    "path": "Blu-Ray\\Pioneer\\Pioneer_BDP150.ir",
+    "remote model": "RC-2420",
+    "device model": "BDP150",
+    "device type": "Blu-ray Player",
+    "description": "also works for BDP-450 BDP-150-K BDP-150-S",
+    "contributor": "deki"
+  },
+  {
+    "filename": "Pioneer_BDP320.ir",
+    "device_type": "Blu-Ray",
+    "brand": "Pioneer",
+    "model": "BDP320",
+    "series": "Pioneer_BDP320.ir",
+    "path": "Blu-Ray\\Pioneer\\Pioneer_BDP320.ir",
+    "device model": "BDP320",
+    "device type": "Blu-ray Player",
+    "contributor": "jay candel"
+  },
+  {
+    "filename": "Pioneer_BDP43FD.ir",
+    "device_type": "Blu-Ray",
+    "brand": "Pioneer, Remote Model: VXX3351, Device Model: BDP43FD, Device Type: Blu-ray Player, Description: also works for Pioneer models: BDP-150 VXX3386 BDP-33FD BDP-52FD VXX3386 BDP-51FD BDP330 BDP120 BDP120FD BDP121 BDP-80FD BDP-450 BDP150 BDP-160 BDP-330 BDP-120 BDP-140 BDP-4110 BDP-103 BDP-62FD",
+    "model": "BDP43FD",
+    "series": "Pioneer_BDP43FD.ir",
+    "path": "Blu-Ray\\Pioneer\\Pioneer_BDP43FD.ir"
   },
   {
     "filename": "Samsung_AK59_00149A.ir",
@@ -1806,6 +2022,41 @@
     "additional_info": "samsung bd-d5300 blu-ray"
   },
   {
+    "filename": "Samsung_BDD7500.ir",
+    "device_type": "Blu-Ray",
+    "brand": "Samsung",
+    "model": "BDD7500",
+    "series": "Samsung_BDD7500.ir",
+    "path": "Blu-Ray\\Samsung\\Samsung_BDD7500.ir",
+    "device model": "BDD7500",
+    "device type": "Blu-ray Player",
+    "contributor": "jay candel"
+  },
+  {
+    "filename": "Samsung_BDE5300.ir",
+    "device_type": "Blu-Ray",
+    "brand": "Samsung",
+    "model": "BDE5300",
+    "series": "Samsung_BDE5300.ir",
+    "path": "Blu-Ray\\Samsung\\Samsung_BDE5300.ir",
+    "remote model": "AK59-00172A",
+    "device model": "BDE5300",
+    "device type": "Blu-ray Player",
+    "description": "also works for Samsung Models: BD-E5200 BD-E5300 BD-E5300/EN BD-E5300/TK BD-E5300/ZF BD-ES5000/EN BD-F5100/EN BD-F5100/TK BD-F5100/XN BD-F5100/ZF BD-F5500/EN BD-F5500/TK BD-F5500/ZF BD-F5500E/ZF BD-F5800/XN BD-H5500 (BD-H5500/XU) BD-H5500 (BD-H5500EN) BD-H5900 (BD-H5900/XU) BD-H5900/ZF BD-J4500 BD-J4500R BD-J5500 BD-J5700",
+    "contributor": "jay candel"
+  },
+  {
+    "filename": "Samsung_UBDK8500.ir",
+    "device_type": "Blu-Ray",
+    "brand": "Samsung",
+    "model": "UBDK8500",
+    "series": "Samsung_UBDK8500.ir",
+    "path": "Blu-Ray\\Samsung\\Samsung_UBDK8500.ir",
+    "device model": "UBDK8500",
+    "device type": "Blu-ray Player",
+    "contributor": "jay candel"
+  },
+  {
     "filename": "Sanyo_Bluray_NC088.ir",
     "device_type": "Blu-Ray",
     "brand": "Sanyo",
@@ -1814,6 +2065,25 @@
     "path": "Blu-Ray\\Sanyo\\Sanyo_Bluray_NC088.ir",
     "captured by": "emptythevoid",
     "additional_info": "sanyo remote nc088 for sanyo blu-ray player"
+  },
+  {
+    "filename": "Sharp_BDHP20.ir",
+    "device_type": "Blu-Ray",
+    "brand": "Sharp, Remote Model: GA630PA, Device Model: BD-HP20, Device Type: Blu-ray Player, Description: also works for models: BD-HP20U BD-HP20X BD-HP20H BD-HP20S BDHP20 BDHP20U BDHP20X BDHP20H BDHP20S",
+    "model": "BDHP20",
+    "series": "Sharp_BDHP20.ir",
+    "path": "Blu-Ray\\Sharp\\Sharp_BDHP20.ir"
+  },
+  {
+    "filename": "Soniq_B100.ir",
+    "device_type": "Blu-Ray",
+    "brand": "Soniq",
+    "model": "B100",
+    "series": "Soniq_B100.ir",
+    "path": "Blu-Ray\\Soniq\\Soniq_B100.ir",
+    "device model": "B100",
+    "device type": "Blu-ray Player",
+    "contributor": "jay candel"
   },
   {
     "filename": "Sony_BDP-N460_Blu-Ray.ir",
@@ -1841,6 +2111,53 @@
     "series": "Sony_BDP-S5200.ir",
     "path": "Blu-Ray\\Sony\\Sony_BDP-S5200.ir",
     "additional_info": "sony bdp-s5200 blu-ray"
+  },
+  {
+    "filename": "Sony_BDPBX120.ir",
+    "device_type": "Blu-Ray",
+    "brand": "Sony",
+    "model": "BDPBX120",
+    "series": "Sony_BDPBX120.ir",
+    "path": "Blu-Ray\\Sony\\Sony_BDPBX120.ir",
+    "remote model": "RMT-B126A",
+    "device model": "BDPBX120",
+    "device type": "Blu-ray Player",
+    "description": "also works for models: BDPBX120 BDP-BX320 BDPBX320 BDP-BX520 BDPBX520 BDP-BX620 BDPBX620 BDP-S1200 BDPS1200 BDP-S2200 BDPS2200 BDP-S3200 BDPS3200 BDP-S5200 BDPS5200 BDP-S5200/D BDPS5200D BDP-S5200E BDPS5200E BDP-S6200B BDPS6200B BDP-S6200  BDPS6200E BDP-S6200 BDPS6200 BDB-BX58 BDP173BX370 BDP173S1700 BDP173S1700CA BDP173S1700D BDP173S3700 BDP173S3700CA BDPBX110 BDPBX120 BDP-BX150 BDPBX18 BDPBX2 BDPBX2BM BDPBX310 BDPBX320 BDPBX350 BDP-BX350 BDPBX37 BDP-BX37 BDPBX38 BDP-BX38 BDPBX39 BDPBX510 BDPBX520 BDP-BX550 BDP-BX57 BDPBX58 BDPBX59 BDPBX620 BDP-BX650 BDPN460 BDPN460HP BDPS1100 BDPS1200 BDPS1500 BDP-S1500 BDPS1700ES BDPS185 BDPS2100 BDPS2200 BDPS2500 BDP-S2500 BDP-S270 BDPS280 BDP-S280 BDPS2900 BDP-S2900 BDPS310 BDPS3100 BDPS3200 BDPS3500 BDP-S3500 BDPS360HP BDP-S370 BDPS3700D BDPS380 BDP-S380 BDPS390 BDP-S470 BDPS480 BDP-S480 BDPS5100 BDPS5200 BDPS5200/D BDPS5500 BDP-S5500 BDPS560 BDP-S570 BDPS580 BDP-S580 BDPS590 BDPS6200 BDP-S6500 BDPS7200 BDPS770 BDPS780 BDPS790 BDPSX1000 BDPSX90 BDPSX910 LC46LE835U LT32E710",
+    "contributor": "jay candel"
+  },
+  {
+    "filename": "Sony_BDPS1700.ir",
+    "device_type": "Blu-Ray",
+    "brand": "Sony",
+    "model": "BDPS1700",
+    "series": "Sony_BDPS1700.ir",
+    "path": "Blu-Ray\\Sony\\Sony_BDPS1700.ir",
+    "device model": "BDPS1700",
+    "device type": "Blu-ray Player",
+    "contributor": "jay candel"
+  },
+  {
+    "filename": "Sony_BDPS360.ir",
+    "device_type": "Blu-Ray",
+    "brand": "Sony",
+    "model": "BDPS360",
+    "series": "Sony_BDPS360.ir",
+    "path": "Blu-Ray\\Sony\\Sony_BDPS360.ir",
+    "device model": "BDPS360",
+    "device type": "Blu-ray Player",
+    "contributor": "jay candel"
+  },
+  {
+    "filename": "Sony_BDPS770.ir",
+    "device_type": "Blu-Ray",
+    "brand": "Sony",
+    "model": "BDPS770",
+    "series": "Sony_BDPS770.ir",
+    "path": "Blu-Ray\\Sony\\Sony_BDPS770.ir",
+    "remote model": "RMT-B108A",
+    "device model": "BDPS770",
+    "device type": "Blu-ray Player",
+    "contributor": "jay candel"
   },
   {
     "filename": "Sony_BD_RMT_B110A.ir",
@@ -1886,6 +2203,58 @@
     "series": "Sony_RMT_VB310E.ir",
     "path": "Blu-Ray\\Sony\\Sony_RMT_VB310E.ir",
     "additional_info": "sony remote rmt-vb310e for sony ubp-x800m2"
+  },
+  {
+    "filename": "Sony_UBPX700.ir",
+    "device_type": "Blu-Ray",
+    "brand": "Sony",
+    "model": "UBPX700",
+    "series": "Sony_UBPX700.ir",
+    "path": "Blu-Ray\\Sony\\Sony_UBPX700.ir",
+    "device model": "UBPX700",
+    "device type": "Blu-ray Player",
+    "contributor": "jay candel"
+  },
+  {
+    "filename": "Sylvania_SDVD1111.ir",
+    "device_type": "Blu-Ray",
+    "brand": "Sylvania",
+    "model": "SDVD1111",
+    "series": "Sylvania_SDVD1111.ir",
+    "path": "Blu-Ray\\Sylvania\\Sylvania_SDVD1111.ir",
+    "device model": "SDVD1111",
+    "device type": "Blu-ray Player",
+    "contributor": "jay candel"
+  },
+  {
+    "filename": "Vizio_VBR220.ir",
+    "device_type": "Blu-Ray",
+    "brand": "Vizio, Remote Model: VR7, Device Model: VBR220, Device Type: Blu-ray Player, Description: also works for Vizio models: VBR200W VBR210 VBR333 VBR334 VBR100 VBR110 VBR120 VBR231.",
+    "model": "VBR220",
+    "series": "Vizio_VBR220.ir",
+    "path": "Blu-Ray\\Vizio\\Vizio_VBR220.ir"
+  },
+  {
+    "filename": "Vizio_VBR333.ir",
+    "device_type": "Blu-Ray",
+    "brand": "Vizio",
+    "model": "VBR333",
+    "series": "Vizio_VBR333.ir",
+    "path": "Blu-Ray\\Vizio\\Vizio_VBR333.ir",
+    "device model": "VBR333",
+    "device type": "Blu-ray Player",
+    "contributor": "jay candel"
+  },
+  {
+    "filename": "Yamaha_BDS667.ir",
+    "device_type": "Blu-Ray",
+    "brand": "Yamaha",
+    "model": "BDS667",
+    "series": "Yamaha_BDS667.ir",
+    "path": "Blu-Ray\\Yamaha\\Yamaha_BDS667.ir",
+    "device model": "BDS667",
+    "device type": "Blu-ray Player",
+    "contributor": "jay candel"
   },
   {
     "filename": "Arcadyan_HMB2260.ir",
@@ -3448,6 +3817,33 @@
     "additional_info": "for dyson pure cool me purifier fan"
   },
   {
+    "filename": "Dyson_Pure_Cool_TP02.ir",
+    "device_type": "Fans",
+    "brand": "Dyson",
+    "model": "Pure_Cool_TP02",
+    "series": "Dyson_Pure_Cool_TP02.ir",
+    "path": "Fans\\Dyson\\Dyson_Pure_Cool_TP02.ir",
+    "additional_info": "dyson pure cool tp02 fan"
+  },
+  {
+    "filename": "Dyson_Pure_Cool_TP4A.ir",
+    "device_type": "Fans",
+    "brand": "Dyson",
+    "model": "Pure_Cool_TP4A",
+    "series": "Dyson_Pure_Cool_TP4A.ir",
+    "path": "Fans\\Dyson\\Dyson_Pure_Cool_TP4A.ir",
+    "additional_info": "dyson pure cool tp4a fan"
+  },
+  {
+    "filename": "Dyson_Pure_Cool_TP4B.ir",
+    "device_type": "Fans",
+    "brand": "Dyson",
+    "model": "Pure_Cool_TP4B",
+    "series": "Dyson_Pure_Cool_TP4B.ir",
+    "path": "Fans\\Dyson\\Dyson_Pure_Cool_TP4B.ir",
+    "additional_info": "dyson pure cool tp4b fan"
+  },
+  {
     "filename": "Dyson_Pure_HotCool_HP02.ir",
     "device_type": "Fans",
     "brand": "Dyson",
@@ -3778,6 +4174,15 @@
     "series": "MeacoFan_1056_P.ir",
     "path": "Fans\\Meaco\\MeacoFan_1056_P.ir",
     "additional_info": "meaco meacofan 1056 p"
+  },
+  {
+    "filename": "Mistral_MTFYG07R.ir",
+    "device_type": "Fans",
+    "brand": "Mistral",
+    "model": "MTFYG07R",
+    "series": "Mistral_MTFYG07R.ir",
+    "path": "Fans\\Mistral\\Mistral_MTFYG07R.ir",
+    "additional_info": "power off is a seperate signal to power on and speed is one button, natural turns off the fan intermittently"
   },
   {
     "filename": "Mycarbon_Fan.ir",
@@ -4520,6 +4925,15 @@
     "additional_info": "levoit humidifier"
   },
   {
+    "filename": "Maxcan_mh_602brc.ir",
+    "device_type": "Humidifiers",
+    "brand": "Maxcan",
+    "model": "mh_602brc",
+    "series": "Maxcan_mh_602brc.ir",
+    "path": "Humidifiers\\Maxcan\\Maxcan_mh_602brc.ir",
+    "additional_info": "maxcan mh-602brc"
+  },
+  {
     "filename": "ProBreese_PB_F13B_US_Dehumid.ir",
     "device_type": "Humidifiers",
     "brand": "ProBreese",
@@ -4562,8 +4976,7 @@
     "model": "CU-DV027",
     "series": "Pioneer_CU-DV027.ir",
     "path": "Laserdisc\\Pioneer\\Pioneer_CU-DV027.ir",
-    "cycle through 3 repeat modes": "Chapter, Side, All, Off",
-    "additional_info": "pioneer cu-dv027 laserdisc remote, compatible with dvl-919 (jp), dvl-909 (jp), and dvl-h9, tested with dvl-919 (jp), front light dimmer, mark a beginning and endpoint to repeat in a loop. end loop with clear command., clears repeat loop, jump to a random spot"
+    "additional_info": "pioneer cu-dv027 laserdisc remote, compatible with dvl-919 (jp), dvl-909 (jp), and dvl-h9, tested with dvl-919 (jp)"
   },
   {
     "filename": "Pioneer_Elite_CLD_99.ir",
@@ -5736,7 +6149,7 @@
     "model": "AQUA-Series_03",
     "series": "Clever&Clean_AQUA-Series_03.ir",
     "path": "Miscellaneous\\Clever&Clean\\Clever&Clean_AQUA-Series_03.ir",
-    "additional_info": "clever&clean aqua-series 03 robot vacuum. it has a remote for manual driving and basic operation mode changes, https://cleverclean.ru/catalog.php#!/%d0%9f%d0%94%d0%a3-aqua-series/p/58375149/category=66165395, there is a center key on remote as well, but flipper does not record anything, and it does not do anything to vacuum. or my remote has broken key =), timings are measured around 5 times per signal, then averaged and rounded, currently manual drive is jerky, while with original remote it is smooth, be careful not to burn motors on manual drive, any improvements are welcome, 3000 1000 seems to be preamble, 1500 and 750 to be bits, message is repeated all the time button is pressed, original capture has 35000 pause before next repeat, but not at the end, like this 3000 1000 x x x 35000 3000 1000 x x x 35000 3000 1000 x x x, i love when robot vacuum parks, original recording has 3 repeats with 5200 pauses between 1-2 and 2-3 repeats, repeats removed because vacuum drives ok from single command, original recording has 3 repeats without any pause, repeats removed because vacuum seems to jump 3 modes, original recording has 3 repeats with 6500 pauses between 1-2 and 2-3 repeats, repeats removed because vacuum drives ok from single command"
+    "additional_info": "clever&clean aqua-series 03 robot vacuum. it has a remote for manual driving and basic operation mode changes, https://cleverclean.ru/catalog.php#!/%d0%9f%d0%94%d0%a3-aqua-series/p/58375149/category=66165395, there is a center key on remote as well, but flipper does not record anything, and it does not do anything to vacuum. or my remote has broken key =), timings are measured around 5 times per signal, then averaged and rounded, currently manual drive is jerky, while with original remote it is smooth, be careful not to burn motors on manual drive, any improvements are welcome, 3000 1000 seems to be preamble, 1500 and 750 to be bits, message is repeated all the time button is pressed, original capture has 35000 pause before next repeat, but not at the end, like this 3000 1000 x x x 35000 3000 1000 x x x 35000 3000 1000 x x x, original recording has 3 repeats with 5200 pauses between 1-2 and 2-3 repeats, repeats removed because vacuum drives ok from single command, original recording has 3 repeats without any pause, repeats removed because vacuum seems to jump 3 modes, original recording has 3 repeats with 6500 pauses between 1-2 and 2-3 repeats, repeats removed because vacuum drives ok from single command"
   },
   {
     "filename": "Contemporary_research.ir",
@@ -6134,6 +6547,15 @@
     "series": "SmartyKat_Mouse_RC.ir",
     "path": "Miscellaneous\\SmartyKat\\SmartyKat_Mouse_RC.ir",
     "additional_info": "for smartykat rc mouse toy"
+  },
+  {
+    "filename": "SE_MRC-60.ir",
+    "device_type": "Miscellaneous",
+    "brand": "SE",
+    "model": "MRC-60",
+    "series": "SE_MRC-60.ir",
+    "path": "Miscellaneous\\Sony_Ericsson\\SE_MRC-60.ir",
+    "additional_info": "remote control mrc-60, sony ericsson docking station, activates the media player, stops the media player and radio,, and switches between media player and radio. this requires the, phone to support source button functionality."
   },
   {
     "filename": "Terratec_M3PO.ir",
@@ -7256,6 +7678,22 @@
     "path": "SoundBars\\DutchOriginals\\dutch_originals_soundbar.ir"
   },
   {
+    "filename": "Hisense_HS215.ir",
+    "device_type": "SoundBars",
+    "brand": "Hisense, Device Model: HS215, Device Type: Soundbar",
+    "model": "HS215",
+    "series": "Hisense_HS215.ir",
+    "path": "SoundBars\\Hisense\\Hisense_HS215.ir"
+  },
+  {
+    "filename": "Hitachi_HSB40B16.ir",
+    "device_type": "SoundBars",
+    "brand": "Hitachi, Device Model: HSB40B16, Device Type: Soundbar, Description: also for works for model HSB32B26",
+    "model": "HSB40B16",
+    "series": "Hitachi_HSB40B16.ir",
+    "path": "SoundBars\\Hitachi\\Hitachi_HSB40B16.ir"
+  },
+  {
     "filename": "JBL_5_1_Soundbar.ir",
     "device_type": "SoundBars",
     "brand": "JBL",
@@ -7281,6 +7719,14 @@
     "series": "JBL_CINEMA_SB120.ir",
     "path": "SoundBars\\JBL\\JBL_CINEMA_SB120.ir",
     "additional_info": "jbl cinema sb120 bar"
+  },
+  {
+    "filename": "JVC_THBY370A.ir",
+    "device_type": "SoundBars",
+    "brand": "JVC, Remote Model: RM-STHBY370A, Device Model: THBY370A, Device Type: Soundbar",
+    "model": "THBY370A",
+    "series": "JVC_THBY370A.ir",
+    "path": "SoundBars\\JVC\\JVC_THBY370A.ir"
   },
   {
     "filename": "Larksound_L200.ir",
@@ -7317,6 +7763,14 @@
     "series": "LG_LAP340.ir",
     "path": "SoundBars\\LG\\LG_LAP340.ir",
     "additional_info": "lg lap340 4.1-channel 120w soundplate with built-in subwoofer and bluetooth connectivity, recroded on flipper0 from oem remote"
+  },
+  {
+    "filename": "LG_NB5541.ir",
+    "device_type": "SoundBars",
+    "brand": "LG, Remote Model: AKB73575431, Device Model: NB5541, Device Type: Soundbar, Description: also works for LG models: NB5541 NB4540 NB4543 S54a1-d NB5540 LAP440W NB3540 S34A2-D S54a2-d S44A1-D NB4542",
+    "model": "NB5541",
+    "series": "LG_NB5541.ir",
+    "path": "SoundBars\\LG\\LG_NB5541.ir"
   },
   {
     "filename": "LG_SL10YG.ir",
@@ -7434,6 +7888,14 @@
     "series": "Quantis_LSW-1.ir",
     "path": "SoundBars\\Quantis\\Quantis_LSW-1.ir",
     "additional_info": "quantis lsw-1 soundbar"
+  },
+  {
+    "filename": "RCA_RTS7110B2.ir",
+    "device_type": "SoundBars",
+    "brand": "RCA, Remote Model: RTS7110B, Device Model: RTS7110B2, Device Type: Soundbar, Description: also works for models: RTS7010BOM RTS7010B RTS7110B RTS7630B",
+    "model": "RTS7110B2",
+    "series": "RCA_RTS7110B2.ir",
+    "path": "SoundBars\\RCA\\RCA_RTS7110B2.ir"
   },
   {
     "filename": "Samsung_AH59-02692P_Soundbar.ir",
@@ -7570,6 +8032,14 @@
     "series": "Teufel_Cinebase_Soundbar.ir",
     "path": "SoundBars\\Teufel\\Teufel_Cinebase_Soundbar.ir",
     "additional_info": "teufel cinibase soundbar"
+  },
+  {
+    "filename": "Toshiba_SBX4250.ir",
+    "device_type": "SoundBars",
+    "brand": "Toshiba, Remote Model: SE-R0429, Device Model: SBX4250, Device Type: Soundbar, Description: also works for models: SBX4250KN SBX5065KU",
+    "model": "SBX4250",
+    "series": "Toshiba_SBX4250.ir",
+    "path": "SoundBars\\Toshiba\\Toshiba_SBX4250.ir"
   },
   {
     "filename": "Vizio_SB3651_E6.ir",
@@ -8764,11 +9234,6 @@
     "model": "TV_Box_AUS",
     "series": "Fetch_TV_Box_AUS.ir",
     "path": "TVs\\Fetch\\Fetch_TV_Box_AUS.ir",
-    "name": "Exit",
-    "type": "raw",
-    "frequency": "38000",
-    "duty_cycle": "0.330000",
-    "data": "9212 4462 635 505 664 502 638 1646 638 502 638 478 662 1646 637 1647 637 517 637 503 636 1648 635 1649 634 506 634 506 633 507 633 1652 632 522 632 491 659 481 632 1652 632 508 632 508 632 1652 632 1652 632 1666 631 1652 632 1653 631 509 631 1653 631 1653 632 508 632 508 632 508 631",
     "additional_info": "fetch tv box (australia), https://www.fetchtv.com.au/"
   },
   {
@@ -8806,6 +9271,15 @@
     "series": "AORUS_Monitor.ir",
     "path": "TVs\\Gigabyte\\AORUS_Monitor.ir",
     "additional_info": "gigabyte aorus tv monitor"
+  },
+  {
+    "filename": "Gogen_TVH24P266T.ir",
+    "device_type": "TVs",
+    "brand": "Gogen",
+    "model": "TVH24P266T",
+    "series": "Gogen_TVH24P266T.ir",
+    "path": "TVs\\Gogen\\Gogen_TVH24P266T.ir",
+    "additional_info": "gogen tvh24p266t"
   },
   {
     "filename": "GRUNDIG.ir",
@@ -8854,6 +9328,17 @@
     "additional_info": "hisense tv 32a4hau, by sealldeveloper"
   },
   {
+    "filename": "Hisense_55E7KQ.ir",
+    "device_type": "TVs",
+    "brand": "Hisense",
+    "model": "55E7KQ",
+    "series": "Hisense_55E7KQ.ir",
+    "path": "TVs\\Hisense\\Hisense_55E7KQ.ir",
+    "device model": "55E7KQ",
+    "device type": "TV",
+    "contributor": "jay candel"
+  },
+  {
     "filename": "Hisense_55K3201GUWUS.ir",
     "device_type": "TVs",
     "brand": "Hisense",
@@ -8861,6 +9346,14 @@
     "series": "Hisense_55K3201GUWUS.ir",
     "path": "TVs\\Hisense\\Hisense_55K3201GUWUS.ir",
     "additional_info": "hisense 55k3201guwus"
+  },
+  {
+    "filename": "Hisense_58R5.ir",
+    "device_type": "TVs",
+    "brand": "Hisense, Remote Model: EN2B27, Device Model: 58R5, Device Type: TV, Description: also works for models: 65R5 32N4 32P4 39N4 39P4 43N6 43P6 49P4 50N4 50N6 50P6 55N4 55N6 55P4 55P6 58P5 65N6 65P6 75P5 58N5 75N5 55K760UW 55K720UW 32K3110W 40K321UW",
+    "model": "58R5",
+    "series": "Hisense_58R5.ir",
+    "path": "TVs\\Hisense\\Hisense_58R5.ir"
   },
   {
     "filename": "Hisense_65K3300UW.ir",
@@ -8888,6 +9381,14 @@
     "series": "Hisense_ER22601A.ir",
     "path": "TVs\\Hisense\\Hisense_ER22601A.ir",
     "additional_info": "hisense er22601a tv"
+  },
+  {
+    "filename": "Hisense_K321UW.ir",
+    "device_type": "TVs",
+    "brand": "Hisense, Device Model: K321UW, Device Type: TV",
+    "model": "K321UW",
+    "series": "Hisense_K321UW.ir",
+    "path": "TVs\\Hisense\\Hisense_K321UW.ir"
   },
   {
     "filename": "Hisense_TV_ZDB2190126.ir",
@@ -8998,6 +9499,14 @@
     "series": "Kendo_CP20M36VT.ir",
     "path": "TVs\\Kendo\\Kendo_CP20M36VT.ir",
     "additional_info": "kendo cp20m36vt tv"
+  },
+  {
+    "filename": "Kogan_KALED50XU9210STB.ir",
+    "device_type": "TVs",
+    "brand": "Kogan, Device Model: KALED50XU9210STB, Device Type: TV, Description: also works for models: KALED42RF9230STA KALED40RF9220STA KALED40RF9210STA KALED43XU9210STA KALED50XU9210STB KALED50XU9220STB KALED50XU9220STA KALED55XU9210STA KALED55XU9220STA KALED65XU9210STB KALED50XT9310STB KALED65XU9250STB KALED32RH9210STA KALED70XU9210STA KALED75XU9210STA KALED42RF9220STA SERIES 9 XU9220 KALED55XU9220STB.",
+    "model": "KALED50XU9210STB",
+    "series": "Kogan_KALED50XU9210STB.ir",
+    "path": "TVs\\Kogan\\Kogan_KALED50XU9210STB.ir"
   },
   {
     "filename": "KRAFT_KTV.ir",
@@ -9219,6 +9728,15 @@
     "additional_info": "lg mr21gc magic remote"
   },
   {
+    "filename": "LG_OLED48C37LA (LG_OLED C3 models).ir",
+    "device_type": "TVs",
+    "brand": "LG",
+    "model": "OLED48C37LA (LG_OLED C3 models)",
+    "series": "LG_OLED48C37LA (LG_OLED C3 models).ir",
+    "path": "TVs\\LG\\LG_OLED48C37LA (LG_OLED C3 models).ir",
+    "additional_info": "for lg oled c3 (remote control from lg_oled48c37la)"
+  },
+  {
     "filename": "LG_OLED65C8PUA.ir",
     "device_type": "TVs",
     "brand": "LG",
@@ -9253,6 +9771,15 @@
     "series": "lodgenet_lrc3220.ir",
     "path": "TVs\\LodgeNet\\lodgenet_lrc3220.ir",
     "additional_info": "standard remote for hotel rooms, lodgenet lrc3220"
+  },
+  {
+    "filename": "MAGNAVOX_RD0946T102.ir",
+    "device_type": "TVs",
+    "brand": "MAGNAVOX",
+    "model": "RD0946T102",
+    "series": "MAGNAVOX_RD0946T102.ir",
+    "path": "TVs\\Magnavox\\MAGNAVOX_RD0946T102.ir",
+    "additional_info": "magnavox rd0946 t102 tv, found this, not sure the function, doesn't correspond to remote button"
   },
   {
     "filename": "Manta.ir",
@@ -9343,6 +9870,24 @@
     "series": "NEVIR_NVR-7409-39HD-N.ir",
     "path": "TVs\\Nevir\\NEVIR_NVR-7409-39HD-N.ir",
     "additional_info": "nevir tv nvr-7409-39hd-n"
+  },
+  {
+    "filename": "N2QAYB001109.ir",
+    "device_type": "TVs",
+    "brand": "N2QAYB001109",
+    "model": "",
+    "series": "N2QAYB001109.ir",
+    "path": "TVs\\Panasonic\\N2QAYB001109.ir",
+    "additional_info": "panasonic n2qayb001109"
+  },
+  {
+    "filename": "N2QAYB001109_full.ir",
+    "device_type": "TVs",
+    "brand": "N2QAYB001109",
+    "model": "full",
+    "series": "N2QAYB001109_full.ir",
+    "path": "TVs\\Panasonic\\N2QAYB001109_full.ir",
+    "additional_info": "panasonic n2qayb001109"
   },
   {
     "filename": "Panasonic_N2QAYB000352.ir",
@@ -9607,13 +10152,7 @@
     "series": "RCA_CRK50A.ir",
     "path": "TVs\\RCA\\RCA_CRK50A.ir",
     "reddit": "https://www.reddit.com/r/flipperzero/comments/zy1tvu/comment/j30e4cm/",
-    "video": "Video menu! Yay",
-    "audio": "OIDUA menu! Yay",
-    "pc_chswap": "swaps previous channel",
-    "tv_info": "displays the channel number",
-    "skip": "??displays a countdown timer that does nothing??",
-    "clear": "clears off the countdown timer ?? :D ??",
-    "additional_info": "used with rca f20566ak (ctc156c chassis) colortrak tv - crk50a remote model, codes are synthetic based on tech specs at https://www.sbprojects.net/knowledge/ir/rca.php, and decoding/reconstructing codes from real remote buttons (all tested working)., power_on (labeled tv on the remote), power_off (labeled off on the remote)"
+    "additional_info": "used with rca f20566ak (ctc156c chassis) colortrak tv - crk50a remote model, codes are synthetic based on tech specs at https://www.sbprojects.net/knowledge/ir/rca.php, and decoding/reconstructing codes from real remote buttons (all tested working)."
   },
   {
     "filename": "RCA_P46731AT_TV.ir",
@@ -10171,6 +10710,38 @@
     "path": "TVs\\SkyVue\\SKYVUE_03SI-RI.ir",
     "remote manual can be found at the following url": "https://skyvue.com/pdf/manuals/NEW_PRC-NXG.pdf",
     "additional_info": "03si-ri remote for skyvue televisons."
+  },
+  {
+    "filename": "Soniq_E32W13B.ir",
+    "device_type": "TVs",
+    "brand": "Soniq, Device Model: E32W13B, Device Type: Audio and Video Receiver, Description: works for SONIQ QT1D E24Z15B E23Z13A-AU E23Z15A-AU E24Z15B-AU E32V15B-AU E32V15D-AU E32V16B-AU E32V17A-AU E32V17B AUE32W13A-AU E32W13B-AU E32W13D-AU E40V14A-AU E40V14B-AU E40V16A-AU E40W13A-AU E40W13C-AU E42V14A-AU E43V15B-AU E43V15C-AU E43V15D-AU E48W13A-AU L32V12B-AU E24HZ17B-AU E32HV18A-AU E42FV16A-AU E48FH16A-AU E55FV16A-AU S55UV16A-AU S55UV16B-AU S65UX16A-AU E24Z15B-AU REV.A E43V15C-AU REV.B E32HV18A-AU",
+    "model": "E32W13B",
+    "series": "Soniq_E32W13B.ir",
+    "path": "TVs\\Soniq\\Soniq_E32W13B.ir"
+  },
+  {
+    "filename": "Soniq_E55V13A.ir",
+    "device_type": "TVs",
+    "brand": "Soniq, Device Model: E55V13A, Device Type: Audio and Video Receiver, Description: also works for S65VX15A",
+    "model": "E55V13A",
+    "series": "Soniq_E55V13A.ir",
+    "path": "TVs\\Soniq\\Soniq_E55V13A.ir"
+  },
+  {
+    "filename": "Soniq_QSP500TV6.ir",
+    "device_type": "TVs",
+    "brand": "Soniq, Remote Model: QT117E, Device Model: QSP500TV6, Device Type: TV, Description: also works for Soniq Model:QSP426TV2",
+    "model": "QSP500TV6",
+    "series": "Soniq_QSP500TV6.ir",
+    "path": "TVs\\Soniq\\Soniq_QSP500TV6.ir"
+  },
+  {
+    "filename": "Soniq_Z24Z15B.ir",
+    "device_type": "TVs",
+    "brand": "Soniq, Remote Model: QT1D, Device Model: Z24Z15B, Device Type: TV, Description: also works for Soniq Models: E24Z15B E23Z13A-AU E23Z15A-AU E24Z15B-AU E32V15B-AU E32V15D-AU E32V16B-AU E32V17A-AU E32V17B-AU E32W13A-AU E32W13B-AU E32W13D-AU E40V14A-AU E40V14B-AU E40V16A-AU E40W13A-AU E40W13C-AU E42V14A-AU E43V15B-AU E43V15C-AU E43V15D-AU E48W13A-AU L32V12B-AU E24HZ17B-AU E32HV18A-AU E42FV16A-AU E48FH16A-AU E55FV16A-AU S55UV16B-AU S65UX16A-AU E24Z15B-AU REV.A E43V15C-AU REV.B E32HV18A-AU REV.A L42D11A L47V12A P51E12A",
+    "model": "Z24Z15B",
+    "series": "Soniq_Z24Z15B.ir",
+    "path": "TVs\\Soniq\\Soniq_Z24Z15B.ir"
   },
   {
     "filename": "Sony_Bravia_KD-55XF80xx-49XF80xx-43XF80xx.ir",
@@ -10961,6 +11532,37 @@
     "additional_info": "used with fisher fvh-4000 vcr., all buttons from original remote, grouped into useful screens by function (6 buttons at a time)"
   },
   {
+    "filename": "JVC_HR-A591U.ir",
+    "device_type": "VCR",
+    "brand": "JVC",
+    "model": "HR-A591U",
+    "series": "JVC_HR-A591U.ir",
+    "path": "VCR\\JVC\\JVC_HR-A591U.ir",
+    "remote model": "VCR/TV 076N0ES010",
+    "captured by": "emptythevoid"
+  },
+  {
+    "filename": "JVC_HR-S2902U.ir",
+    "device_type": "VCR",
+    "brand": "JVC",
+    "model": "HR-S2902U",
+    "series": "JVC_HR-S2902U.ir",
+    "path": "VCR\\JVC\\JVC_HR-S2902U.ir",
+    "jvc remote model": "VCR/TV LP21138-001",
+    "captured by": "emptythevoid"
+  },
+  {
+    "filename": "JVC_HRS7900U.ir",
+    "device_type": "VCR",
+    "brand": "JVC",
+    "model": "HRS7900U",
+    "series": "JVC_HRS7900U.ir",
+    "path": "VCR\\JVC\\JVC_HRS7900U.ir",
+    "device model": "HRS7900U",
+    "device type": "VCR",
+    "contributor": "jay candel"
+  },
+  {
     "filename": "JVC_VCR_TV_076N0ES010.ir",
     "device_type": "VCR",
     "brand": "JVC",
@@ -10990,6 +11592,15 @@
     "additional_info": "lg vcr 6711r1p073b"
   },
   {
+    "filename": "LG_GC260W.ir",
+    "device_type": "VCR",
+    "brand": "LG",
+    "model": "GC260W",
+    "series": "LG_GC260W.ir",
+    "path": "VCR\\LG\\LG_GC260W.ir",
+    "lg vcr remote model": "6711R1P073B"
+  },
+  {
     "filename": "Magnavox_N9377.ir",
     "device_type": "VCR",
     "brand": "Magnavox",
@@ -10998,6 +11609,28 @@
     "path": "VCR\\Magnavox\\Magnavox_N9377.ir",
     "captured by": "emptythevoid",
     "additional_info": "magnavox n9377 remote that should be compatible with some older emerson, magnavox, sylvania, and funai vcr decks"
+  },
+  {
+    "filename": "Memorex_MVR4040A.ir",
+    "device_type": "VCR",
+    "brand": "Memorex",
+    "model": "MVR4040A",
+    "series": "Memorex_MVR4040A.ir",
+    "path": "VCR\\Memorex\\Memorex_MVR4040A.ir",
+    "device model": "MVR4040A",
+    "device type": "VCR",
+    "contributor": "jay candel"
+  },
+  {
+    "filename": "Panasonic_AG7350.ir",
+    "device_type": "VCR",
+    "brand": "Panasonic",
+    "model": "AG7350",
+    "series": "Panasonic_AG7350.ir",
+    "path": "VCR\\Panasonic\\Panasonic_AG7350.ir",
+    "device model": "AG7350",
+    "device type": "VCR",
+    "contributor": "jay candel"
   },
   {
     "filename": "Panasonic_Light_Tower_LSSQ0342.ir",
@@ -11043,6 +11676,50 @@
     "series": "Philips-RC2K16.ir",
     "path": "VCR\\Philips\\Philips-RC2K16.ir",
     "additional_info": "philips rc2k16 vcr"
+  },
+  {
+    "filename": "Sony_SLV70HF.ir",
+    "device_type": "VCR",
+    "brand": "Sony",
+    "model": "SLV70HF",
+    "series": "Sony_SLV70HF.ir",
+    "path": "VCR\\Sony\\Sony_SLV70HF.ir",
+    "device model": "SLV70HF",
+    "device type": "VCR",
+    "contributor": "jay candel"
+  },
+  {
+    "filename": "Sony_SLV789HF.ir",
+    "device_type": "VCR",
+    "brand": "Sony",
+    "model": "SLV789HF",
+    "series": "Sony_SLV789HF.ir",
+    "path": "VCR\\Sony\\Sony_SLV789HF.ir",
+    "device model": "SLV789HF",
+    "device type": "VCR",
+    "contributor": "jay candel"
+  },
+  {
+    "filename": "Sony_SLVD201P.ir",
+    "device_type": "VCR",
+    "brand": "Sony",
+    "model": "SLVD201P",
+    "series": "Sony_SLVD201P.ir",
+    "path": "VCR\\Sony\\Sony_SLVD201P.ir",
+    "device model": "SLVD201P",
+    "device type": "VCR",
+    "contributor": "jay candel"
+  },
+  {
+    "filename": "Sony_SLVM88.ir",
+    "device_type": "VCR",
+    "brand": "Sony",
+    "model": "SLVM88",
+    "series": "Sony_SLVM88.ir",
+    "path": "VCR\\Sony\\Sony_SLVM88.ir",
+    "device model": "SLVM88",
+    "device type": "VCR",
+    "contributor": "jay candel"
   },
   {
     "filename": "AVer_COMVREMOT.ir",
