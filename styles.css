@@ -402,3 +402,38 @@ footer a:hover {
         margin-bottom: 1rem;
     }
 }
+.send-to-flipper-button {
+    display: inline-block;
+    padding: 0.75rem 1rem;
+    margin-top: 1rem;
+    margin-left: 0.5rem;  /* Space between buttons */
+    background-color: var(--accent-color);
+    color: var(--text-color);
+    text-decoration: none;
+    border-radius: var(--border-radius);
+    font-size: 1rem;
+    transition: var(--transition);
+}
+
+.send-to-flipper-button:hover {
+    background-color: #ff8533;
+    transform: translateY(-2px);
+}
+
+.send-to-flipper-button.sending {
+    opacity: 0.7;
+    cursor: wait;
+}
+
+.send-status {
+    margin-top: 0.5rem;
+    font-size: 0.9rem;
+}
+
+.send-status.error {
+    color: var(--error-color);
+}
+
+.send-status.success {
+    color: var(--success-color);
+}

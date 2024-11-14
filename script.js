@@ -3,6 +3,8 @@ let currentPage = 1;
 let itemsPerPage = 20;
 let debounceTimer;
 let currentResults = [];
+let flipperSerial = null;
+
 
 document.addEventListener('DOMContentLoaded', function() {
     loadDatabase();
@@ -85,6 +87,46 @@ function isRequestFulfilled(request, database) {
     });
 }
 
+async function sendToFlipper(url, filename) {
+    const statusDiv = document.getElementById('downloadStatus');
+    
+    try {
+        // Initialize FlipperSerial if not already done
+        if (!flipperSerial) {
+            flipperSerial = new FlipperSerial();
+        }
+
+        // Connect to Flipper if not connected
+        if (!flipperSerial.isConnected) {
+            statusDiv.textContent = 'Connecting to Flipper...';
+            await flipperSerial.connect();
+        }
+
+        // Fetch the IR file
+        statusDiv.textContent = 'Downloading IR file...';
+        const response = await fetch(url);
+        const text = await response.text();
+
+        // Create the directory if it doesn't exist
+        statusDiv.textContent = 'Creating directory...';
+        await flipperSerial.writeCommand('storage mkdir /ext/infrared');
+
+        // Write the file to Flipper
+        statusDiv.textContent = 'Sending to Flipper...';
+        await flipperSerial.writeFile(`/ext/infrared/${filename}`, text);
+
+        statusDiv.textContent = 'Successfully sent to Flipper!';
+        setTimeout(() => {
+            statusDiv.textContent = '';
+        }, 3000);
+
+    } catch (error) {
+        console.error('Error sending to Flipper:', error);
+        statusDiv.textContent = `Error: ${error.message}. Please try again.`;
+        // Reset FlipperSerial instance on error
+        flipperSerial = null;
+    }
+}
 
 function displayIRRequests() {
     const requestsList = document.getElementById('requestsList');
@@ -387,11 +429,72 @@ function displayResults() {
             <p><strong>Type:</strong> ${item.device_type}</p>
             <p><strong>File:</strong> ${item.filename}</p>
             ${additionalInfoHtml}
-            <button class="download-button">Download IR File</button>
+            <div class="button-group">
+                <button class="download-button">Download IR File</button>
+                <button class="send-to-flipper-button">Send to Flipper</button>
+            </div>
+            <div class="send-status" style="display: none;"></div>
         `;
 
         const downloadButton = resultItem.querySelector('.download-button');
         downloadButton.addEventListener('click', () => downloadFile(downloadUrl, item.filename));
+
+        const sendButton = resultItem.querySelector('.send-to-flipper-button');
+        const sendStatus = resultItem.querySelector('.send-status');
+        
+        sendButton.addEventListener('click', async () => {
+            try {
+                sendButton.disabled = true;
+                sendButton.classList.add('sending');
+                sendStatus.style.display = 'block';
+                
+                // Initialize FlipperSerial if not already done
+                if (!flipperSerial) {
+                    flipperSerial = new FlipperSerial();
+                }
+
+                // Connect to Flipper if not connected
+                if (!flipperSerial.isConnected) {
+                    sendStatus.textContent = 'Connecting to Flipper...';
+                    await flipperSerial.connect();
+                }
+
+                // Fetch the IR file
+                sendStatus.textContent = 'Downloading IR file...';
+                const response = await fetch(downloadUrl);
+                if (!response.ok) throw new Error('Failed to download file');
+                const text = await response.text();
+
+                // Create directory and write file
+                sendStatus.textContent = 'Creating directory...';
+                await flipperSerial.writeCommand('storage mkdir /ext/infrared');
+
+                sendStatus.textContent = 'Sending to Flipper...';
+                await flipperSerial.writeFile(`/ext/infrared/${item.filename}`, text);
+
+                // Success
+                sendStatus.textContent = 'Successfully sent to Flipper!';
+                sendStatus.classList.add('success');
+                sendStatus.classList.remove('error');
+
+                // Reset after 3 seconds
+                setTimeout(() => {
+                    sendStatus.style.display = 'none';
+                    sendStatus.classList.remove('success');
+                    sendButton.classList.remove('sending');
+                    sendButton.disabled = false;
+                }, 3000);
+
+            } catch (error) {
+                console.error('Error sending to Flipper:', error);
+                sendStatus.textContent = `Error: ${error.message}. Please try again.`;
+                sendStatus.classList.add('error');
+                sendStatus.classList.remove('success');
+                flipperSerial = null; // Reset FlipperSerial instance on error
+                sendButton.classList.remove('sending');
+                sendButton.disabled = false;
+            }
+        });
 
         const readMoreButton = resultItem.querySelector('.read-more');
         if (readMoreButton) {
