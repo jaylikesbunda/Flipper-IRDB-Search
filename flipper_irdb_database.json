@@ -1365,6 +1365,17 @@
     "path": "Audio_and_Video_Receivers\\Harman_Kardon\\Harman Kardon_AVI200.ir"
   },
   {
+    "filename": "Harman_Kardon_AVR130.ir",
+    "device_type": "Audio_and_Video_Receivers",
+    "brand": "Harman Kardon",
+    "model": "Kardon_AVR130",
+    "series": "Harman_Kardon_AVR130.ir",
+    "path": "Audio_and_Video_Receivers\\Harman_Kardon\\Harman_Kardon_AVR130.ir",
+    "device model": "AVR130",
+    "device type": "Audio and Video Receiver",
+    "contributor": "jay candel"
+  },
+  {
     "filename": "DTR-7.ir",
     "device_type": "Audio_and_Video_Receivers",
     "brand": "DTR-7",
@@ -3012,6 +3023,16 @@
     "additional_info": "onkyo renote rc-402c for onkyo compact disk player dx-7333"
   },
   {
+    "filename": "Panasonic_SAPM03.ir",
+    "device_type": "CD_Players",
+    "brand": "Panasonic",
+    "model": "SAPM03",
+    "series": "Panasonic_SAPM03.ir",
+    "path": "CD_Players\\Panasonic\\Panasonic_SAPM03.ir",
+    "device model": "SAPM03",
+    "device type": "CD Player"
+  },
+  {
     "filename": "Panasonic_SC-HC58.ir",
     "device_type": "CD_Players",
     "brand": "Panasonic",
@@ -3944,24 +3965,6 @@
     "series": "Dyson_Pure_HotCool_HP02.ir",
     "path": "Fans\\Dyson\\Dyson_Pure_HotCool_HP02.ir",
     "additional_info": "dyson pure hot+cool link (hp02)"
-  },
-  {
-    "filename": "Dyson_TP02.ir",
-    "device_type": "Fans",
-    "brand": "Dyson",
-    "model": "TP02",
-    "series": "Dyson_TP02.ir",
-    "path": "Fans\\Dyson\\Dyson_TP02.ir",
-    "additional_info": "dyson pure cool link tp02"
-  },
-  {
-    "filename": "Dyson_TP4A.ir",
-    "device_type": "Fans",
-    "brand": "Dyson",
-    "model": "TP4A",
-    "series": "Dyson_TP4A.ir",
-    "path": "Fans\\Dyson\\Dyson_TP4A.ir",
-    "additional_info": "dyson pure cool tp4a"
   },
   {
     "filename": "Elmark_LMD-24.ir",
@@ -5049,7 +5052,7 @@
     "brand": "Homedics",
     "model": "ARM-720A_Ellia_Essential_Diffuser",
     "series": "Homedics_ARM-720A_Ellia_Essential_Diffuser.ir",
-    "path": "Humidifiers\\HoMedics\\Homedics_ARM-720A_Ellia_Essential_Diffuser.ir",
+    "path": "Humidifiers\\Homedics\\Homedics_ARM-720A_Ellia_Essential_Diffuser.ir",
     "additional_info": "homedics arm-720a ellia essential diffuser/humidifier"
   },
   {
@@ -5058,7 +5061,7 @@
     "brand": "HoMedics",
     "model": "TotalComfort",
     "series": "HoMedics_TotalComfort.ir",
-    "path": "Humidifiers\\HoMedics\\HoMedics_TotalComfort.ir",
+    "path": "Humidifiers\\Homedics\\HoMedics_TotalComfort.ir",
     "additional_info": "homedics totalcomfort"
   },
   {
@@ -7343,6 +7346,16 @@
     "series": "Epson_EB-Series.ir",
     "path": "Projectors\\Epson\\Epson_EB-Series.ir",
     "additional_info": "epson projector eb series (eb-w42, eb-w05, eb-x05, eb-x39, eb-970, eb-u05, eb-2247u)"
+  },
+  {
+    "filename": "Epson_EBX39.ir",
+    "device_type": "Projectors",
+    "brand": "Epson",
+    "model": "EBX39",
+    "series": "Epson_EBX39.ir",
+    "path": "Projectors\\Epson\\Epson_EBX39.ir",
+    "device model": "EBX39",
+    "device type": "Projector"
   },
   {
     "filename": "Epson_EHTW5650.ir",
@@ -9804,6 +9817,16 @@
     "additional_info": "jvc 4k tv"
   },
   {
+    "filename": "JVC_RMT-JR01.ir",
+    "device_type": "TVs",
+    "brand": "JVC",
+    "model": "RMT-JR01",
+    "series": "JVC_RMT-JR01.ir",
+    "path": "TVs\\JVC\\JVC_RMT-JR01.ir",
+    "captured by": "MDcurIOs1ty",
+    "additional_info": "jvc rmt-jr01 tv remote"
+  },
+  {
     "filename": "Kendo_CP20M36VT.ir",
     "device_type": "TVs",
     "brand": "Kendo",
@@ -11213,6 +11236,16 @@
     "additional_info": "sony rm-ea002, this is the name of the remote control"
   },
   {
+    "filename": "Sony_RMF-TX500U.ir",
+    "device_type": "TVs",
+    "brand": "Sony",
+    "model": "RMF-TX500U",
+    "series": "Sony_RMF-TX500U.ir",
+    "path": "TVs\\Sony\\Sony_RMF-TX500U.ir",
+    "captured by": "MDcurIOs1ty",
+    "additional_info": "sony rmf-tx500u tv remote"
+  },
+  {
     "filename": "Sony_RM_ED016.ir",
     "device_type": "TVs",
     "brand": "Sony",
@@ -11950,35 +11983,6 @@
     "contributor": "jay candel"
   },
   {
-    "filename": "JVC_VCR_TV_076N0ES010.ir",
-    "device_type": "VCR",
-    "brand": "JVC",
-    "model": "VCR_TV_076N0ES010",
-    "series": "JVC_VCR_TV_076N0ES010.ir",
-    "path": "VCR\\JVC\\JVC_VCR_TV_076N0ES010.ir",
-    "captured by": "emptythevoid",
-    "additional_info": "jvc vcr/tv remote model 076n0es010"
-  },
-  {
-    "filename": "JVC_VCR_TV_LP21138001.ir",
-    "device_type": "VCR",
-    "brand": "JVC",
-    "model": "VCR_TV_LP21138001",
-    "series": "JVC_VCR_TV_LP21138001.ir",
-    "path": "VCR\\JVC\\JVC_VCR_TV_LP21138001.ir",
-    "captured by": "emptythevoid",
-    "additional_info": "jvc vcr/tv remote model lp21138-001"
-  },
-  {
-    "filename": "LG-VCR-6711R1P073B.ir",
-    "device_type": "VCR",
-    "brand": "LG-VCR-6711R1P073B",
-    "model": "",
-    "series": "LG-VCR-6711R1P073B.ir",
-    "path": "VCR\\LG\\LG-VCR-6711R1P073B.ir",
-    "additional_info": "lg vcr 6711r1p073b"
-  },
-  {
     "filename": "LG_GC260W.ir",
     "device_type": "VCR",
     "brand": "LG",
@@ -12105,6 +12109,17 @@
     "series": "Sony_SLVM88.ir",
     "path": "VCR\\Sony\\Sony_SLVM88.ir",
     "device model": "SLVM88",
+    "device type": "VCR",
+    "contributor": "jay candel"
+  },
+  {
+    "filename": "Toshiba_SDKV550.ir",
+    "device_type": "VCR",
+    "brand": "Toshiba",
+    "model": "SDKV550",
+    "series": "Toshiba_SDKV550.ir",
+    "path": "VCR\\Toshiba\\Toshiba_SDKV550.ir",
+    "device model": "SDKV550",
     "device type": "VCR",
     "contributor": "jay candel"
   },
