@@ -48,42 +48,49 @@ const manuallyFulfilledRequests = [
 ];
 function isRequestFulfilled(request, database) {
     // Helper function to normalize strings for comparison
-    const normalize = (str) => str ? str.toLowerCase().replace(/[^a-z0-9]/g, '') : '';
+    const normalize = (str) => str ? str.toLowerCase().trim() : '';
     
     // Helper function to check if two strings are similar
     const isSimilar = (str1, str2) => {
+        if (!str1 || !str2) return false;
         const norm1 = normalize(str1);
         const norm2 = normalize(str2);
-        return norm1.includes(norm2) || norm2.includes(norm1);
+        
+        // Direct match
+        if (norm1 === norm2) return true;
+        
+        // One contains the other (both ways)
+        if (norm1.includes(norm2) || norm2.includes(norm1)) return true;
+        
+        // For model numbers, allow partial matches if they share significant parts
+        const parts1 = norm1.split(/[\s-]+/);
+        const parts2 = norm2.split(/[\s-]+/);
+        
+        // If any significant part matches between the strings
+        return parts1.some(part1 => 
+            part1.length > 2 && // Only consider parts longer than 2 chars
+            parts2.some(part2 => 
+                part2.length > 2 && 
+                (part1.includes(part2) || part2.includes(part1))
+            )
+        );
     };
     
     // Check if the request is manually marked as fulfilled
     const isManuallyFulfilled = manuallyFulfilledRequests.some(manualEntry => 
         isSimilar(manualEntry.brand, request.brand) &&
-        isSimilar(manualEntry.model, request.model) &&
-        (!manualEntry.deviceType || isSimilar(manualEntry.deviceType, request.deviceType))
+        isSimilar(manualEntry.model, request.model)
     );
     
     if (isManuallyFulfilled) {
         return true;
     }
     
-    // Proceed with existing logic
+    // Proceed with database search - only check brand and model
     return database.some(item => {
         const brandMatch = isSimilar(item.brand, request.brand);
         const modelMatch = isSimilar(item.model, request.model);
-        const deviceTypeDifferent = request.deviceType && item.device_type && !isSimilar(item.device_type, request.deviceType);
-        
-        // If brand and model match
-        if (brandMatch && modelMatch) {
-            // If device types are directly opposing, do not consider fulfilled
-            if (deviceTypeDifferent) {
-                return false;
-            }
-            // Else, consider fulfilled
-            return true;
-        }
-        return false;
+        return brandMatch && modelMatch;
     });
 }
 
