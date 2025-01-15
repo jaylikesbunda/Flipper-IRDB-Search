@@ -6,8 +6,9 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Flipper Zero IRDB Search/Request</title>
 
-    <!-- Fonts and Icons -->
+    <!-- Fonts, Icons and Animations -->
     <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css">
     <link rel="stylesheet" href="styles.css">
     <script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
 </head>
@@ -29,9 +30,9 @@
     <!-- Main Container -->
     <div class="container">
         <!-- Header Section -->
-        <header>
-            <img src="/icon.png" alt="Flipper Zero IRDB Search & Request">
-            <div class="button-container">
+        <header class="animate__animated animate__fadeIn">
+            <img src="/icon.png" alt="Flipper Zero IRDB Search & Request" class="animate__animated animate__bounceIn">
+            <div class="button-container animate__animated animate__fadeInUp">
                 <a href="submit-guide.html" class="btn">Submit a File</a>
                 <a href="https://format.flippertools.net" class="btn" target="_blank">Format a File</a>
                 <a href="#irRequestForm" class="btn" id="requestRemoteBtn">Request a File</a>
@@ -39,7 +40,7 @@
         </header>
 
         <!-- Main Content -->
-        <main>
+        <main class="animate__animated animate__fadeIn animate__delay-1s">
             <!-- Search Bar -->
             <div class="search-bar">
                 <input type="text" id="searchInput" placeholder="Search brand, model, or device type...">
@@ -136,5 +137,40 @@
     <!-- Main Script -->
     <script src="serial.js"></script>
     <script src="script.js"></script>
+
+    <!-- Web Serial Not Available Popup -->
+    <div id="serialPopup" class="popup-overlay">
+        <div class="popup-content animate__animated animate__fadeInDown">
+            <img src="/icon.png" alt="Flipper Zero" class="popup-icon">
+            <h2>Browser Not Compatible</h2>
+            <p>Web Serial is not supported in this browser. To connect to your Flipper Zero, please use:</p>
+            <ul>
+                <li><i class="fab fa-chrome"></i> Google Chrome</li>
+                <li><i class="fab fa-edge"></i> Microsoft Edge</li>
+                <li><i class="fab fa-opera"></i> Opera</li>
+            </ul>
+            <button class="btn close-popup">Got it!</button>
+        </div>
+    </div>
+
+    <script>
+    // Add animation to results when they load
+    document.addEventListener('DOMContentLoaded', function() {
+        const results = document.getElementById('results');
+        const observer = new MutationObserver(function(mutations) {
+            mutations.forEach(function(mutation) {
+                if (mutation.addedNodes.length) {
+                    mutation.addedNodes.forEach(function(node) {
+                        if (node.classList && node.classList.contains('result-item')) {
+                            node.classList.add('animate__animated', 'animate__fadeInUp');
+                        }
+                    });
+                }
+            });
+        });
+        
+        observer.observe(results, { childList: true });
+    });
+    </script>
 </body>
 </html>

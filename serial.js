@@ -15,10 +15,16 @@ class FlipperSerial {
         }
     }
 
+    isWebSerialAvailable() {
+        return 'serial' in navigator;
+    }
 
-    
     async connect() {
         try {
+            if (!this.isWebSerialAvailable()) {
+                throw new Error('Web Serial is not supported in this browser. Please use Chrome, Edge, or Opera.');
+            }
+
             this.debug('Requesting serial port...');
             this.port = await navigator.serial.requestPort();
             

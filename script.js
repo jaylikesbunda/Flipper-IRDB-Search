@@ -94,6 +94,24 @@ function isRequestFulfilled(request, database) {
     });
 }
 
+function showWebSerialPopup() {
+    const popup = document.getElementById('serialPopup');
+    popup.style.display = 'block';
+    
+    // Add click event to close button
+    const closeBtn = popup.querySelector('.close-popup');
+    closeBtn.addEventListener('click', () => {
+        popup.style.display = 'none';
+    });
+
+    // Close on overlay click
+    popup.addEventListener('click', (e) => {
+        if (e.target === popup) {
+            popup.style.display = 'none';
+        }
+    });
+}
+
 async function sendToFlipper(url, filename) {
     const statusDiv = document.getElementById('downloadStatus');
     
@@ -101,6 +119,12 @@ async function sendToFlipper(url, filename) {
         // Initialize FlipperSerial if not already done
         if (!flipperSerial) {
             flipperSerial = new FlipperSerial();
+        }
+
+        // Check Web Serial availability before attempting to connect
+        if (!flipperSerial.isWebSerialAvailable()) {
+            showWebSerialPopup();
+            return;
         }
 
         // Connect to Flipper if not connected
@@ -451,14 +475,19 @@ function displayResults() {
         
         sendButton.addEventListener('click', async () => {
             try {
-                sendButton.disabled = true;
-                sendButton.classList.add('sending');
-                sendStatus.style.display = 'block';
-                
-                // Initialize FlipperSerial if not already done
+                // Check Web Serial availability first
                 if (!flipperSerial) {
                     flipperSerial = new FlipperSerial();
                 }
+                
+                if (!flipperSerial.isWebSerialAvailable()) {
+                    showWebSerialPopup();
+                    return;
+                }
+
+                sendButton.disabled = true;
+                sendButton.classList.add('sending');
+                sendStatus.style.display = 'block';
 
                 // Connect to Flipper if not connected
                 if (!flipperSerial.isConnected) {
