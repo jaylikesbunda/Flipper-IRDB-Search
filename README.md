@@ -48,7 +48,7 @@ You can access the live version of this tool [here](https://search.flippertools.
 
 ## Usage
 
-1. Visit [https://jaylikesbunda.github.io/Flipper-IRDB-Search/](https://jaylikesbunda.github.io/Flipper-IRDB-Search/) or open `index.html` in your web browser if running locally.
+1. Visit [search.flippertools.net](https://search.flippertools.net) or open `index.html` in your web browser if running locally.
 2. Use the search bar to find IR remotes by brand, model, or device type.
 3. Use the dropdown filters to narrow results by device type or brand.
 4. Click the "Download IR File" link on any result to download the IR file for use with your Flipper Zero.
