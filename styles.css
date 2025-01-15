@@ -437,3 +437,317 @@ footer a:hover {
 .send-status.success {
     color: var(--success-color);
 }
+
+/* Submit Guide Styles */
+.guide-container {
+    max-width: 900px;
+    margin: 0 auto;
+    padding: 2rem;
+    background-color: var(--secondary-bg);
+    border-radius: var(--border-radius);
+    box-shadow: 0 4px 8px var(--shadow-color);
+}
+
+.guide-container h1 {
+    color: var(--accent-color);
+    font-size: 2rem;
+    margin-bottom: 1.5rem;
+    text-align: center;
+}
+
+.guide-container h2 {
+    color: var(--accent-color);
+    font-size: 1.5rem;
+    margin: 2rem 0 1rem;
+}
+
+.guide-container p {
+    margin-bottom: 1rem;
+}
+
+.guide-container ul, 
+.guide-container ol {
+    list-style: disc;
+    margin-left: 2rem;
+    margin-bottom: 1.5rem;
+}
+
+.guide-container ol {
+    list-style: decimal;
+}
+
+.guide-container li {
+    margin-bottom: 0.5rem;
+}
+
+.guide-container strong {
+    color: var(--accent-color);
+}
+
+.guide-container img {
+    max-width: 100%;
+    margin: 1rem auto;
+    border-radius: var(--border-radius);
+    box-shadow: 0 2px 4px var(--shadow-color);
+}
+
+.guide-container code {
+    background-color: var(--bg-color);
+    padding: 0.2rem 0.4rem;
+    border-radius: 4px;
+    font-family: monospace;
+}
+
+.guide-container .note {
+    background-color: var(--bg-color);
+    padding: 1.5rem;
+    border-radius: var(--border-radius);
+    margin: 2rem 0;
+}
+
+.guide-container .note h3 {
+    color: var(--accent-color);
+    margin-bottom: 1rem;
+}
+
+.guide-container a {
+    color: var(--accent-color);
+    text-decoration: underline;
+    transition: var(--transition);
+}
+
+.guide-container a:hover {
+    color: #ff8533;
+}
+
+.submit-guide-btn {
+    display: inline-block;
+    padding: 0.75rem 1.5rem;
+    background-color: var(--accent-color);
+    color: var(--text-color);
+    border-radius: var(--border-radius);
+    font-weight: bold;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    transition: var(--transition);
+    text-decoration: none;
+    margin-top: 2rem;
+}
+
+.submit-guide-btn:hover {
+    background-color: #ff8533;
+    transform: translateY(-2px);
+    box-shadow: 0 4px 8px var(--shadow-color);
+}
+
+/* GitHub UI Examples */
+.github-ui-example {
+    background: #0d1117;
+    border: 1px solid #30363d;
+    border-radius: 6px;
+    padding: 16px;
+    margin: 16px 0;
+}
+
+.github-header-buttons {
+    display: flex;
+    gap: 4px;
+    align-items: center;
+}
+
+.github-btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    padding: 5px 16px;
+    font-size: 14px;
+    font-weight: 500;
+    line-height: 20px;
+    white-space: nowrap;
+    vertical-align: middle;
+    cursor: pointer;
+    user-select: none;
+    border: 1px solid rgba(240, 246, 252, 0.1);
+    border-radius: 6px;
+    appearance: none;
+    color: #c9d1d9;
+    background-color: #21262d;
+    transition: 0.2s;
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Noto Sans", Helvetica, Arial, sans-serif;
+}
+
+.github-btn:hover {
+    background-color: #30363d;
+    border-color: #8b949e;
+    transition-duration: 0.1s;
+}
+
+.github-btn-primary {
+    background-color: #238636;
+    border-color: rgba(240, 246, 252, 0.1);
+}
+
+.github-btn-primary:hover {
+    background-color: #2ea043;
+    border-color: rgba(240, 246, 252, 0.1);
+}
+
+.github-btn .octicon {
+    margin-right: -2px;
+}
+
+.github-btn-count {
+    margin-left: 6px;
+    padding-left: 6px;
+    border-left: 1px solid rgba(240, 246, 252, 0.1);
+    font-size: 12px;
+}
+
+.github-dropdown {
+    position: relative;
+    display: inline-block;
+}
+
+.github-dropdown-content {
+    display: none;
+    position: absolute;
+    top: 100%;
+    left: 0;
+    margin-top: 4px;
+    background-color: #161b22;
+    border: 1px solid #30363d;
+    border-radius: 6px;
+    min-width: 180px;
+    z-index: 100;
+    box-shadow: 0 8px 24px rgba(1,4,9,0.32);
+}
+
+.github-dropdown:hover .github-dropdown-content {
+    display: block;
+}
+
+.github-dropdown-item {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    padding: 8px 12px;
+    color: #c9d1d9;
+    text-decoration: none;
+    font-size: 14px;
+    cursor: pointer;
+}
+
+.github-dropdown-item:hover {
+    background-color: #1f6feb;
+    color: #ffffff;
+}
+
+.github-file-browser {
+    width: 100%;
+    border: 1px solid #30363d;
+    border-radius: 6px;
+    overflow: hidden;
+}
+
+.github-file-header {
+    display: grid;
+    grid-template-columns: 2fr 1fr 2fr;
+    padding: 16px;
+    background-color: #161b22;
+    border-bottom: 1px solid #30363d;
+    font-size: 12px;
+    color: #8b949e;
+}
+
+.github-file-item {
+    display: grid;
+    grid-template-columns: 2fr 1fr 2fr;
+    padding: 8px 16px;
+    border-bottom: 1px solid #21262d;
+    font-size: 14px;
+    color: #c9d1d9;
+}
+
+.github-file-item:hover {
+    background-color: #161b22;
+}
+
+.github-file-name {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.github-file-name a {
+    color: #58a6ff;
+    text-decoration: none;
+}
+
+.github-file-name a:hover {
+    text-decoration: underline;
+}
+
+.github-commit-hash {
+    font-family: ui-monospace, SFMono-Regular, "SF Mono", Menlo, Consolas, "Liberation Mono", monospace;
+    color: #8b949e;
+}
+
+.github-commit-message {
+    color: #8b949e;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+
+.github-file-indent {
+    padding-left: 28px;
+}
+
+.github-file-indent-2 {
+    padding-left: 56px;
+}
+
+.github-commit-form {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+
+.github-input {
+    padding: 5px 12px;
+    font-size: 14px;
+    line-height: 20px;
+    color: #c9d1d9;
+    background-color: #0d1117;
+    border: 1px solid #30363d;
+    border-radius: 6px;
+    outline: none;
+}
+
+.github-textarea {
+    min-height: 100px;
+    padding: 5px 12px;
+    font-size: 14px;
+    line-height: 20px;
+    color: #c9d1d9;
+    background-color: #0d1117;
+    border: 1px solid #30363d;
+    border-radius: 6px;
+    outline: none;
+    resize: vertical;
+}
+
+.github-compare-bar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 8px 16px;
+    background-color: #161b22;
+    border: 1px solid #30363d;
+    border-radius: 6px;
+    font-size: 14px;
+}
+
+.github-compare-text {
+    color: #c9d1d9;
+}

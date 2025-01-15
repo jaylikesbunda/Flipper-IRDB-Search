@@ -6,11 +6,11 @@
     <title>How to Submit Files to Flipper-IRDB</title>
     <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="styles.css">
-    <script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/octicons/8.5.0/build.css">
 </head>
 <body>
     <div class="guide-container">
-        <h1><i class="fas fa-file-upload"></i> How to Submit Files to Flipper-IRDB</h1>
+        <h1><i class="octicon octicon-repo-push"></i> How to Submit Files to Flipper-IRDB</h1>
         
         <p>Want to contribute to the Flipper-IRDB project? Great! This guide will walk you through the process of submitting your IR files using GitHub's web interface. No coding experience required!</p>
         
@@ -30,30 +30,139 @@
             <li>
                 <strong>Fork the Repository</strong>
                 <p>Click the "Fork" button in the top-right corner. This creates your own copy of the repository.</p>
-                <img src="/api/placeholder/400/200" alt="Fork button location" />
+                <div class="github-ui-example github-header">
+                    <div class="github-header-buttons">
+                        <button class="github-btn">
+                            <i class="octicon octicon-eye"></i>
+                            Watch
+                            <span class="github-btn-count">1.2k</span>
+                        </button>
+                        <button class="github-btn">
+                            <i class="octicon octicon-star"></i>
+                            Star
+                            <span class="github-btn-count">21.5k</span>
+                        </button>
+                        <button class="github-btn github-btn-primary">
+                            <i class="octicon octicon-repo-forked"></i>
+                            Fork
+                            <span class="github-btn-count">3.8k</span>
+                        </button>
+                    </div>
+                </div>
             </li>
             <li>
                 <strong>Navigate to the Correct Folder</strong>
                 <p>In your forked repository, navigate to the folder where your IR files should go. The structure is: <code>Devices/[Device Type]/[Brand Name]/</code></p>
                 <p>For example, if you have files for a Sony TV, you'd go to <code>Devices/TVs/Sony/</code></p>
+                <div class="github-ui-example">
+                    <div class="github-file-browser">
+                        <div class="github-file-header">
+                            <span>Name</span>
+                            <span>Last commit</span>
+                            <span>Commit message</span>
+                        </div>
+                        <div class="github-file-item">
+                            <span class="github-file-name">
+                                <i class="octicon octicon-file-directory"></i>
+                                <a href="#">Devices</a>
+                            </span>
+                            <span class="github-commit-hash">2d3f1a5</span>
+                            <span class="github-commit-message">Add new device folders</span>
+                        </div>
+                        <div class="github-file-item github-file-indent">
+                            <span class="github-file-name">
+                                <i class="octicon octicon-file-directory"></i>
+                                <a href="#">TVs</a>
+                            </span>
+                            <span class="github-commit-hash">8e9c2b1</span>
+                            <span class="github-commit-message">Update TV remotes</span>
+                        </div>
+                        <div class="github-file-item github-file-indent-2">
+                            <span class="github-file-name">
+                                <i class="octicon octicon-file-directory"></i>
+                                <a href="#">Sony</a>
+                            </span>
+                            <span class="github-commit-hash">4a7d9e3</span>
+                            <span class="github-commit-message">Add Sony TV files</span>
+                        </div>
+                    </div>
+                </div>
             </li>
             <li>
                 <strong>Upload Your Files</strong>
                 <p>Click the "Add file" button, then "Upload files". Drag and drop your IR files or use the file selector.</p>
-                <img src="https://i.ibb.co/CJkLqMm/Capture.png" alt="Upload files button" />
+                <div class="github-ui-example">
+                    <div class="github-header-buttons">
+                        <div class="github-dropdown">
+                            <button class="github-btn github-btn-primary">
+                                <i class="octicon octicon-plus"></i>
+                                Add file
+                                <i class="octicon octicon-triangle-down"></i>
+                            </button>
+                            <div class="github-dropdown-content">
+                                <a class="github-dropdown-item">
+                                    <i class="octicon octicon-cloud-upload"></i>
+                                    Upload files
+                                </a>
+                                <a class="github-dropdown-item">
+                                    <i class="octicon octicon-plus"></i>
+                                    Create new file
+                                </a>
+                            </div>
+                        </div>
+                        <button class="github-btn">
+                            <i class="octicon octicon-code"></i>
+                            Code
+                            <i class="octicon octicon-triangle-down"></i>
+                        </button>
+                    </div>
+                </div>
             </li>
             <li>
                 <strong>Commit Your Changes</strong>
                 <p>Scroll down, add a brief description of your files (e.g., "Add Sony KD-55X85J TV remote files"), and click "Commit changes".</p>
+                <div class="github-ui-example">
+                    <div class="github-commit-form">
+                        <input type="text" class="github-input" placeholder="Add files via upload" disabled>
+                        <textarea class="github-textarea" placeholder="Add an optional extended description..."></textarea>
+                        <button class="github-btn github-btn-primary">
+                            <i class="octicon octicon-git-commit"></i>
+                            Commit changes
+                        </button>
+                    </div>
+                </div>
             </li>
             <li>
                 <strong>Create a Pull Request</strong>
                 <p>After committing, you'll see a message that your branch is ahead of the original. Click "Contribute" and then "Open pull request".</p>
-                <img src="https://i.ibb.co/jMNzwfX/Capture.png" alt="Open pull request button" />
+                <div class="github-ui-example">
+                    <div class="github-compare-bar">
+                        <span class="github-compare-text">This branch is 1 commit ahead of main.</span>
+                        <div class="github-dropdown">
+                            <button class="github-btn github-btn-primary">
+                                <i class="octicon octicon-git-pull-request"></i>
+                                Contribute
+                                <i class="octicon octicon-triangle-down"></i>
+                            </button>
+                            <div class="github-dropdown-content">
+                                <a class="github-dropdown-item">
+                                    <i class="octicon octicon-git-pull-request"></i>
+                                    Open pull request
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
             </li>
             <li>
                 <strong>Submit Your Pull Request</strong>
                 <p>Add any additional information about your files in the description, then click "Create pull request".</p>
+                <div class="github-ui-example">
+                    <button class="github-btn github-btn-primary">
+                        <i class="octicon octicon-git-pull-request"></i>
+                        Create pull request
+                    </button>
+                </div>
             </li>
         </ol>
         
