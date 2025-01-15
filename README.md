@@ -4,7 +4,7 @@ This project provides a web-based search tool for the Flipper Zero IR Database. 
 
 ## Live Demo
 
-You can access the live version of this tool at: [https://jaylikesbunda.github.io/Flipper-IRDB-Search/](https://jaylikesbunda.github.io/Flipper-IRDB-Search/)
+You can access the live version of this tool [here](search.flippertools.net)
 
 ## Features
 
