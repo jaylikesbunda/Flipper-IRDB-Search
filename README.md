@@ -4,7 +4,7 @@ This project provides a web-based search tool for the Flipper Zero IR Database. 
 
 ## Live Demo
 
-You can access the live version of this tool [here](https://www.search.flippertools.net)
+You can access the live version of this tool [here](https://search.flippertools.net)
 
 ## Features
 
