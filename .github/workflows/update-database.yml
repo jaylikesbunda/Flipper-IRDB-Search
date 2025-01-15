@@ -8,10 +8,15 @@ on:
 jobs:
   update-database:
     runs-on: ubuntu-latest
+    permissions:
+      contents: write
     
     steps:
     - name: Checkout Current Repository
       uses: actions/checkout@v3
+      with:
+        path: current-repo
+        token: ${{ secrets.GITHUB_TOKEN }}
       
     - name: Checkout Flipper-IRDB
       uses: actions/checkout@v3
@@ -29,125 +34,23 @@ jobs:
         python -m pip install --upgrade pip
         pip install requests
         
-    - name: Create Parser Script
+    - name: Run Parser Script
       run: |
-        cat > parse_irdb.py << 'EOL'
-        import os
-        import json
-        import requests
-        from pathlib import Path
-        
-        def parse_ir_file(file_path):
-            encodings = ['utf-8', 'latin-1', 'ascii', 'utf-16']
-            metadata = {}
-            
-            for encoding in encodings:
-                try:
-                    with open(file_path, "r", encoding=encoding) as f:
-                        content = f.read()
-                    break
-                except UnicodeDecodeError:
-                    continue
-            else:
-                print(f"Warning: Unable to decode file {file_path}. Skipping.")
-                return {}
-
-            additional_info = []
-            
-            for line in content.split("\n"):
-                if line.startswith("# "):
-                    line = line[2:].strip()
-                    if ": " in line:
-                        key, value = line.split(": ", 1)
-                        key = key.lower().strip()
-                        value = value.strip()
-                        if key in ["product", "manual", "see", "and"]:
-                            metadata[key] = value
-                        elif value:
-                            additional_info.append(f"{key}: {value}")
-                    else:
-                        additional_info.append(line)
-            
-            if additional_info:
-                metadata["additional_info"] = ", ".join(additional_info)
-            
-            return metadata
-
-        def extract_brand_model(filename):
-            name = filename[:-3] if filename.endswith('.ir') else filename
-            parts = name.split('_')
-            
-            if len(parts) >= 2:
-                brand = parts[0]
-                model = '_'.join(parts[1:])
-            else:
-                brand = name
-                model = ""
-            
-            return brand, model
-
-        def create_database():
-            database = []
-            irdb_path = Path('Flipper-IRDB')
-            
-            for root, _, files in os.walk(irdb_path):
-                for file in files:
-                    if file.endswith(".ir"):
-                        file_path = Path(root) / file
-                        relative_path = str(file_path.relative_to(irdb_path))
-                        
-                        # Convert path to Windows style for consistency
-                        relative_path = relative_path.replace('/', '\\')
-                        
-                        parts = Path(relative_path).parts
-                        device_type = parts[0] if len(parts) > 0 else ""
-                        
-                        # Extract brand and model from filename
-                        brand, model = extract_brand_model(file)
-                        
-                        # Get series (usually the filename or subfolder name)
-                        series = file
-                        if len(parts) > 2:
-                            series = parts[2]
-                        
-                        metadata = parse_ir_file(file_path)
-                        
-                        entry = {
-                            "filename": file,
-                            "device_type": device_type,
-                            "brand": brand,
-                            "model": model,
-                            "series": series,
-                            "path": relative_path,
-                            **metadata
-                        }
-                        database.append(entry)
-            
-            return database
-
-        def main():
-            print("Creating IR database...")
-            database = create_database()
-            
-            # Sort database by path for consistency
-            database.sort(key=lambda x: x["path"])
-            
-            with open("flipper_irdb_database.json", "w", encoding="utf-8") as f:
-                json.dump(database, f, indent=2, ensure_ascii=False)
-            
-            print(f"Database created with {len(database)} entries.")
-
-        if __name__ == "__main__":
-            main()
-        EOL
-        
-    - name: Run Parser
-      run: python parse_irdb.py
+        cd current-repo
+        python "Flipper-IRDB Parser Script.py"
         
     - name: Commit and Push Changes
+      env:
+        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
       run: |
-        git config --local user.email "action@github.com"
-        git config --local user.name "GitHub Action"
+        cd current-repo
+        git config --local user.email "41898282+github-actions[bot]@users.noreply.github.com"
+        git config --local user.name "github-actions[bot]"
         git add flipper_irdb_database.json
-        git diff --quiet && git diff --staged --quiet || git commit -m "Update IR database [$(date +'%Y-%m-%d %H:%M:%S')]"
-        git push 
+        if git diff --staged --quiet; then
+          echo "No changes to commit"
+        else
+          git commit -m "Update IR database [$(date +'%Y-%m-%d %H:%M:%S')]"
+          git remote set-url origin https://x-access-token:${GITHUB_TOKEN}@github.com/${{ github.repository }}.git
+          git push
+        fi 
