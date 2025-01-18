@@ -163,27 +163,74 @@ function displayIRRequests() {
     const requestsList = document.getElementById('requestsList');
     requestsList.innerHTML = '<p>Loading requests...</p>';
 
+    // Define teaching terms here so both functions use the same list
+    const teachingTerms = [
+        'teach', 'teaching', 'teacher',
+        'school', 'schools', 'schooling',
+        'classroom', 'class room', 'class',
+        'education', 'educational', 'edu',
+        'university', 'universities', 'uni',
+        'college', 'colleges',
+        'professor', 'prof',
+        'student', 'students',
+        'smartboard', 'smart board', 'smart-board',
+        'interactive board', 'interactive-board',
+        'whiteboard', 'white board', 'white-board',
+        'lecture', 'lecturer', 'lecturing',
+        'campus', 'academic'
+    ];
+
     console.log("Fetching IR requests...");
 
-    db.collection("irRequests").orderBy("timestamp", "desc").limit(25).get() // Increased limit to 25
+    db.collection("irRequests").orderBy("timestamp", "desc").limit(25).get()
         .then((querySnapshot) => {
             console.log("Received query snapshot:", querySnapshot.size);
             requestsList.innerHTML = '';
             querySnapshot.forEach((doc) => {
                 console.log("Processing document:", doc.id);
                 const data = doc.data();
+
+                // Check if request contains teaching-related terms
+                const isTeachingRelated = teachingTerms.some(term => {
+                    const termLower = term.toLowerCase();
+                    return [data.brand, data.model, data.deviceType].some(field => 
+                        String(field).toLowerCase().includes(termLower)
+                    );
+                });
+
+                // Override status and add warning if teaching-related
+                if (isTeachingRelated) {
+                    data.status = 'Invalid Request';
+                    data.warning = 'Tampering with school equipment you do not own is illegal.';
+                    
+                    // Update the document in Firestore
+                    doc.ref.update({
+                        status: 'Invalid Request',
+                        warning: 'Tampering with school equipment you do not own is illegal.'
+                    }).catch(error => console.error("Error updating document:", error));
+                }
+
                 const requestItem = document.createElement('div');
                 requestItem.className = 'request-item';
                 
                 // Check if the request has been fulfilled
                 const fulfilled = isRequestFulfilled(data, database);
+                const status = data.status || (fulfilled ? 'Added to database' : 'Pending');
+                const statusClass = status === 'Invalid Request' ? 'invalid-status' : 
+                                  fulfilled ? 'fulfilled-status' : '';
+                
+                // Format the timestamp
+                const timestamp = data.timestamp.toDate();
+                const formattedDate = timestamp.toLocaleDateString();
+                const formattedTime = timestamp.toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' });
                 
                 requestItem.innerHTML = `
-                    <p><strong>Brand:</strong> ${data.brand}</p>
-                    <p><strong>Model:</strong> ${data.model}</p>
-                    <p><strong>Device Type:</strong> ${data.deviceType}</p>
-                    <p><strong>Requested:</strong> ${data.timestamp.toDate().toLocaleString()}</p>
-                    ${fulfilled ? '<p><strong>Status:</strong> ✅ Added to database</p>' : ''}
+                    <p><span class="label">Brand</span><span class="content">${data.brand}</span></p>
+                    <p><span class="label">Model</span><span class="content">${data.model}</span></p>
+                    <p><span class="label">Type</span><span class="content">${data.deviceType}</span></p>
+                    <p><span class="label">Date</span><span class="content">${formattedDate} ${formattedTime}</span></p>
+                    <p><span class="label">Status</span><span class="content ${statusClass}">${status}</span></p>
+                    ${data.warning ? `<p class="warning-text">${data.warning}</p>` : ''}
                 `;
                 requestsList.appendChild(requestItem);
             });
@@ -208,16 +255,66 @@ function submitIRRequest(e) {
 
     console.log("Submitting request:", { brand, model, deviceType });
 
-    // Add the request to Firestore
-    db.collection("irRequests").add({
+    // Check for teaching/school-related terms
+    const teachingTerms = [
+        'teach', 'teaching', 'teacher',
+        'school', 'schools', 'schooling',
+        'classroom', 'class room', 'class',
+        'education', 'educational', 'edu',
+        'university', 'universities', 'uni',
+        'college', 'colleges',
+        'professor', 'prof',
+        'student', 'students',
+        'smartboard', 'smart board', 'smart-board',
+        'interactive board', 'interactive-board',
+        'whiteboard', 'white board', 'white-board',
+        'lecture', 'lecturer', 'lecturing',
+        'campus', 'academic'
+    ];
+    
+    // Debug logging for term matching
+    console.log("Checking terms against input:");
+    console.log("Brand (lowercase):", brand.toLowerCase());
+    console.log("Model (lowercase):", model.toLowerCase());
+    console.log("Device Type (lowercase):", deviceType.toLowerCase());
+
+    const isTeachingRelated = teachingTerms.some(term => {
+        const termFound = [brand, model, deviceType].some(field => {
+            const fieldLower = String(field).toLowerCase();
+            const termLower = term.toLowerCase();
+            const found = fieldLower.includes(termLower);
+            if (found) {
+                console.log(`Found teaching term '${term}' in field: '${field}'`);
+            }
+            return found;
+        });
+        return termFound;
+    });
+
+    console.log("Is teaching related:", isTeachingRelated);
+
+    // Add the request to Firestore with status if teaching-related
+    const requestData = {
         brand: brand,
         model: model,
         deviceType: deviceType,
-        timestamp: new Date()
-    })
+        timestamp: new Date(),
+        status: isTeachingRelated ? 'Invalid Request' : 'Pending',
+        warning: isTeachingRelated ? 'Tampering with school equipment you do not own is illegal.' : ''
+    };
+
+    console.log("Saving request with data:", requestData);
+
+    db.collection("irRequests").add(requestData)
     .then((docRef) => {
         console.log("Request submitted with ID:", docRef.id);
-        requestStatus.textContent = "Request submitted successfully!";
+        if (isTeachingRelated) {
+            requestStatus.innerHTML = `Request marked as invalid - teaching/school-related requests are not accepted.<br><span style="color: #ff4444; font-size: 0.9em;">Warning: Tampering with school equipment you do not own is illegal.</span>`;
+            requestStatus.style.color = 'var(--error-color)';
+        } else {
+            requestStatus.textContent = "Request submitted successfully!";
+            requestStatus.style.color = 'var(--success-color)';
+        }
         document.getElementById('requestForm').reset();
         // Refresh the requests list
         displayIRRequests();
@@ -225,6 +322,7 @@ function submitIRRequest(e) {
     .catch((error) => {
         console.error("Error adding document: ", error);
         requestStatus.textContent = "Error submitting request. Please try again.";
+        requestStatus.style.color = 'var(--error-color)';
     });
 }
 
@@ -368,19 +466,52 @@ function handleRegularDownload(blob, filename, downloadStatus) {
 
 function populateFilters() {
     const deviceTypes = new Set(database.map(item => item.device_type));
-    const brands = new Set(database.map(item => item.brand));
+    
+    // Clean up and normalize brand names
+    const brands = new Set(database.map(item => {
+        // Skip empty, undefined, or obviously invalid brands
+        if (!item.brand || 
+            item.brand.trim() === '' || 
+            item.brand.toLowerCase() === 'unknown' ||
+            item.brand.toLowerCase() === 'n/a' ||
+            item.brand.toLowerCase() === 'none' ||
+            item.brand.includes('/') || // Likely a path
+            item.brand.includes('\\') || // Likely a path
+            item.brand.length < 2 || // Too short to be valid
+            /^[0-9.]+$/.test(item.brand) || // Just numbers
+            item.brand.includes('.ir')) { // File extension
+            return null;
+        }
+        
+        // Normalize brand name
+        let brand = item.brand.trim();
+        // Convert to Title Case
+        brand = brand.replace(/\w\S*/g, txt => 
+            txt.charAt(0).toUpperCase() + txt.substr(1).toLowerCase()
+        );
+        // Remove common junk text
+        brand = brand.replace(/\.(txt|ir|json)$/i, '')
+                    .replace(/[_-]+/g, ' ')
+                    .replace(/\s+/g, ' ')
+                    .trim();
+        
+        return brand;
+    }).filter(brand => brand !== null));
 
     populateSelect('deviceTypeFilter', deviceTypes);
-    populateSelect('brandFilter', brands);
+    populateSelect('brandFilter', Array.from(brands).sort((a, b) => 
+        a.localeCompare(b, undefined, {sensitivity: 'base'})
+    ));
 }
 
 function populateSelect(id, options) {
     const select = document.getElementById(id);
     if (!select) return;
 
-    select.innerHTML = '<option value="">All</option>';  // Reset and add 'All' option
+    const defaultText = id === 'deviceTypeFilter' ? 'All Types' : 'All Brands';
+    select.innerHTML = `<option value="">${defaultText}</option>`;  // Reset and add 'All' option
 
-    Array.from(options).sort().forEach(option => {
+    Array.from(options).forEach(option => {
         if (option) {
             const optionElement = document.createElement('option');
             optionElement.value = option;
