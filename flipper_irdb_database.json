@@ -1583,6 +1583,16 @@
     "additional_info": "edenwood tv"
   },
   {
+    "filename": "GVA_GVA32M7D.ir",
+    "device_type": "TVs",
+    "brand": "GVA",
+    "model": "GVA32M7D",
+    "series": "GVA_GVA32M7D.ir",
+    "path": "TVs/GVA/GVA_GVA32M7D.ir",
+    "device model": "GVA32M7D",
+    "device type": "TV"
+  },
+  {
     "filename": "Waltham_WTHD3214B.ir",
     "device_type": "TVs",
     "brand": "Waltham",
@@ -2840,6 +2850,16 @@
     "series": "TOSHIBA_SE_R0420.ir",
     "path": "DVD_Players/Toshiba/TOSHIBA_SE_R0420.ir",
     "additional_info": "toshiba se-r0420 dvd / blu-ray player"
+  },
+  {
+    "filename": "Philips_DVDR3475.ir",
+    "device_type": "DVD_Players",
+    "brand": "Philips",
+    "model": "DVDR3475",
+    "series": "Philips_DVDR3475.ir",
+    "path": "DVD_Players/Philips/Philips_DVDR3475.ir",
+    "device model": "DVDR3475",
+    "device type": "DVD Player"
   },
   {
     "filename": "Sony_J-6090-203-A.ir",
@@ -21756,6 +21776,15 @@
     "additional_info": "bose soundbar 300"
   },
   {
+    "filename": "Grundig_DSB_950.ir",
+    "device_type": "SoundBars",
+    "brand": "Grundig",
+    "model": "DSB_950",
+    "series": "Grundig_DSB_950.ir",
+    "path": "SoundBars/Grundig/Grundig_DSB_950.ir",
+    "additional_info": "grundig dsb 950 soundbar, https://www.grundig.com/de-de/produkte/lautsprecher/lautsprecher-dsb-950-black"
+  },
+  {
     "filename": "TCL_TS5010.ir",
     "device_type": "SoundBars",
     "brand": "TCL",
@@ -23731,6 +23760,26 @@
     "device model": "BDS667",
     "device type": "Blu-ray Player",
     "contributor": "jay candel"
+  },
+  {
+    "filename": "Insignia_NSWBRDVD2.ir",
+    "device_type": "Blu-Ray",
+    "brand": "Insignia",
+    "model": "NSWBRDVD2",
+    "series": "Insignia_NSWBRDVD2.ir",
+    "path": "Blu-Ray/Insignia/Insignia_NSWBRDVD2.ir",
+    "device model": "NSWBRDVD2",
+    "device type": "Blu-ray Player"
+  },
+  {
+    "filename": "Sharp_BDHP70U.ir",
+    "device_type": "Blu-Ray",
+    "brand": "Sharp",
+    "model": "BDHP70U",
+    "series": "Sharp_BDHP70U.ir",
+    "path": "Blu-Ray/Sharp/Sharp_BDHP70U.ir",
+    "device model": "BDHP70U",
+    "device type": "Blu-ray Player"
   },
   {
     "filename": "Sharp_BDHP20.ir",
