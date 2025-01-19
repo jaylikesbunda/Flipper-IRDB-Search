@@ -96,6 +96,37 @@ function isRequestFulfilled(request, database) {
 
 function showWebSerialPopup() {
     const popup = document.getElementById('serialPopup');
+    const popupContent = popup.querySelector('.popup-content');
+    const isMobile = /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent);
+    
+    if (isMobile) {
+        popupContent.innerHTML = `
+            <img src="/icon.png" alt="Flipper Zero" class="popup-icon">
+            <h2>Mobile Device Detected</h2>
+            <p>Web Serial is not supported on mobile devices. To connect to your Flipper Zero, please use a desktop browser:</p>
+            <ul>
+                <li><i class="fab fa-chrome"></i> Google Chrome</li>
+                <li><i class="fab fa-edge"></i> Microsoft Edge</li>
+                <li><i class="fab fa-opera"></i> Opera</li>
+                <li><i class="fab fa-chrome"></i> Brave</li>
+            </ul>
+            <button class="btn close-popup">Got it!</button>
+        `;
+    } else {
+        popupContent.innerHTML = `
+            <img src="/icon.png" alt="Flipper Zero" class="popup-icon">
+            <h2>Browser Not Compatible</h2>
+            <p>Web Serial is not supported in this browser. To connect to your Flipper Zero, please use:</p>
+            <ul>
+                <li><i class="fab fa-chrome"></i> Google Chrome</li>
+                <li><i class="fab fa-edge"></i> Microsoft Edge</li>
+                <li><i class="fab fa-opera"></i> Opera</li>
+                <li><i class="fab fa-chrome"></i> Brave</li>
+            </ul>
+            <button class="btn close-popup">Got it!</button>
+        `;
+    }
+    
     popup.style.display = 'block';
     
     // Add click event to close button
@@ -180,16 +211,27 @@ function displayIRRequests() {
         'campus', 'academic'
     ];
 
+    // Define don't know variations
+    const dontKnowVariations = ['i dont know', 'idk', 'dont know', "don't know", 'unknown', 'not sure'];
+
     console.log("Fetching IR requests...");
 
     db.collection("irRequests").orderBy("timestamp", "desc").limit(25).get()
         .then((querySnapshot) => {
             console.log("Received query snapshot:", querySnapshot.size);
             requestsList.innerHTML = '';
+            
+            const requests = [];
             querySnapshot.forEach((doc) => {
-                console.log("Processing document:", doc.id);
                 const data = doc.data();
+                requests.push(data);
+            });
 
+            // Add requests to the DOM
+            requests.forEach((data, index) => {
+                const requestItem = document.createElement('div');
+                requestItem.className = `request-item ${index >= 5 ? 'hidden' : ''}`;
+                
                 // Check if request contains teaching-related terms
                 const isTeachingRelated = teachingTerms.some(term => {
                     const termLower = term.toLowerCase();
@@ -198,27 +240,34 @@ function displayIRRequests() {
                     );
                 });
 
-                // Override status and add warning if teaching-related
+                // Check for "i dont know" variations
+                const hasDontKnow = dontKnowVariations.some(term => {
+                    return [data.brand, data.model].some(field => 
+                        String(field).toLowerCase().includes(term)
+                    );
+                });
+
+                // Check if brand and model are exactly the same
+                const isSameBrandModel = data.brand?.toLowerCase().trim() === data.model?.toLowerCase().trim();
+
+                let invalidReason = '';
                 if (isTeachingRelated) {
-                    data.status = 'Invalid Request';
-                    data.warning = 'Tampering with school equipment you do not own is illegal.';
-                    
-                    // Update the document in Firestore
-                    doc.ref.update({
-                        status: 'Invalid Request',
-                        warning: 'Tampering with school equipment you do not own is illegal.'
-                    }).catch(error => console.error("Error updating document:", error));
+                    invalidReason = 'Tampering with school equipment you do not own is illegal.';
+                } else if (hasDontKnow) {
+                    invalidReason = 'Please provide actual brand/model information instead of "I don\'t know"';
+                } else if (isSameBrandModel) {
+                    invalidReason = 'Brand and model cannot be the same';
                 }
 
-                const requestItem = document.createElement('div');
-                requestItem.className = 'request-item';
-                
-                // Check if the request has been fulfilled
-                const fulfilled = isRequestFulfilled(data, database);
-                const status = data.status || (fulfilled ? 'Added to database' : 'Pending');
-                const statusClass = status === 'Invalid Request' ? 'invalid-status' : 
-                                  fulfilled ? 'fulfilled-status' : '';
-                
+                // Override status and add warning if invalid
+                if (invalidReason) {
+                    data.status = 'Invalid Request';
+                    data.warning = invalidReason;
+                } else if (!data.status) {
+                    // Set default status if none exists
+                    data.status = isRequestFulfilled(data, database) ? 'Added to database' : 'Pending';
+                }
+
                 // Format the timestamp
                 const timestamp = data.timestamp.toDate();
                 const formattedDate = timestamp.toLocaleDateString();
@@ -229,11 +278,40 @@ function displayIRRequests() {
                     <p><span class="label">Model</span><span class="content">${data.model}</span></p>
                     <p><span class="label">Type</span><span class="content">${data.deviceType}</span></p>
                     <p><span class="label">Date</span><span class="content">${formattedDate} ${formattedTime}</span></p>
-                    <p><span class="label">Status</span><span class="content ${statusClass}">${status}</span></p>
+                    <p><span class="label">Status</span><span class="content ${data.status === 'Invalid Request' ? 'invalid-status' : (data.status === 'Added to database' ? 'fulfilled-status' : '')}">${data.status}</span></p>
                     ${data.warning ? `<p class="warning-text">${data.warning}</p>` : ''}
                 `;
                 requestsList.appendChild(requestItem);
             });
+
+            // Add Load More button if there are more than 5 requests
+            if (requests.length > 5) {
+                const loadMoreBtn = document.createElement('button');
+                loadMoreBtn.className = 'load-more-btn';
+                loadMoreBtn.textContent = 'Load More Requests';
+                
+                loadMoreBtn.addEventListener('click', () => {
+                    const hiddenRequests = document.querySelectorAll('.request-item.hidden');
+                    const visibleRequests = document.querySelectorAll('.request-item:not(.hidden)');
+                    
+                    if (hiddenRequests.length > 0) {
+                        // Show more
+                        hiddenRequests.forEach(request => request.classList.remove('hidden'));
+                        loadMoreBtn.textContent = 'Show Less';
+                    } else {
+                        // Show less
+                        visibleRequests.forEach((request, index) => {
+                            if (index >= 5) {
+                                request.classList.add('hidden');
+                            }
+                        });
+                        loadMoreBtn.textContent = 'Load More Requests';
+                    }
+                });
+                
+                requestsList.appendChild(loadMoreBtn);
+            }
+
             if (querySnapshot.empty) {
                 console.log("No requests found");
                 requestsList.innerHTML = '<p>No requests found.</p>';
@@ -252,8 +330,26 @@ function submitIRRequest(e) {
     const model = document.getElementById('modelInput').value;
     const deviceType = document.getElementById('deviceTypeInput').value;
     const requestStatus = document.getElementById('requestStatus');
+    
+    // Clear previous status classes
+    requestStatus.className = '';
 
-    console.log("Submitting request:", { brand, model, deviceType });
+    // Check for "i dont know" or similar variations
+    const dontKnowVariations = ['i dont know', 'idk', 'dont know', "don't know", 'unknown', 'not sure'];
+    const hasDontKnow = dontKnowVariations.some(term => {
+        return [brand.toLowerCase(), model.toLowerCase()].some(field => field.includes(term));
+    });
+
+    // Check if brand and model are exactly the same
+    const isSameBrandModel = brand.toLowerCase().trim() === model.toLowerCase().trim();
+
+    if (hasDontKnow || isSameBrandModel) {
+        requestStatus.textContent = hasDontKnow ? 
+            "Invalid request: Please provide actual brand/model information instead of 'I don't know'" :
+            "Invalid request: Brand and model cannot be the same";
+        requestStatus.className = 'error';
+        return;
+    }
 
     // Check for teaching/school-related terms
     const teachingTerms = [
@@ -272,26 +368,13 @@ function submitIRRequest(e) {
         'campus', 'academic'
     ];
     
-    // Debug logging for term matching
-    console.log("Checking terms against input:");
-    console.log("Brand (lowercase):", brand.toLowerCase());
-    console.log("Model (lowercase):", model.toLowerCase());
-    console.log("Device Type (lowercase):", deviceType.toLowerCase());
-
     const isTeachingRelated = teachingTerms.some(term => {
-        const termFound = [brand, model, deviceType].some(field => {
+        return [brand, model, deviceType].some(field => {
             const fieldLower = String(field).toLowerCase();
             const termLower = term.toLowerCase();
-            const found = fieldLower.includes(termLower);
-            if (found) {
-                console.log(`Found teaching term '${term}' in field: '${field}'`);
-            }
-            return found;
+            return fieldLower.includes(termLower);
         });
-        return termFound;
     });
-
-    console.log("Is teaching related:", isTeachingRelated);
 
     // Add the request to Firestore with status if teaching-related
     const requestData = {
@@ -303,26 +386,23 @@ function submitIRRequest(e) {
         warning: isTeachingRelated ? 'Tampering with school equipment you do not own is illegal.' : ''
     };
 
-    console.log("Saving request with data:", requestData);
-
     db.collection("irRequests").add(requestData)
     .then((docRef) => {
-        console.log("Request submitted with ID:", docRef.id);
         if (isTeachingRelated) {
             requestStatus.innerHTML = `Request marked as invalid - teaching/school-related requests are not accepted.<br><span style="color: #ff4444; font-size: 0.9em;">Warning: Tampering with school equipment you do not own is illegal.</span>`;
-            requestStatus.style.color = 'var(--error-color)';
+            requestStatus.className = 'error';
         } else {
             requestStatus.textContent = "Request submitted successfully!";
-            requestStatus.style.color = 'var(--success-color)';
+            requestStatus.className = 'success';
+            document.getElementById('requestForm').reset();
         }
-        document.getElementById('requestForm').reset();
         // Refresh the requests list
         displayIRRequests();
     })
     .catch((error) => {
         console.error("Error adding document: ", error);
         requestStatus.textContent = "Error submitting request. Please try again.";
-        requestStatus.style.color = 'var(--error-color)';
+        requestStatus.className = 'error';
     });
 }
 
@@ -575,22 +655,24 @@ function displayResults() {
         if (item.additional_info) {
             if (item.additional_info.length > 50) {
                 additionalInfoHtml = `
-                    <p><strong>Additional Info:</strong> 
+                    <p><strong>Info</strong> 
                         <span class="info-text">${item.additional_info.substring(0, 50)}
                             <span class="more-text" style="display:none">${item.additional_info.substring(50)}</span>
                         </span>
                         <button class="read-more">Read More</button>
-                    </p>`;
+                    </span></p>`;
             } else {
-                additionalInfoHtml = `<p><strong>Additional Info:</strong> ${item.additional_info}</p>`;
+                additionalInfoHtml = `<p><strong>Info</strong> ${item.additional_info}</p>`;
             }
         }
 
         resultItem.innerHTML = `
             <h3>${item.brand} ${item.model}</h3>
-            <p><strong>Type:</strong> ${item.device_type}</p>
-            <p><strong>File:</strong> ${item.filename}</p>
-            ${additionalInfoHtml}
+            <div class="content-wrapper">
+                <p><strong>Type</strong> ${item.device_type}</p>
+                <p><strong>File</strong> ${item.filename}</p>
+                ${additionalInfoHtml}
+            </div>
             <div class="button-group">
                 <button class="download-button">Download IR File</button>
                 <button class="send-to-flipper-button">Send to Flipper</button>

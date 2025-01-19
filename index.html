@@ -6,6 +6,13 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Flipper Zero IRDB Search/Request</title>
 
+    <!-- Favicon and Icons -->
+    <link rel="apple-touch-icon" sizes="180x180" href="assets/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="assets/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="assets/favicon-16x16.png">
+    <link rel="manifest" href="assets/site.webmanifest">
+    <link rel="shortcut icon" href="assets/favicon.ico">
+
     <!-- Fonts, Icons and Animations -->
     <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css">
@@ -92,10 +99,19 @@
             <section id="irRequestForm" class="ir-request-form">
                 <h2>Request a Remote</h2>
                 <form id="requestForm">
-                    <input type="text" id="brandInput" placeholder="Brand" required>
-                    <input type="text" id="modelInput" placeholder="Device Model Number (NOT REMOTE MODEL)" required>
-                    <input type="text" id="deviceTypeInput" placeholder="Device Type" required>
-                    <button type="submit" class="btn">Submit Request</button>
+                    <div class="form-group">
+                        <label for="brandInput">Brand Name</label>
+                        <input type="text" id="brandInput" placeholder="Enter the device brand (e.g. Sony, Samsung)" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="modelInput">Model Number</label>
+                        <input type="text" id="modelInput" placeholder="Enter the exact model number" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="deviceTypeInput">Device Type</label>
+                        <input type="text" id="deviceTypeInput" placeholder="Enter the device type (e.g. TV, AC, Stereo)" required>
+                    </div>
+                    <button type="submit">Submit Request</button>
                 </form>
                 <div id="requestStatus"></div>
             </section>
