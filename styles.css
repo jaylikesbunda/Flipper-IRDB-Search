@@ -86,10 +86,73 @@ header {
     text-align: center;
     margin-bottom: 3rem;
 }
+
+header h1 {
+    color: var(--accent-color);
+    font-size: 2.5rem;
+    margin: 1rem 0;
+    font-weight: 700;
+    letter-spacing: -0.02em;
+}
+
+.header-description {
+    color: var(--text-color);
+    font-size: 1.2rem;
+    margin-bottom: 2rem;
+    opacity: 0.9;
+}
+
 header img {
     width: 150px;
     margin-bottom: 1rem;
 }
+
+/* Quick Stats */
+.quick-stats {
+    text-align: center;
+    margin-bottom: 2rem;
+    color: var(--accent-color);
+    font-size: 1.1rem;
+}
+
+.quick-stats span {
+    font-weight: 600;
+}
+
+/* Search Bar Improvements */
+.search-bar input {
+    flex-grow: 1;
+    padding: 1rem 1.25rem;
+    border: none;
+    background-color: rgba(30, 30, 30, 0.3);
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    color: var(--text-color);
+    font-size: 1rem;
+    transition: var(--transition);
+}
+
+.search-bar input:focus {
+    background-color: rgba(30, 30, 30, 0.4);
+    outline: none;
+}
+
+.search-bar input::placeholder {
+    color: rgba(224, 224, 224, 0.6);
+}
+
+/* Responsive Adjustments */
+@media (max-width: 768px) {
+    header h1 {
+        font-size: 2rem;
+    }
+    
+    .header-description {
+        font-size: 1rem;
+        padding: 0 1rem;
+    }
+}
+
 .button-container {
     display: flex;
     flex-wrap: wrap;
@@ -127,14 +190,6 @@ main {
     box-shadow: 0 4px 6px var(--shadow-color);
     border-radius: var(--border-radius);
     overflow: hidden;
-}
-.search-bar input {
-    flex-grow: 1;
-    padding: 1rem;
-    border: none;
-    background-color: var(--secondary-bg);
-    color: var(--text-color);
-    font-size: 1rem;
 }
 .search-bar button {
     padding: 1rem 1.5rem;

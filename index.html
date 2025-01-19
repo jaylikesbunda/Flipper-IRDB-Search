@@ -4,7 +4,21 @@
     <!-- Meta Tags -->
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Flipper Zero IRDB Search/Request</title>
+    <title>Flipper Zero IRDB</title>
+    <meta name="description" content="Search the largest Flipper Zero infrared remote database. Find, download, and request IR files for your Flipper Zero. Direct SD card and device upload support.">
+    
+    <!-- Open Graph / Social Meta Tags -->
+    <meta property="og:title" content="Flipper Zero IR Database Search">
+    <meta property="og:description" content="Search and download infrared remote files for your Flipper Zero. The largest collection of IR files with direct device upload support.">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://search.flippertools.net">
+    <meta property="og:image" content="https://search.flippertools.net/assets/android-chrome-512x512.png">
+    
+    <!-- Additional SEO Meta Tags -->
+    <meta name="keywords" content="flipper zero ir database, flipper irdb, flipper infrared database, flipper tools, flipper zero remote, universal remote, ir files">
+    <meta name="author" content="Jay Candel">
+    <meta name="robots" content="index, follow">
+    <link rel="canonical" href="https://search.flippertools.net">
 
     <!-- Favicon and Icons -->
     <link rel="apple-touch-icon" sizes="180x180" href="assets/apple-touch-icon.png">
@@ -36,36 +50,40 @@
 
     <!-- Main Container -->
     <div class="container">
-        <!-- Disclaimer -->
-        <div class="disclaimer">Not affiliated with Flipper Devices Inc.</div>
+
         
         <!-- Header Section -->
         <header class="animate__animated animate__fadeIn">
-            <img src="/icon.png" alt="Flipper Zero IRDB Search & Request" class="animate__animated animate__bounceIn">
+            <img src="/icon.png" alt="Flipper Zero IR Database Search - Find and Download Remote Files" class="animate__animated animate__bounceIn">
+            <p class="header-description">Search the largest collection of infrared remote files for your Flipper Zero. Find, download, and directly upload TV, AC, and other device remotes to your Flipper.</p>
             <div class="button-container animate__animated animate__fadeInUp">
-                <a href="submit-guide.html" class="btn">Submit a File</a>
-                <a href="https://format.flippertools.net" class="btn" target="_blank">Format a File</a>
-                <a href="#irRequestForm" class="btn" id="requestRemoteBtn">Request a File</a>
+                <a href="submit-guide.html" class="btn">Submit to Database</a>
+                <a href="https://format.flippertools.net" class="btn" target="_blank">Format IR File</a>
+                <a href="#irRequestForm" class="btn" id="requestRemoteBtn">Request Remote</a>
+            
             </div>
+                    <!-- Disclaimer -->
+        <div class="disclaimer">Not affiliated with Flipper Devices Inc.</div>
         </header>
 
         <!-- Main Content -->
         <main class="animate__animated animate__fadeIn animate__delay-1s">
+
             <!-- Search Bar -->
             <div class="search-bar">
-                <input type="text" id="searchInput" placeholder="Search brand, model, or device type...">
-                <button id="searchButton" aria-label="Search"><i class="fas fa-search"></i></button>
+                <input type="text" id="searchInput" placeholder="Search by brand (Samsung, LG...), model number, or device type (TV, AC...)">
+                <button id="searchButton" aria-label="Search IR Database"><i class="fas fa-search"></i></button>
             </div>
 
             <!-- Filters -->
             <div class="filters">
-                <select id="deviceTypeFilter">
-                    <option value="">All Types</option>
+                <select id="deviceTypeFilter" aria-label="Filter by device type">
+                    <option value="">All Device Types</option>
                 </select>
-                <select id="brandFilter">
+                <select id="brandFilter" aria-label="Filter by brand">
                     <option value="">All Brands</option>
                 </select>
-                <select id="itemsPerPage">
+                <select id="itemsPerPage" aria-label="Results per page">
                     <option value="10">10 per page</option>
                     <option value="20" selected>20 per page</option>
                     <option value="50">50 per page</option>
@@ -190,6 +208,24 @@
         
         observer.observe(results, { childList: true });
     });
+    </script>
+
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "WebSite",
+      "name": "Flipper Zero IR Database Search",
+      "description": "Search and download infrared remote files for your Flipper Zero device",
+      "url": "https://search.flippertools.net",
+      "potentialAction": {
+        "@type": "SearchAction",
+        "target": {
+          "@type": "EntryPoint",
+          "urlTemplate": "https://search.flippertools.net/?q={search_term_string}"
+        },
+        "query-input": "required name=search_term_string"
+      }
+    }
     </script>
 </body>
 </html>
