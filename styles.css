@@ -203,11 +203,13 @@ main {
     gap: 2rem;
 }
 .result-item {
-    background-color: var(--secondary-bg);
+    background-color: rgba(30, 30, 30, 0.3);
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
     border-radius: var(--border-radius);
     padding: 1.5rem;
     transition: var(--transition);
-    border: 1px solid rgba(255, 255, 255, 0.05);
+    border: 1px solid rgba(255, 255, 255, 0.1);
     display: flex;
     flex-direction: column;
     position: relative;
@@ -218,6 +220,7 @@ main {
     transform: translateY(-5px);
     box-shadow: 0 12px 24px rgba(0, 0, 0, 0.3);
     border-color: rgba(255, 102, 0, 0.3);
+    background-color: rgba(30, 30, 30, 0.4);
 }
 .result-item::before {
     content: '';
@@ -347,7 +350,9 @@ main {
 .ir-request-form {
     margin-top: 4rem;
     padding: 2rem;
-    background-color: var(--secondary-bg);
+    background-color: rgba(30, 30, 30, 0.3);
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
     border-radius: var(--border-radius);
     box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
     border: 1px solid rgba(255, 255, 255, 0.05);
@@ -476,7 +481,9 @@ main {
 .ir-requests-list {
     margin-top: 5rem;
     padding: 2rem;
-    background-color: var(--secondary-bg);
+    background-color: rgba(30, 30, 30, 0.3);
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
     border-radius: var(--border-radius);
     box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
     border: 1px solid rgba(255, 255, 255, 0.05);
@@ -520,18 +527,21 @@ main {
 }
 
 .request-item {
-    background-color: var(--bg-color);
+    background-color: rgba(30, 30, 30, 0.3);
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
     border-radius: var(--border-radius);
     padding: 1rem;
     transition: var(--transition);
     display: flex;
     flex-direction: column;
     gap: 0.5rem;
-    border: 1px solid rgba(255, 255, 255, 0.05);
+    border: 1px solid rgba(255, 255, 255, 0.1);
 }
 .request-item:hover {
     transform: translateY(-2px);
     box-shadow: 0 6px 12px var(--shadow-color);
+    background-color: rgba(30, 30, 30, 0.4);
 }
 .request-item p {
     margin: 0;
@@ -542,7 +552,7 @@ main {
     gap: 0.5rem;
 }
 .request-item .label {
-    background-color: var(--secondary-bg);
+    background-color: rgba(30, 30, 30, 0.5);
     color: var(--accent-color);
     padding: 0.15rem 0.4rem;
     border-radius: 4px;
