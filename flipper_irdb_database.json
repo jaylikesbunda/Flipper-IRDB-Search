@@ -9055,6 +9055,16 @@
     "additional_info": "for thomson set-top box (cable box) tht501 tnt"
   },
   {
+    "filename": "Micca_SpeckG2.ir",
+    "device_type": "Cable_Boxes",
+    "brand": "Micca",
+    "model": "SpeckG2",
+    "series": "Micca_SpeckG2.ir",
+    "path": "Cable_Boxes/Micca/Micca_SpeckG2.ir",
+    "device model": "SpeckG2",
+    "device type": "Media Player"
+  },
+  {
     "filename": "Foxtel_IQ2-IQ3.ir",
     "device_type": "Cable_Boxes",
     "brand": "Foxtel",
