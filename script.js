@@ -773,6 +773,34 @@ function displayResults() {
     });
 
     updatePagination(currentResults.length);
+
+    // Get last commit date from GitHub API
+    fetch('https://api.github.com/repos/jaylikesbunda/Flipper-IRDB-Search/commits?path=flipper_irdb_database.json')
+    .then(response => response.json())
+    .then(commits => {
+        const lastCommit = commits[0].commit.committer.date;
+        const lastUpdated = new Date(lastCommit);
+        document.querySelector('.last-updated').innerHTML = `
+            <span class="update-badge">
+                <i class="fas fa-sync-alt"></i>
+                Last updated: ${lastUpdated.toLocaleDateString('en-US', { 
+                    month: 'long', 
+                    day: 'numeric', 
+                    hour: '2-digit', 
+                    minute: '2-digit' 
+                })}
+            </span>
+        `;
+    })
+    .catch(error => {
+        console.error('FUCKING GITHUB API ERROR:', error);
+        document.querySelector('.last-updated').innerHTML = `
+            <span class="update-badge error">
+                <i class="fas fa-skull-crossbones"></i>
+                Failed to load update time
+            </span>
+        `;
+    });
 }
 
 function updatePagination(totalResults) {
