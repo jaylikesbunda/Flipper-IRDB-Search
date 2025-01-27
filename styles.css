@@ -232,6 +232,65 @@ main {
     color: var(--accent-color);
 }
 
+.last-updated {
+    text-align: center;
+    margin: 1.5rem 0;
+    font-size: 0.9rem;
+    color: rgba(224, 224, 224, 0.7);
+    animation: fadeInGlow 0.8s ease-out;
+}
+
+.update-badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    padding: 0.5rem 1rem;
+    background: rgba(255, 102, 0, 0.1);
+    border-radius: 20px;
+    border: 1px solid rgba(255, 102, 0, 0.3);
+    backdrop-filter: blur(5px);
+    transition: all 0.3s ease;
+}
+
+.update-badge:hover {
+    background: rgba(255, 102, 0, 0.15);
+    transform: scale(1.02);
+}
+
+.update-badge i {
+    color: #ff6600;
+    font-size: 0.9em;
+    animation: pulse 2s infinite;
+}
+
+@keyframes pulse {
+    0% { transform: rotate(0deg); }
+    30% { transform: rotate(-20deg); }
+    60% { transform: rotate(10deg); }
+    100% { transform: rotate(0deg); }
+}
+
+@keyframes fadeInGlow {
+    from {
+        opacity: 0;
+        filter: blur(5px);
+    }
+    to {
+        opacity: 1;
+        filter: blur(0);
+    }
+}
+
+@media (max-width: 768px) {
+    .last-updated {
+        font-size: 0.8rem;
+        margin: 1rem 0;
+    }
+    .update-badge {
+        padding: 0.4rem 0.8rem;
+    }
+}
+
 /* Loading Indicator */
 .loading {
     display: none;

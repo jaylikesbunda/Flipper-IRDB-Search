@@ -431,9 +431,18 @@ function loadDatabase() {
 
     fetch('flipper_irdb_database.json')
         .then(response => {
-            if (!response.ok) {
-                throw new Error('Network response was not ok');
-            }
+            const lastModified = new Date(response.headers.get('last-modified'));
+            document.querySelector('.last-updated').innerHTML = `
+                <span class="update-badge">
+                    <i class="fas fa-sync-alt"></i>
+                    Last updated: ${lastModified.toLocaleDateString('en-US', { 
+                        month: 'long', 
+                        day: 'numeric', 
+                        hour: '2-digit', 
+                        minute: '2-digit' 
+                    })}
+                </span>
+            `;
             return response.json();
         })
         .then(data => {
