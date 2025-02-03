@@ -21238,6 +21238,28 @@
     "additional_info": "philips fw750c av receiver"
   },
   {
+    "filename": "Philips_HTS8010S.ir",
+    "device_type": "Audio_and_Video_Receivers",
+    "brand": "Philips",
+    "model": "HTS8010S",
+    "series": "Philips_HTS8010S.ir",
+    "path": "Audio_and_Video_Receivers/Philips/Philips_HTS8010S.ir",
+    "device model": "HTS8010S",
+    "device type": "Home Theater",
+    "contributor": "jay candel"
+  },
+  {
+    "filename": "Bose_LifestyleV35.ir",
+    "device_type": "Audio_and_Video_Receivers",
+    "brand": "Bose",
+    "model": "LifestyleV35",
+    "series": "Bose_LifestyleV35.ir",
+    "path": "Audio_and_Video_Receivers/Philips/Bose_LifestyleV35.ir",
+    "device model": "LifestyleV35",
+    "device type": "Audio and Video Receiver",
+    "contributor": "jay candel"
+  },
+  {
     "filename": "Philips_CD_Player_723.ir",
     "device_type": "Audio_and_Video_Receivers",
     "brand": "Philips",
@@ -23491,6 +23513,16 @@
     "series": "Sony_CFD-S35CP.ir",
     "path": "CD_Players/Sony/Sony_CFD-S35CP.ir",
     "remote": "Sony RMT-CF15CPAD"
+  },
+  {
+    "filename": "Sony_ICFCDK50.ir",
+    "device_type": "CD_Players",
+    "brand": "Sony",
+    "model": "ICF-CDK50",
+    "series": "Sony_ICFCDK50.ir",
+    "path": "CD_Players/Sony/Sony_ICFCDK50.ir",
+    "device type": "CD Player - Clock - Radio",
+    "contributor": "jay candel"
   },
   {
     "filename": "SONY_minidisk-deck.ir",
