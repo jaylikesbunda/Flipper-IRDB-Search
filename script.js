@@ -5,10 +5,21 @@ let debounceTimer;
 let currentResults = [];
 let flipperSerial = null;
 
+// Add these constants at the top with manuallyFulfilledRequests
+const teachingTerms = [
+    'teach', 'teaching', 'teacher', 'school', 'classroom', 'education', 
+    'university', 'college', 'professor', 'student', 'smartboard', 
+    'whiteboard', 'lecture', 'campus', 'academic'
+];
 
-document.addEventListener('DOMContentLoaded', function() {
-    loadDatabase();
+const dontKnowVariations = [
+    'i dont know', 'idk', 'dont know', "don't know", 'unknown', 'not sure'
+];
+
+document.addEventListener('DOMContentLoaded', async function() {
+    await loadDatabase(); // Wait for DB before any requests processing
     setupEventListeners();
+    displayIRRequests(); // Initial load after DB ready
 });
 
 function setupEventListeners() {
@@ -47,51 +58,79 @@ const manuallyFulfilledRequests = [
     // Add more manually fulfilled requests here
 ];
 function isRequestFulfilled(request, database) {
-    // Helper function to normalize strings for comparison
-    const normalize = (str) => str ? str.toLowerCase().trim() : '';
+    // Combine manual entries with database
+    const fullDataset = [...database, ...manuallyFulfilledRequests];
     
-    // Helper function to check if two strings are similar
-    const isSimilar = (str1, str2) => {
-        if (!str1 || !str2) return false;
-        const norm1 = normalize(str1);
-        const norm2 = normalize(str2);
-        
-        // Direct match
-        if (norm1 === norm2) return true;
-        
-        // One contains the other (both ways)
-        if (norm1.includes(norm2) || norm2.includes(norm1)) return true;
-        
-        // For model numbers, allow partial matches if they share significant parts
-        const parts1 = norm1.split(/[\s-]+/);
-        const parts2 = norm2.split(/[\s-]+/);
-        
-        // If any significant part matches between the strings
-        return parts1.some(part1 => 
-            part1.length > 2 && // Only consider parts longer than 2 chars
-            parts2.some(part2 => 
-                part2.length > 2 && 
-                (part1.includes(part2) || part2.includes(part1))
-            )
-        );
-    };
-    
-    // Check if the request is manually marked as fulfilled
-    const isManuallyFulfilled = manuallyFulfilledRequests.some(manualEntry => 
-        isSimilar(manualEntry.brand, request.brand) &&
-        isSimilar(manualEntry.model, request.model)
-    );
-    
-    if (isManuallyFulfilled) {
-        return true;
-    }
-    
-    // Proceed with database search - only check brand and model
-    return database.some(item => {
+    // Add debug logging
+    console.log(`Checking request: ${request.brand} ${request.model}`);
+    let checkedItems = 0;
+    let matches = 0;
+    let foundMatch = false;
+
+    // Changed from some() to forEach to check ALL items
+    fullDataset.forEach(item => {
+        checkedItems++;
         const brandMatch = isSimilar(item.brand, request.brand);
         const modelMatch = isSimilar(item.model, request.model);
-        return brandMatch && modelMatch;
+        
+        if (brandMatch && modelMatch) {
+            matches++;
+            console.log(`Match found: ${item.brand} ${item.model}`);
+            foundMatch = true; // Don't return, keep checking all
+        }
     });
+
+    console.log(`Checked ${checkedItems} items, found ${matches} matches`);
+    return foundMatch;
+}
+
+const normalize = (str) => {
+    // Aggressive normalization preserving numbers
+    return String(str).toLowerCase()
+        .replace(/[^a-z0-9]/g, '') // Keep letters/numbers only
+        .replace(/(brand|mark|model|type|series|version|bravia|oled|smart|class)/gi, '')
+        .substring(0, 30); // Increased length for long model numbers
+};
+
+const isSimilar = (str1, str2) => {
+    // Strict brand matching
+    const brand1 = normalize(String(str1).split(/\s+/)[0]);
+    const brand2 = normalize(String(str2).split(/\s+/)[0]);
+    if (brand1 !== brand2) return false;
+
+    // Model number validation
+    const norm1 = normalize(str1);
+    const norm2 = normalize(str2);
+    
+    // Require sequential number match
+    const numbers1 = norm1.replace(/[^0-9]/g, '');
+    const numbers2 = norm2.replace(/[^0-9]/g, '');
+    if (numbers1 !== numbers2) return false;
+    
+    // Letter sequence check
+    const letters1 = norm1.replace(/[0-9]/g, '');
+    const letters2 = norm2.replace(/[0-9]/g, '');
+    const lcs = longestCommonSubsequence(letters1, letters2);
+    if (lcs < Math.min(3, letters1.length, letters2.length)) return false;
+
+    // Allow small typos in full model
+    return levenshtein(norm1, norm2) <= 2; // Max 2 character differences
+};
+
+// Add LCS check for sequential matches
+function longestCommonSubsequence(a, b) {
+    const matrix = Array(a.length + 1).fill().map(() => Array(b.length + 1).fill(0));
+    
+    for (let i = 1; i <= a.length; i++) {
+        for (let j = 1; j <= b.length; j++) {
+            if (a.charAt(i - 1) === b.charAt(j - 1)) {
+                matrix[i][j] = matrix[i - 1][j - 1] + 1;
+            } else {
+                matrix[i][j] = Math.max(matrix[i - 1][j], matrix[i][j - 1]);
+            }
+        }
+    }
+    return matrix[a.length][b.length];
 }
 
 function showWebSerialPopup() {
@@ -190,33 +229,15 @@ async function sendToFlipper(url, filename) {
     }
 }
 
-function displayIRRequests() {
+async function displayIRRequests() {
     const requestsList = document.getElementById('requestsList');
     requestsList.innerHTML = '<p>Loading requests...</p>';
+    
+    // Ensure database is fully loaded
+    if (database.length === 0) await loadDatabase();
 
-    // Define teaching terms here so both functions use the same list
-    const teachingTerms = [
-        'teach', 'teaching', 'teacher',
-        'school', 'schools', 'schooling',
-        'classroom', 'class room', 'class',
-        'education', 'educational', 'edu',
-        'university', 'universities', 'uni',
-        'college', 'colleges',
-        'professor', 'prof',
-        'student', 'students',
-        'smartboard', 'smart board', 'smart-board',
-        'interactive board', 'interactive-board',
-        'whiteboard', 'white board', 'white-board',
-        'lecture', 'lecturer', 'lecturing',
-        'campus', 'academic'
-    ];
-
-    // Define don't know variations
-    const dontKnowVariations = ['i dont know', 'idk', 'dont know', "don't know", 'unknown', 'not sure'];
-
-    console.log("Fetching IR requests...");
-
-    db.collection("irRequests").orderBy("timestamp", "desc").limit(25).get()
+    // Increased limit from 25 to 100
+    db.collection("irRequests").orderBy("timestamp", "desc").limit(100).get()
         .then((querySnapshot) => {
             console.log("Received query snapshot:", querySnapshot.size);
             requestsList.innerHTML = '';
@@ -230,7 +251,7 @@ function displayIRRequests() {
             // Add requests to the DOM
             requests.forEach((data, index) => {
                 const requestItem = document.createElement('div');
-                requestItem.className = `request-item ${index >= 5 ? 'hidden' : ''}`;
+                requestItem.className = `request-item ${index >= 10 ? 'hidden' : ''}`; // Show first 10
                 
                 // Check if request contains teaching-related terms
                 const isTeachingRelated = teachingTerms.some(term => {
@@ -259,14 +280,8 @@ function displayIRRequests() {
                     invalidReason = 'Brand and model cannot be the same';
                 }
 
-                // Override status and add warning if invalid
-                if (invalidReason) {
-                    data.status = 'Invalid Request';
-                    data.warning = invalidReason;
-                } else if (!data.status) {
-                    // Set default status if none exists
-                    data.status = isRequestFulfilled(data, database) ? 'Added to database' : 'Pending';
-                }
+                // Recalculate the status every time so that matching is performed and logs are printed.
+                data.status = isRequestFulfilled(data, database) ? 'Added to database' : 'Pending';
 
                 // Format the timestamp
                 const timestamp = data.timestamp.toDate();
@@ -284,30 +299,35 @@ function displayIRRequests() {
                 requestsList.appendChild(requestItem);
             });
 
-            // Add Load More button if there are more than 5 requests
-            if (requests.length > 5) {
+            // Updated load more logic
+            if (requests.length > 10) {
                 const loadMoreBtn = document.createElement('button');
                 loadMoreBtn.className = 'load-more-btn';
-                loadMoreBtn.textContent = 'Load More Requests';
                 
                 loadMoreBtn.addEventListener('click', () => {
-                    const hiddenRequests = document.querySelectorAll('.request-item.hidden');
-                    const visibleRequests = document.querySelectorAll('.request-item:not(.hidden)');
+                    // Get current hidden requests each click
+                    const currentHidden = document.querySelectorAll('.request-item.hidden');
+                    const showCount = Math.min(10, currentHidden.length);
                     
-                    if (hiddenRequests.length > 0) {
-                        // Show more
-                        hiddenRequests.forEach(request => request.classList.remove('hidden'));
-                        loadMoreBtn.textContent = 'Show Less';
-                    } else {
-                        // Show less
-                        visibleRequests.forEach((request, index) => {
-                            if (index >= 5) {
-                                request.classList.add('hidden');
-                            }
-                        });
-                        loadMoreBtn.textContent = 'Load More Requests';
+                    // Show next batch
+                    Array.from(currentHidden).slice(0, showCount).forEach(request => {
+                        request.classList.remove('hidden');
+                    });
+
+                    // Update button text or remove
+                    const remaining = currentHidden.length - showCount;
+                    loadMoreBtn.textContent = remaining > 0 
+                        ? `Load More (${remaining} remaining)` 
+                        : 'Show Less';
+
+                    if (remaining <= 0) {
+                        loadMoreBtn.remove();
                     }
                 });
+
+                // Initial button text
+                const initialHidden = document.querySelectorAll('.request-item.hidden');
+                loadMoreBtn.textContent = `Load More (${initialHidden.length} remaining)`;
                 
                 requestsList.appendChild(loadMoreBtn);
             }
@@ -335,7 +355,6 @@ function submitIRRequest(e) {
     requestStatus.className = '';
 
     // Check for "i dont know" or similar variations
-    const dontKnowVariations = ['i dont know', 'idk', 'dont know', "don't know", 'unknown', 'not sure'];
     const hasDontKnow = dontKnowVariations.some(term => {
         return [brand.toLowerCase(), model.toLowerCase()].some(field => field.includes(term));
     });
@@ -352,22 +371,6 @@ function submitIRRequest(e) {
     }
 
     // Check for teaching/school-related terms
-    const teachingTerms = [
-        'teach', 'teaching', 'teacher',
-        'school', 'schools', 'schooling',
-        'classroom', 'class room', 'class',
-        'education', 'educational', 'edu',
-        'university', 'universities', 'uni',
-        'college', 'colleges',
-        'professor', 'prof',
-        'student', 'students',
-        'smartboard', 'smart board', 'smart-board',
-        'interactive board', 'interactive-board',
-        'whiteboard', 'white board', 'white-board',
-        'lecture', 'lecturer', 'lecturing',
-        'campus', 'academic'
-    ];
-    
     const isTeachingRelated = teachingTerms.some(term => {
         return [brand, model, deviceType].some(field => {
             const fieldLower = String(field).toLowerCase();
@@ -905,3 +908,25 @@ document.addEventListener('DOMContentLoaded', (event) => {
 document.addEventListener('DOMContentLoaded', function() {
     displayIRRequests();
 });
+
+// Levenshtein distance implementation
+function levenshtein(a, b) {
+    if (a.length === 0) return b.length;
+    if (b.length === 0) return a.length;
+
+    const matrix = [];
+    for (let i = 0; i <= b.length; i++) matrix[i] = [i];
+    for (let j = 0; j <= a.length; j++) matrix[0][j] = j;
+
+    for (let i = 1; i <= b.length; i++) {
+        for (let j = 1; j <= a.length; j++) {
+            const cost = b.charAt(i-1) === a.charAt(j-1) ? 0 : 1;
+            matrix[i][j] = Math.min(
+                matrix[i-1][j] + 1,
+                matrix[i][j-1] + 1,
+                matrix[i-1][j-1] + cost
+            );
+        }
+    }
+    return matrix[b.length][a.length];
+}
