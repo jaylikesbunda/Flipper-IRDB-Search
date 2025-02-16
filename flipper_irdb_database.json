@@ -704,6 +704,15 @@
     "additional_info": "bose videobar remote, https://assets.bose.com/content/dam/bose_dam/web/pro/global/products/videobars/bose_videobar_vb1/downloads/manuals/og_vb1_en.pdf"
   },
   {
+    "filename": "MediaZapperHD.ir",
+    "device_type": "DVB-T",
+    "brand": "MediaZapperHD",
+    "model": "",
+    "series": "MediaZapperHD.ir",
+    "path": "DVB-T/Storex/MediaZapperHD.ir",
+    "additional_info": "dvb-t storex mediazapperhd"
+  },
+  {
     "filename": "TILVIEW_DVB-T_2.ir",
     "device_type": "DVB-T",
     "brand": "TILVIEW",
@@ -2112,6 +2121,17 @@
     "series": "Byintek_P10.ir",
     "path": "Projectors/Byintek/Byintek_P10.ir",
     "additional_info": "byintek p10 projector"
+  },
+  {
+    "filename": "Epson_EBX7_154720000.ir",
+    "device_type": "Projectors",
+    "brand": "Epson",
+    "model": "EBX7_154720000",
+    "series": "Epson_EBX7_154720000.ir",
+    "path": "Projectors/Epson/Epson_EBX7_154720000.ir",
+    "device model": "EBX7",
+    "remote model": "Epson Controller 154720000",
+    "device type": "Projector"
   },
   {
     "filename": "Epson_EMP822H.ir",
@@ -4990,6 +5010,15 @@
     "additional_info": "tcl 43\" class 4-series 4k uhd hdr led smart google tv - 43s446, https://www.tcl.com/us/en/products/home-theater/4-series/43-class-4-series-4k-uhd-led-smart-google-tv-43s446"
   },
   {
+    "filename": "TCL_Roku_TV_55S405.ir",
+    "device_type": "TVs",
+    "brand": "TCL",
+    "model": "Roku_TV_55S405",
+    "series": "TCL_Roku_TV_55S405.ir",
+    "path": "TVs/TCL/TCL_Roku_TV_55S405.ir",
+    "additional_info": "tcl roku 55s405 tv  - hardware id 7105x, the remote control button that looks like  \">>\"  is mapped to the button named \"next\", the remote control button that looks like  \"<<\"  is mapped to the button named \"prev\", the remote control button that looks like \"*\" is mapped to the button named \"options\""
+  },
+  {
     "filename": "Fetch_TV_Box_AUS.ir",
     "device_type": "TVs",
     "brand": "Fetch",
@@ -5881,6 +5910,15 @@
     "series": "MAGNAVOX_RD0946T102.ir",
     "path": "TVs/Magnavox/MAGNAVOX_RD0946T102.ir",
     "additional_info": "magnavox rd0946 t102 tv, found this, not sure the function, doesn't correspond to remote button"
+  },
+  {
+    "filename": "MAGNAVOX_20MT1331_17.ir",
+    "device_type": "TVs",
+    "brand": "MAGNAVOX",
+    "model": "20MT1331_17",
+    "series": "MAGNAVOX_20MT1331_17.ir",
+    "path": "TVs/Magnavox/MAGNAVOX_20MT1331_17.ir",
+    "additional_info": "magnavox 20mt1331/17 tv"
   },
   {
     "filename": "Hitachi_LE46H508.ir",
@@ -6789,6 +6827,15 @@
     "series": "Pleasant_Hearth.ir",
     "path": "Fireplaces/Pleasant_Hearth/Pleasant_Hearth.ir",
     "additional_info": "pleasant hearth fireplace"
+  },
+  {
+    "filename": "Homday.ir",
+    "device_type": "Fireplaces",
+    "brand": "Homday",
+    "model": "",
+    "series": "Homday.ir",
+    "path": "Fireplaces/Homday/Homday.ir",
+    "additional_info": "27/01/2025 made by dino fr, castorama - fireplace - homday"
   },
   {
     "filename": "ALTRAFLAME_FIREPLACE.ir",
@@ -9003,6 +9050,15 @@
     "series": "Panasonic_HK9494_LED.ir",
     "path": "LED_Lighting/Panasonic/Panasonic_HK9494_LED.ir",
     "additional_info": "panasonic hk9494 led ceiling light remote, https://ec-plus.panasonic.jp/store/ap/storeaez/a2a/productdetail?hb=hk9494mm"
+  },
+  {
+    "filename": "Panasonic_PBUM11070_RGB_Bulb_7w.ir",
+    "device_type": "LED_Lighting",
+    "brand": "Panasonic",
+    "model": "PBUM11070_RGB_Bulb_7w",
+    "series": "Panasonic_PBUM11070_RGB_Bulb_7w.ir",
+    "path": "LED_Lighting/Panasonic/Panasonic_PBUM11070_RGB_Bulb_7w.ir",
+    "additional_info": "panasonic pbum11070 rgb bulb 7w, https://www.amazon.in/panasonic-bulb-multicolour-pbum11070-b22d/dp/b07kknnw1r"
   },
   {
     "filename": "REMOTECONTROL_IR6.ir",
@@ -11677,6 +11733,15 @@
     "additional_info": "vizio sb3651 e6 sound bar"
   },
   {
+    "filename": "Vizio_SB362An-F6.ir",
+    "device_type": "SoundBars",
+    "brand": "Vizio",
+    "model": "SB362An-F6",
+    "series": "Vizio_SB362An-F6.ir",
+    "path": "SoundBars/Vizio/Vizio_SB362An-F6.ir",
+    "additional_info": "vizio sb362an-f6 36in soundbar, raw data was the only method vol_dn was able to work correctly."
+  },
+  {
     "filename": "Promethean_ActivSoundBar_ASB-40.ir",
     "device_type": "SoundBars",
     "brand": "Promethean",
@@ -12108,6 +12173,15 @@
     "path": "Heaters/Muskoka/Muskoka_MHC35BL.ir",
     "manufacturer": "Greenway",
     "additional_info": "muskoka mhc35bl wall-mount heater, https://www.costco.com/wcsstore/costcousbccatalogassetstore/attachment/966684-manual.pdf"
+  },
+  {
+    "filename": "Holmes_Heater.ir",
+    "device_type": "Heaters",
+    "brand": "Holmes",
+    "model": "Heater",
+    "series": "Holmes_Heater.ir",
+    "path": "Heaters/Holmes/Holmes_Heater.ir",
+    "additional_info": "holmes hch6150 \"comfort temp\" heater"
   },
   {
     "filename": "Vornado_Heater_AWRH.ir",
