@@ -4470,6 +4470,15 @@
     "device type": "Projector"
   },
   {
+    "filename": "Epson_EB-760wi.ir",
+    "device_type": "Projectors",
+    "brand": "Epson",
+    "model": "EB-760wi",
+    "series": "Epson_EB-760wi.ir",
+    "path": "Projectors/Epson/Epson_EB-760wi.ir",
+    "additional_info": "epson eb-760wi remote/projector"
+  },
+  {
     "filename": "Epson_EB-575wi.ir",
     "device_type": "Projectors",
     "brand": "Epson",
@@ -4551,6 +4560,15 @@
     "series": "Epson_EMP822H.ir",
     "path": "Projectors/Epson/Epson_EMP822H.ir",
     "additional_info": "epson emp822h projector"
+  },
+  {
+    "filename": "Epson-EB-X49.ir",
+    "device_type": "Projectors",
+    "brand": "Epson-EB-X49",
+    "model": "",
+    "series": "Epson-EB-X49.ir",
+    "path": "Projectors/Epson/Epson-EB-X49.ir",
+    "additional_info": "epson eb-x49"
   },
   {
     "filename": "Philips_PicoPix_Max_PPX620_Projector.ir",
@@ -4838,6 +4856,16 @@
     "model name": "RMCSPB1EP1",
     "missing feature": "long-hold power to power off Frame TV",
     "additional_info": "samsung tv tm2281e"
+  },
+  {
+    "filename": "Samsung_BN59-01388.ir",
+    "device_type": "TVs",
+    "brand": "Samsung",
+    "model": "BN59-01388",
+    "series": "Samsung_BN59-01388.ir",
+    "path": "TVs/Samsung/Samsung_BN59-01388.ir",
+    "captured by": "MDcurIOs1ty",
+    "additional_info": "samsung bn59-01388 smart tv remote"
   },
   {
     "filename": "Samsung_BN59-01179A.ir",
@@ -5329,6 +5357,16 @@
     "series": "LG_TV_AKB75375604.ir",
     "path": "TVs/LG/LG_TV_AKB75375604.ir",
     "additional_info": "lg tv akb75375604"
+  },
+  {
+    "filename": "LG_AKB76043102.ir",
+    "device_type": "TVs",
+    "brand": "LG",
+    "model": "AKB76043102",
+    "series": "LG_AKB76043102.ir",
+    "path": "TVs/LG/LG_AKB76043102.ir",
+    "captured by": "MDcurIOs1ty",
+    "additional_info": "lg mr23ga akb76043102 smart tv remote"
   },
   {
     "filename": "LG_24LJ4840.ir",
@@ -5847,6 +5885,17 @@
     "path": "TVs/Hotels/Marriott-BONVoY_Remote.ir",
     "image": "https://i.imgur.com/mNXB47y.jpeg",
     "additional_info": "marriott bonvoy, captured 2023/09/23"
+  },
+  {
+    "filename": "SyntaxBrillian_Olevia232T.ir",
+    "device_type": "TVs",
+    "brand": "SyntaxBrillian",
+    "model": "Olevia232T",
+    "series": "SyntaxBrillian_Olevia232T.ir",
+    "path": "TVs/Syntax-Brillian/SyntaxBrillian_Olevia232T.ir",
+    "device model": "Olevia232T",
+    "device type": "TV",
+    "contributor": "jay candel"
   },
   {
     "filename": "Funai.ir",
@@ -21337,6 +21386,15 @@
     "soundbar": "Amazon EVG487"
   },
   {
+    "filename": "Denon_Home_550.ir",
+    "device_type": "SoundBars",
+    "brand": "Denon",
+    "model": "Home_550",
+    "series": "Denon_Home_550.ir",
+    "path": "SoundBars/Denon/Denon_Home_550.ir",
+    "additional_info": "denon home sound bar 550"
+  },
+  {
     "filename": "Denon_RC-1230.ir",
     "device_type": "SoundBars",
     "brand": "Denon",
@@ -21363,6 +21421,16 @@
     "path": "SoundBars/Samsung/Samsung_AH59-02758A.ir",
     "captured by": "MDcurIOs1ty",
     "additional_info": "samsung ah59-02758a soundbar remote"
+  },
+  {
+    "filename": "Samsung_AH59-02767C.ir",
+    "device_type": "SoundBars",
+    "brand": "Samsung",
+    "model": "AH59-02767C",
+    "series": "Samsung_AH59-02767C.ir",
+    "path": "SoundBars/Samsung/Samsung_AH59-02767C.ir",
+    "captured by": "MDcurIOs1ty",
+    "additional_info": "samsung ah59-02767c soundbar remote"
   },
   {
     "filename": "Samsung_Soundbar.ir",
@@ -21943,6 +22011,15 @@
     "series": "RC_Smart_Dance_Robot.ir",
     "path": "Toys/Robot/RC_Smart_Dance_Robot.ir",
     "additional_info": "rc smart robot toy (dancing & music), https://www.amazon.com/dp/b07klppnlj"
+  },
+  {
+    "filename": "Jamara_410065_Gun.ir",
+    "device_type": "Toys",
+    "brand": "Jamara",
+    "model": "410065_Gun",
+    "series": "Jamara_410065_Gun.ir",
+    "path": "Toys/Jamara/Jamara_410065_Gun.ir",
+    "additional_info": "laser tag gun for the jamara 410065"
   },
   {
     "filename": "Silverlit-Yoco_Robocombat_blue.ir",
