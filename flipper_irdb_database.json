@@ -2219,6 +2219,15 @@
     "additional_info": "seville classics ultraslimline oscillating tower fan"
   },
   {
+    "filename": "EasyHome_PFR40RT.ir",
+    "device_type": "Fans",
+    "brand": "EasyHome",
+    "model": "PFR40RT",
+    "series": "EasyHome_PFR40RT.ir",
+    "path": "Fans/EasyHome/EasyHome_PFR40RT.ir",
+    "additional_info": "easy home pedestal fan from aldi, https://www.choice.com.au/products/home-and-living/cooling/fans/aldi-easy-home-remote-control-pedestal-fan-pf4088r"
+  },
+  {
     "filename": "DOMO_Fan.ir",
     "device_type": "Fans",
     "brand": "DOMO",
@@ -2244,6 +2253,15 @@
     "series": "Deka_G3_Fan.ir",
     "path": "Fans/Deka/Deka_G3_Fan.ir",
     "additional_info": "deka baby g - 3 blades ceiling fan"
+  },
+  {
+    "filename": "Deka_MS16.ir",
+    "device_type": "Fans",
+    "brand": "Deka",
+    "model": "MS16",
+    "series": "Deka_MS16.ir",
+    "path": "Fans/Deka/Deka_MS16.ir",
+    "additional_info": "deka ms16 - 3 blade wall/ceiling fan"
   },
   {
     "filename": "CECOTEC_1010_EXTREMECONNECT.ir",
@@ -3564,6 +3582,15 @@
     "additional_info": "for sylvania led"
   },
   {
+    "filename": "Deluxe_Homeart_FB-00001.ir",
+    "device_type": "LED_Lighting",
+    "brand": "Deluxe",
+    "model": "Homeart_FB-00001",
+    "series": "Deluxe_Homeart_FB-00001.ir",
+    "path": "LED_Lighting/Deluxe_Homeart/Deluxe_Homeart_FB-00001.ir",
+    "additional_info": "deluxe homeart fb-00001, https://www.deluxehomeart.com/catalog/item/fb-00001"
+  },
+  {
     "filename": "Hovvida_LED.ir",
     "device_type": "LED_Lighting",
     "brand": "Hovvida",
@@ -3742,6 +3769,15 @@
     "series": "LED_Lightbar.ir",
     "path": "LED_Lighting/Unknown/LED_Lightbar.ir",
     "additional_info": "generic led lightbar, https://www.aliexpress.com/item/1005005088458033.html"
+  },
+  {
+    "filename": "nightlampRGB.ir",
+    "device_type": "LED_Lighting",
+    "brand": "nightlampRGB",
+    "model": "",
+    "series": "nightlampRGB.ir",
+    "path": "LED_Lighting/Unknown/nightlampRGB.ir",
+    "additional_info": "generic nightlamp rgb"
   },
   {
     "filename": "LED_RGB.ir",
@@ -5250,6 +5286,15 @@
     "additional_info": "lg remote akb72915206"
   },
   {
+    "filename": "LG_AKB33871403.ir",
+    "device_type": "TVs",
+    "brand": "LG",
+    "model": "AKB33871403",
+    "series": "LG_AKB33871403.ir",
+    "path": "TVs/LG/LG_AKB33871403.ir",
+    "additional_info": "lg tv akb33871403"
+  },
+  {
     "filename": "LG_AKB75675311.ir",
     "device_type": "TVs",
     "brand": "LG",
@@ -6343,6 +6388,15 @@
     "additional_info": "toshiba ct-32f2 tv remote"
   },
   {
+    "filename": "toshiba_firetv_v2.ir",
+    "device_type": "TVs",
+    "brand": "toshiba",
+    "model": "firetv_v2",
+    "series": "toshiba_firetv_v2.ir",
+    "path": "TVs/Toshiba/toshiba_firetv_v2.ir",
+    "additional_info": "toshiba firetv"
+  },
+  {
     "filename": "Toshiba_50C350LC.ir",
     "device_type": "TVs",
     "brand": "Toshiba",
@@ -6945,6 +6999,16 @@
     "series": "Philips_TV_48OLED806.ir",
     "path": "TVs/Philips/Philips_TV_48OLED806.ir",
     "additional_info": "philips tv 48oled806"
+  },
+  {
+    "filename": "Philips_14GX8510.ir",
+    "device_type": "TVs",
+    "brand": "Philips",
+    "model": "14GX8510",
+    "series": "Philips_14GX8510.ir",
+    "path": "TVs/Philips/Philips_14GX8510.ir",
+    "also for models": "14GX8310, 14GX8510, 14GX8512, 20GX8350, 20GX8550, 20GX8552",
+    "additional_info": "14\" crt philips tv model 14gx8510"
   },
   {
     "filename": "Philips_40HFL3010T12.ir",
@@ -19918,6 +19982,15 @@
     "additional_info": "haier hpd10xcm-lw 10,000-btu room portable air conditioner"
   },
   {
+    "filename": "Haier_AC_AS18GD3HRA.ir",
+    "device_type": "ACs",
+    "brand": "Haier",
+    "model": "AC_AS18GD3HRA",
+    "series": "Haier_AC_AS18GD3HRA.ir",
+    "path": "ACs/Haier/Haier_AC_AS18GD3HRA.ir",
+    "additional_info": "haier as18gd3hra split type air conditioner"
+  },
+  {
     "filename": "Haier_AC_HWE08XCR-L.ir",
     "device_type": "ACs",
     "brand": "Haier",
@@ -20752,6 +20825,15 @@
     "series": "Dyson_Purifier_Cool_TP10.ir",
     "path": "Air_Purifiers/Dyson/Dyson_Purifier_Cool_TP10.ir",
     "additional_info": "dyson purifier cool gen1 tp10"
+  },
+  {
+    "filename": "Dyson_PureCool_TP4A.ir",
+    "device_type": "Air_Purifiers",
+    "brand": "Dyson",
+    "model": "PureCool_TP4A",
+    "series": "Dyson_PureCool_TP4A.ir",
+    "path": "Air_Purifiers/Dyson/Dyson_PureCool_TP4A.ir",
+    "additional_info": "dyson pure cool tp4a air purifier (sold at costco)"
   },
   {
     "filename": "Rohnson_R-9400.ir",
@@ -21850,6 +21932,15 @@
     "series": "Onn_sound_bar_and_subwoofer.ir",
     "path": "SoundBars/Onn/Onn_sound_bar_and_subwoofer.ir",
     "additional_info": "onn soundbar and subwoofer"
+  },
+  {
+    "filename": "Bauhn_MD44055.ir",
+    "device_type": "SoundBars",
+    "brand": "Bauhn",
+    "model": "MD44055",
+    "series": "Bauhn_MD44055.ir",
+    "path": "SoundBars/Bauhn/Bauhn_MD44055.ir",
+    "additional_info": "bauhn md44055 soundbar from aldi, https://bauhn.com.au/2-0-channel-soundbar-0122/"
   },
   {
     "filename": "Yarra_3DX.ir",
