@@ -572,6 +572,15 @@
     "additional_info": "for gpx hc221 home music system"
   },
   {
+    "filename": "Harman Kardon_bds580.ir",
+    "device_type": "Audio_and_Video_Receivers",
+    "brand": "Harman Kardon",
+    "model": "bds580",
+    "series": "Harman Kardon_bds580.ir",
+    "path": "Audio_and_Video_Receivers/Harman_Kardon/Harman Kardon_bds580.ir",
+    "additional_info": "kardon bds 580"
+  },
+  {
     "filename": "Harman Kardon_AVI200.ir",
     "device_type": "Audio_and_Video_Receivers",
     "brand": "Harman Kardon, Device Model: AVI200, Device Type: Audio and Video Receiver",
@@ -7112,6 +7121,15 @@
     "series": "BBK_TV_LEM-1071.ir",
     "path": "TVs/BBK/BBK_TV_LEM-1071.ir",
     "additional_info": "bbk tv 43lem-1071/fts2c, possibly could be used for other lem-10x models"
+  },
+  {
+    "filename": "Grundig_TP800.ir",
+    "device_type": "TVs",
+    "brand": "Grundig",
+    "model": "TP800",
+    "series": "Grundig_TP800.ir",
+    "path": "TVs/Grundig/Grundig_TP800.ir",
+    "additional_info": "grundig tp800 is the name of the remote control, not a tv. tp stands for tele pilot."
   },
   {
     "filename": "Grundig_AndroidTV.ir",
@@ -23444,6 +23462,15 @@
     "series": "Shark_FlexBreeze-FA22X.ir",
     "path": "Fans/Shark/Shark_FlexBreeze-FA22X.ir",
     "additional_info": "shark flex breeze fa22x fan"
+  },
+  {
+    "filename": "KOENIC_KTFC_602722.ir",
+    "device_type": "Fans",
+    "brand": "KOENIC",
+    "model": "KTFC_602722",
+    "series": "KOENIC_KTFC_602722.ir",
+    "path": "Fans/KOENIC/KOENIC_KTFC_602722.ir",
+    "additional_info": "koenic ktfc 602722 cooling fan"
   },
   {
     "filename": "KOENIC_KTF100.ir",
