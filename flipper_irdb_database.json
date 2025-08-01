@@ -2235,6 +2235,15 @@
     "additional_info": "denon home sound bar 550"
   },
   {
+    "filename": "Denon_DHT_S216.ir",
+    "device_type": "SoundBars",
+    "brand": "Denon",
+    "model": "DHT_S216",
+    "series": "Denon_DHT_S216.ir",
+    "path": "SoundBars/Denon/Denon_DHT_S216.ir",
+    "additional_info": "denon dht-s216"
+  },
+  {
     "filename": "Denon_RC-1230.ir",
     "device_type": "SoundBars",
     "brand": "Denon",
@@ -3120,6 +3129,15 @@
     "additional_info": "ac legion le-f30rh-in"
   },
   {
+    "filename": "Innova_2.0.ir",
+    "device_type": "ACs",
+    "brand": "Innova",
+    "model": "2.0",
+    "series": "Innova_2.0.ir",
+    "path": "ACs/Innova/Innova_2.0.ir",
+    "additional_info": "innova 2.0 heat pump, https://www.innovaenergie.com/en/products/air-conditioning-without-outdoor-unit/2.0-verticale/2.0/, https://www.innovaenergie.com/site/assets/files/2792/n273027e_manuale_utente_rev03_en-1.pdf"
+  },
+  {
     "filename": "Friedrich_AKB73756214.ir",
     "device_type": "ACs",
     "brand": "Friedrich",
@@ -3371,6 +3389,15 @@
     "path": "ACs/Danby/Danby DAC060EB7WDB.ir"
   },
   {
+    "filename": "AIRFEL_AFSW-12HAR1RCIO.ir",
+    "device_type": "ACs",
+    "brand": "AIRFEL",
+    "model": "AFSW-12HAR1RCIO",
+    "series": "AIRFEL_AFSW-12HAR1RCIO.ir",
+    "path": "ACs/Airfel/AIRFEL_AFSW-12HAR1RCIO.ir",
+    "additional_info": "airfel afsw-12har1r/cio ac"
+  },
+  {
     "filename": "Ariston_AC_A-MW09-IGX.ir",
     "device_type": "ACs",
     "brand": "Ariston",
@@ -3599,6 +3626,15 @@
     "additional_info": "for klarstein metrobreeze miami mobile 9000 btu portable ac"
   },
   {
+    "filename": "Klarstein_Skyscraper.ir",
+    "device_type": "ACs",
+    "brand": "Klarstein",
+    "model": "Skyscraper",
+    "series": "Klarstein_Skyscraper.ir",
+    "path": "ACs/Klarstein/Klarstein_Skyscraper.ir",
+    "additional_info": "klarstein skyscraper"
+  },
+  {
     "filename": "Tora_TS_16-Classic.ir",
     "device_type": "ACs",
     "brand": "Tora",
@@ -3624,6 +3660,15 @@
     "series": "LG_LP1417GSR_AC.ir",
     "path": "ACs/LG/LG_LP1417GSR_AC.ir",
     "additional_info": "lg ac lp1417gsr"
+  },
+  {
+    "filename": "LG_LP0817WSR.ir",
+    "device_type": "ACs",
+    "brand": "LG",
+    "model": "LP0817WSR",
+    "series": "LG_LP0817WSR.ir",
+    "path": "ACs/LG/LG_LP0817WSR.ir",
+    "additional_info": "lg lp0817wsr"
   },
   {
     "filename": "LG_SX122CL.ir",
@@ -4536,6 +4581,16 @@
     "additional_info": "epson eb-595wi projector"
   },
   {
+    "filename": "Epson_EB-E20.ir",
+    "device_type": "Projectors",
+    "brand": "Epson",
+    "model": "EB-E20",
+    "series": "Epson_EB-E20.ir",
+    "path": "Projectors/Epson/Epson_EB-E20.ir",
+    "note": "Epson EB-E20 and PowerLite E20 projectors use an infrared protocol that sends two consecutive codes when a remote control button is pressed and held: one for verification and one with the actual command.",
+    "additional_info": "epson eb-e20 / powerlite e20 and bqeel r1 plus, this behavior can make it difficult to accurately emulate commands with devices like the flipper zero, especially when using predefined protocols, which is why it is a raw remote."
+  },
+  {
     "filename": "Epson-EB-X49.ir",
     "device_type": "Projectors",
     "brand": "Epson-EB-X49",
@@ -5334,6 +5389,15 @@
     "additional_info": "wen 3417 industrial-strength air filtration system"
   },
   {
+    "filename": "Trotec_AirgoClean_350_E.ir",
+    "device_type": "Air_Purifiers",
+    "brand": "Trotec",
+    "model": "AirgoClean_350_E",
+    "series": "Trotec_AirgoClean_350_E.ir",
+    "path": "Air_Purifiers/Trotec/Trotec_AirgoClean_350_E.ir",
+    "additional_info": "trotec airgoclean 350 e"
+  },
+  {
     "filename": "IQAir_GC_Series.ir",
     "device_type": "Air_Purifiers",
     "brand": "IQAir",
@@ -5461,6 +5525,15 @@
     "additional_info": "onn. 4k pro google tv"
   },
   {
+    "filename": "Bqeel_R1-Plus.ir",
+    "device_type": "Streaming_Devices",
+    "brand": "Bqeel",
+    "model": "R1-Plus",
+    "series": "Bqeel_R1-Plus.ir",
+    "path": "Streaming_Devices/Bqeel/Bqeel_R1-Plus.ir",
+    "additional_info": "bqeel r1 plus tv box remote"
+  },
+  {
     "filename": "Xb1_8BitDo_Media_remote_short.ir",
     "device_type": "Consoles",
     "brand": "Xb1",
@@ -5567,6 +5640,15 @@
     "series": "DUAL_SWR9.ir",
     "path": "Head_Units/Dual/DUAL_SWR9.ir",
     "additional_info": "steering wheel clip remote for dual head units"
+  },
+  {
+    "filename": "RM-RK258.ir",
+    "device_type": "Head_Units",
+    "brand": "RM-RK258",
+    "model": "",
+    "series": "RM-RK258.ir",
+    "path": "Head_Units/JVC/RM-RK258.ir",
+    "additional_info": "jvc rm-rk258 remote, compatible with 2-din multimedia receivers"
   },
   {
     "filename": "GPX_D2816.ir",
@@ -7924,6 +8006,15 @@
     "additional_info": "rca rear projection tv p46731at"
   },
   {
+    "filename": "Butlins.ir",
+    "device_type": "TVs",
+    "brand": "Butlins",
+    "model": "",
+    "series": "Butlins.ir",
+    "path": "TVs/Digihome/Butlins.ir",
+    "additional_info": "basic remote options for the digihome tvs in the keys accomodation, at butlins skegness, uk"
+  },
+  {
     "filename": "Viano_STV65UHD4K.ir",
     "device_type": "TVs",
     "brand": "Viano",
@@ -8953,6 +9044,15 @@
     "series": "Tuya_Sunset_LED_Lamp.ir",
     "path": "LED_Lighting/Tuya/Tuya_Sunset_LED_Lamp.ir",
     "additional_info": "tuya sunset led lamp"
+  },
+  {
+    "filename": "tuffenough_all_models.ir",
+    "device_type": "LED_Lighting",
+    "brand": "tuffenough",
+    "model": "all_models",
+    "series": "tuffenough_all_models.ir",
+    "path": "LED_Lighting/tuffenough/tuffenough_all_models.ir",
+    "additional_info": "for tuffenough leds"
   },
   {
     "filename": "Antizer_Flameless_Candles.ir",
@@ -23600,6 +23700,15 @@
     "additional_info": "dreo cruiser pro t1s fan"
   },
   {
+    "filename": "Dreo_Nomad_One_DOTF07.ir",
+    "device_type": "Fans",
+    "brand": "Dreo",
+    "model": "Nomad_One_DOTF07",
+    "series": "Dreo_Nomad_One_DOTF07.ir",
+    "path": "Fans/Dreo/Dreo_Nomad_One_DOTF07.ir",
+    "additional_info": "dreo nomad one dotf07"
+  },
+  {
     "filename": "Dreo_DR-HTF007.ir",
     "device_type": "Fans",
     "brand": "Dreo",
@@ -23804,6 +23913,15 @@
     "device model": "SLVM88",
     "device type": "VCR",
     "contributor": "jay candel"
+  },
+  {
+    "filename": "Sony_SLV-D281P.ir",
+    "device_type": "VCR",
+    "brand": "Sony",
+    "model": "SLV-D281P",
+    "series": "Sony_SLV-D281P.ir",
+    "path": "VCR/Sony/Sony_SLV-D281P.ir",
+    "additional_info": "sony slv-d281p"
   },
   {
     "filename": "Toshiba_SDKV550.ir",
