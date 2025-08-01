@@ -674,6 +674,17 @@
     "additional_info": "pioneer rc-974r av receiver remote"
   },
   {
+    "filename": "Pioneer SX-Q180.ir",
+    "device_type": "Audio_and_Video_Receivers",
+    "brand": "Pioneer",
+    "model": "",
+    "series": "Pioneer SX-Q180.ir",
+    "path": "Audio_and_Video_Receivers/Pioneer/Pioneer SX-Q180.ir",
+    "device model": "SX_Q180",
+    "device type": "TV",
+    "contributor": "TheGreydiamond"
+  },
+  {
     "filename": "Pioneer_VSX-D1-S.ir",
     "device_type": "Audio_and_Video_Receivers",
     "brand": "Pioneer",
@@ -3454,6 +3465,15 @@
     "additional_info": "ecofort coolair 7+ eqca7+2900824"
   },
   {
+    "filename": "York_full_working.ir",
+    "device_type": "ACs",
+    "brand": "York",
+    "model": "full_working",
+    "series": "York_full_working.ir",
+    "path": "ACs/York/York_full_working.ir",
+    "additional_info": "york ac file by y4zdev"
+  },
+  {
     "filename": "York_AC.ir",
     "device_type": "ACs",
     "brand": "York",
@@ -5604,6 +5624,15 @@
     "series": "Mediasonic_Homeworx_HW180STB.ir",
     "path": "TV_Tuner/Mediasonic/Mediasonic_Homeworx_HW180STB.ir",
     "additional_info": "mediasonic homeworx hw180stb tv tuner remote"
+  },
+  {
+    "filename": "WinTV_DualHD.ir",
+    "device_type": "TV_Tuner",
+    "brand": "WinTV",
+    "model": "DualHD",
+    "series": "WinTV_DualHD.ir",
+    "path": "TV_Tuner/Hauppauge/WinTV_DualHD.ir",
+    "additional_info": "hauppauge wintv-dualhd"
   },
   {
     "filename": "Hauppauge_R-005.ir",
@@ -9153,6 +9182,15 @@
     "series": "LED_Ceiling_Light_Briloner_Leuchten.ir",
     "path": "LED_Lighting/Briloner/LED_Ceiling_Light_Briloner_Leuchten.ir",
     "additional_info": "briloner led ceiling light leuchten"
+  },
+  {
+    "filename": "COM-T070.ir",
+    "device_type": "LED_Lighting",
+    "brand": "COM-T070",
+    "model": "",
+    "series": "COM-T070.ir",
+    "path": "LED_Lighting/Combuh/COM-T070.ir",
+    "additional_info": "combuh com-t070 led motion sensor charging ceiling lamp"
   },
   {
     "filename": "iDual_JEDI_Lighting_LED_Light.ir",
@@ -23419,6 +23457,15 @@
     "series": "OmniBreeze_DC2018.ir",
     "path": "Fans/OmniBreeze/OmniBreeze_DC2018.ir",
     "additional_info": "omnibreeze dc2018 fan"
+  },
+  {
+    "filename": "Solida_IFan14.ir",
+    "device_type": "Fans",
+    "brand": "Solida",
+    "model": "IFan14",
+    "series": "Solida_IFan14.ir",
+    "path": "Fans/Solida/Solida_IFan14.ir",
+    "additional_info": "solida ifan14"
   },
   {
     "filename": "Panasonic_FV-30BG1x.ir",
