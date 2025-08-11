@@ -4167,6 +4167,15 @@
     "additional_info": "hovvida led light"
   },
   {
+    "filename": "Prolights_LUMIPARIRCH.ir",
+    "device_type": "LED_Lighting",
+    "brand": "Prolights",
+    "model": "LUMIPARIRCH",
+    "series": "Prolights_LUMIPARIRCH.ir",
+    "path": "LED_Lighting/Prolights/Prolights_LUMIPARIRCH.ir",
+    "additional_info": "prolights lumiparirch, xremote extension"
+  },
+  {
     "filename": "Cadrim_Puck_Lights.ir",
     "device_type": "LED_Lighting",
     "brand": "Cadrim",
